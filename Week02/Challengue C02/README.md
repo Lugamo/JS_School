@@ -21,15 +21,15 @@
 
    After that the request is made
 
-   ```http
+   ```
    https://gateway.marvel.com:443/v1/public/comics?titleStartsWith=Cable&startYear=2004&issueNumber=46&ts={{ts}}&apikey={{publicKey}}&hash={{hash}}
    ```
 
-   ![Request to Get the Comic ID](./Request_toGet_ID.JPEG)
+   ![Request to Get the Comic ID](./Request_toGet_ID.JPG)
 
    And the Comic ID is 21845. Then we use the following request to get the [JSON File of the Characters](./characters.json)
 
-   ```http
+   ```
    https://gateway.marvel.com:443/v1/public/comics/21845/characters?ts={{ts}}&apikey={{publicKey}}&hash={{hash}}
    ```
 
@@ -37,6 +37,6 @@
 
    In the Characters Json file we get the ID of Agent X : 1011031, then we use the following request to get the [JSON file of Agent X Stories](./agentXStories.json)
 
-   ```http
+   ```
    https://gateway.marvel.com:443/v1/public/characters/1011031/stories?ts={{ts}}&apikey={{publicKey}}&hash={{hash}}
    ```
