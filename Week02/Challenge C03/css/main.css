@@ -1,0 +1,544 @@
+@import url("pluto-font.css");
+@import url("sideMenu.css");
+
+body {
+    margin: 0;
+}
+
+/* Header CSS*/
+.wrapper > .masterHeader > .navbar {
+    grid-area: navBar;
+}
+.wrapper > .masterHeader > .logo {
+    grid-area: logo;
+    background: white;
+}
+#jobsity-logo {
+    max-width: 140px;
+    margin-top: 13px;
+    margin-left:35px;
+}
+#textTittle {
+    grid-area: textTittle;
+    width: 103.45px;
+    height: 32px;
+    color: #000000;
+    font-family: PlutoSansMedium;
+    font-size: 19px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    line-height: 32px;
+    text-align: left;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0px;
+    margin-top:17px;
+    margin-left: 18px;
+}
+.wrapper > .masterHeader > #hSearch {
+    grid-area: hSearch;
+}
+.wrapper > .masterHeader > #user {
+    grid-area: user;
+    border-left: 1px solid #979797;
+}
+#user > p {
+    height: 19px;
+    color: #000000;
+    font-family: PlutoSansCondRegular;
+    font-size: 11px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: left;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0px;
+    margin-left: 55px;
+    margin-top: 20px;
+}
+
+form {
+    position: relative;
+    bottom: 3px;
+}
+
+#search-bar {
+    justify-items: center;
+    margin-top:21px;
+}
+#search-bar input[type="text"] {
+    position: relative;
+    left: 43%;
+    border: 1px solid #6ec1e4;
+    font-family: PlutoSansRegular;
+    color: black;
+    font-size: 11px;
+    line-height: 19px;
+    text-align: left;
+    background-image: url("../images/search-black.png"); 
+    background-position: 5px 4px; 
+    background-repeat: no-repeat;
+    width: 41%;
+    height: 1.3em;
+    padding: 7px 15px 6px 34px;
+    border-radius: 20px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    transition: all 0.7s ease 0s;
+}
+
+#search-bar input[type="text"]::placeholder {
+    color:black;
+}
+
+#profile-ph {
+    max-height: 30px;
+}
+
+/* Main Content CSS*/
+.wrapper > .mainContent {
+    grid-area: main;
+    background: #f5f6f8;
+    color: #6ec1e4;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.aName {
+    width: 144px;
+    height: 17px;
+    color: #9e9e9e;
+    font-family: PlutoSansCondLight;
+    font-size: 10px;
+    margin-top:3px;
+    margin-bottom: 0;
+    
+}
+.stars {
+    margin-top: 1px;
+    font-size: 10px;
+    margin-bottom: 39px;
+}
+.bookName {
+    width: 144px;
+    color: #383838;
+    font-family: PlutoSansCondMedium;
+    font-size: 12px;
+    margin-top:11px;
+    margin-bottom:0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mainBooks {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.Book {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.mainTop {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    margin-top: 16px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#nReleases {
+    width: 170px;
+    height: 27px;
+    color: #231f20;
+    font-family: PlutoSansCondLight;
+    font-size: 18px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: left;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0px;
+}
+#order {
+    width: 170px;
+    padding-top:5px;
+}
+#order > #line {
+    color: rgba(151,151,151,0.79);
+}
+#pop {
+    width: 62.49px;
+    height: 19px;
+    color: #858585;
+    font-family: PlutoSansCondRegular;
+    font-size: 13px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: left;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0px;
+}
+#display-opt {
+    padding-top: 5px;
+    width: 170px;
+    color: #6ec1e4;
+}
+#display-opt > i {
+    float:right;
+    margin: 0 0 10px 10px;
+}
+#nReleases, #display-opt, #order {
+    margin-top: 5px;
+}
+#rDate {
+    width: 79.63px;
+    height: 19px;
+    color: #979797;
+    font-family: PlutoSansCondMedium;
+    font-size: 13px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: left;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0px;
+}
+
+.imageContainer{
+    position: relative;
+    width: 144px;
+    height: 203px;
+    margin-bottom: 1px;
+    max-width: 400px;
+}
+
+.imageContainer .btnRead {
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color:white;
+    color: #6ec1e4;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 2em;
+    text-align: center;
+    opacity: 0;
+    z-index: 1;
+}
+.imageContainer .btnLove {
+    position: absolute;
+    top: 12%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color:white;
+    color: #6ec1e4;
+    font-size: 10px;
+    padding: 7px;
+    border: none;
+    cursor: pointer;
+    border-radius: 2em;
+    text-align: center;
+    opacity: 0;
+    z-index: 1;
+}
+.imageContainer .btnMark {
+    position: absolute;
+    top: 12%;
+    left: 83%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color:white;
+    color: #6ec1e4;
+    font-size: 12px;
+    padding: 6px;
+    border: none;
+    cursor: pointer;
+    border-radius: 2em;
+    text-align: center;
+    opacity: 0;
+    z-index: 1;
+}
+.Book > .imageContainer > img {
+    width: 144px;
+    height: 203px;
+    border-radius: 2%;
+}
+
+.imageContainer:hover::after {
+    opacity: 1;
+    border-radius: 2%;
+}
+.imageContainer::after {
+    content: " ";
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(35,31,32,0.77);
+    opacity: 0;
+}
+
+.imageContainer:hover .btnRead, 
+.imageContainer:hover .btnLove,
+.imageContainer:hover .btnMark {
+    opacity: 1;
+}
+
+
+/*Right Bar CSS*/
+.rightBar {
+    grid-area: rightSide;
+    background: #231f20;
+    color: #6ec1e4;
+}
+.rightBar > .rbTittle {
+    width: 115.67px;
+    height: 17px;
+    color: #fcf8f3;
+    font-family: PlutoSansCondBold;
+    font-size: 12px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0px;
+    margin-left: 34px;
+    margin-top:27px;
+}
+
+.rightBar> ol > li {
+    height: 16px;
+    color: #fcf8f3ab;
+    font-family: PlutoSansCondLight;
+    font-size: 12px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0px;
+    list-style-position:inside;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 30px;
+    margin-bottom: 30px;
+}
+
+
+/*Left Bar CSS*/
+.leftBar {
+    grid-area: leftSide;
+    background: #231f20;
+    color: #6ec1e4;
+}
+.leftBar > .lbTittle {
+    width: 78.76px;
+    height: 17px;
+    color: #ffffff;
+    font-family: PlutoSansCondBold;
+    font-size: 13px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0px;
+    margin-left: 34px;
+    margin-top:27px;
+}
+.leftBar > ul > li {
+    width: 120px;
+    height: 19px;
+    color: #6ec1e4;
+    font-family: PlutoSansCondLight;
+    font-size: 13px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: left;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0px;
+    list-style-type: none;
+    margin-bottom: 14px;
+    margin-left:15px;
+}
+li:hover {
+    cursor: pointer;
+    color:white !important;
+}
+
+/*--- CSS for Popover ---*/
+#myTemplate {
+    display: none;
+    width: 350px;
+}
+.whiteMedium {
+    color: #ffffff;
+  font-family: PlutoSansCondRegular;
+  font-size: 10px;
+  text-align: left;
+    margin-top:1px;
+    margin-bottom: 0;
+    margin-left:30px;
+}
+
+.grayMedium {
+    color: #858585;
+    font-family: PlutoSansCondBold;
+    font-size: 11px;
+    text-align: left;
+    height: 17px;
+    margin-top:1px;
+    margin-bottom: 0;
+    margin-left:30px;
+}
+.popStar {
+    color: #6ec1e4;
+    font-size: 12.5px;
+    text-align: left;
+    margin-top:1px;
+    margin-left:30px;
+}
+.popTittle {
+    color: #5eb4dd;
+    font-family: PlutoSansCondBold;
+    font-size: 14px;
+    text-align: left;
+    margin-left:30px;
+}
+
+/*------ For Big Screens ----*/
+@media (min-width: 1095px) { 
+    .wrapper {
+        display: grid;
+        grid-template-columns: 200px auto 200px;
+        grid-template-rows: 66px auto;
+        grid-template-areas:
+                "header header header"
+                "leftSide main rightSide";
+     
+    }
+    .wrapper > .masterHeader {
+        grid-area: header;
+        display: grid;
+        grid-template-columns: 0px 200px 2fr 2fr 200px;
+        grid-template-areas: 
+                "navBar logo textTittle hSearch user";
+        background: #fcf8f3;
+        border-bottom: 1px solid #6ec1e4;
+    }
+    .wrapper > .masterHeader > .navbar {
+        grid-area: navBar;
+        display: none;
+    }
+}
+/*--- For Medium Screens ---*/
+@media (max-width: 1094px) and (min-width:870px)   {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 200px auto;
+        grid-template-rows: 66px 450px auto;
+        grid-template-areas:
+                "header header"
+                "leftSide main"
+                "rightSide main";
+    
+    }
+    .wrapper > .masterHeader {
+        grid-area: header;
+        display: grid;
+        grid-template-columns: 0px 200px auto 2fr  0px;
+        grid-template-areas: 
+                "navBar logo textTittle hSearch user";
+        background: #fcf8f3;
+        border-bottom: 1px solid #6ec1e4;
+    }
+    .wrapper > .masterHeader > .navbar {
+        grid-area: navBar;
+        display: none;
+    }
+    #user {
+        grid-area: user;
+        display: none;
+    }
+    
+}
+/* --- For Little Screens --- */
+@media (max-width: 869px)   {
+    .wrapper {
+        
+        display: grid;
+        grid-template-rows: 66px 0px auto 0px;
+        grid-template-columns: auto;
+        grid-template-areas:
+                "header"
+                "leftSide"
+                "main"
+                "rightSide";
+    }
+    .wrapper > .leftBar {
+        grid-area: leftSide;
+        display: none;
+    }
+    .wrapper > .rightBar {
+        grid-area: rightSide;
+        display: none;
+    }
+    .wrapper > .masterHeader {
+        grid-area: header;
+        display: grid;
+        grid-template-columns: 65px auto 0px 0px 0px;
+        grid-template-areas: 
+                "navBar logo textTittle hSearch user";
+        background: #fcf8f3;
+        border-bottom: 1px solid #6ec1e4;
+    }
+    #user {
+        grid-area: user;
+        display: none;
+    }
+    #textTittle {
+        grid-area: textTittle;
+        display: none;
+    }
+    #hSearch {
+        grid-area: hSearch;
+        display: none;
+    }
+}
+
+
+
+

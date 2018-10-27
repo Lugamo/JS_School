@@ -1,0 +1,33 @@
+@font-face {
+    font-family: PlutoSansBold;
+    src: url(../assets/HVD\ Fonts\ -\ PlutoSansBold.otf);
+}
+
+@font-face {
+    font-family: PlutoSansMedium;
+    src: url(../assets/HVD\ Fonts\ -\ PlutoSansMedium.otf);
+}
+
+@font-face {
+    font-family: PlutoSansCondBold;
+    src: url(../assets/HVD\ Fonts\ -\ PlutoSansCondBold.otf);
+}
+
+@font-face {
+    font-family: PlutoSansCondMedium;
+    src: url(../assets/HVD\ Fonts\ -\ PlutoSansCondMedium.otf);
+}
+
+@font-face {
+    font-family: PlutoSansCondRegular;
+    src: url(../assets/HVD\ Fonts\ -\ PlutoSansCondRegular.otf);
+}
+
+@font-face {
+    font-family: PlutoSansCondLight;
+    src: url(../assets/HVD\ Fonts\ -\ PlutoSansCondLight.otf);
+}
+@font-face {
+    font-family: PlutoSansRegular;
+    src: url(../assets/HVD\ Fonts\ -\ PlutoSansRegular.otf);
+}
