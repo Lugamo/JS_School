@@ -1,4 +1,4 @@
-# Challengue C02
+# Challenge C02
 
 1. Get information related to the list of characters of Cable & Deadpool (2004) #46 (Zombie Variant).
 
