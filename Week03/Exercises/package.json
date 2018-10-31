@@ -1,0 +1,16 @@
+{
+  "name": "exercises",
+  "version": "1.0.0",
+  "description": "Exercises of week 3",
+  "main": "exercise01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lugamo",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}

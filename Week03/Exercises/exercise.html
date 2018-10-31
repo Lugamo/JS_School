@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            display: flex;
+        }
+        .sideA {
+            flex:1;
+        }
+        .sideB {
+            flex:2;
+        }
+    </style>
+</head>
+<body>
+    <p id="finalCountdown"></p>
+    <div class="wrapper">
+        <div class="sideA">
+            <h2>Sticky Notes</h2>
+            <input type="text" id="toRemember" placeholder="To remember..."/>
+            <button id="toSave">Save it!</button>
+        </div>
+        <div class="sideB">
+            <ul id="list">
+            </ul>
+        </div>
+    </div>
+<script src="exercise01.js"></script>
+<script src="exercise02.js"></script>
+<script src="exercise03.js"></script>
+<script src="exercise04.js"></script>
+</body>
+</html>
