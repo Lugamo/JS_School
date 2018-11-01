@@ -55,7 +55,7 @@ h1 {
   position: relative;
 }
 
-.black, .white {
+.key-black, .key-white {
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -64,7 +64,7 @@ h1 {
   font-family: "Courgette", "cursive", sans-serif;
 }
 
-.white {
+.key-white {
   height: 100%;
   width: 12.5%;
   border-left: 1px solid #bbb;
@@ -73,18 +73,23 @@ h1 {
   box-shadow: -1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 0 5px #ccc inset, 0 0 3px rgba(0, 0, 0, 0.2);
   background: #fff;
 }
-.white .note {
+.key-white .note {
   position: relative;
 }
 
-.white:active {
+/**
+  Class for white keys and use it in the Javascript
+  When a key of the keyboard is pressed, the key of the piano need to do the same effect
+  For this reason there are two classes
+*/
+.key-white:active, .white-active {
   border-left: 1px solid #999;
   border-bottom: 1px solid #999;
   box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset, -5px 5px 20px rgba(0, 0, 0, 0.2) inset, 0 0 3px rgba(0, 0, 0, 0.2);
   background: linear-gradient(top, #fff 0%, #e9e9e9 100%);
 }
 
-.black {
+.key-black {
   height: 70%;
   width: 3%;
   position: absolute;
@@ -94,73 +99,73 @@ h1 {
   box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5);
   background: linear-gradient(45deg, #222 0%, #555 100%);
 }
-.black .note {
+.key-black .note {
   position: relative;
   color: white;
   font-size: 12px;
 }
 @media (max-width: 600px) {
-  .black {
+  .key-black {
     width: 6%;
   }
 }
-.black.black1 {
+.key-black.black1 {
   left: 6.7%;
 }
-.black.black2 {
+.key-black.black2 {
   left: 13.3%;
 }
-.black.black3 {
+.key-black.black3 {
   left: 26.7%;
 }
-.black.black4 {
+.key-black.black4 {
   left: 33.4%;
 }
-.black.black5 {
+.key-black.black5 {
   left: 40%;
 }
-.black.black6 {
+.key-black.black6 {
   left: 53.3%;
 }
 @media (max-width: 600px) {
-  .black.black6 {
+  .key-black.black6 {
     left: 11%;
   }
 }
-.black.black7 {
+.key-black.black7 {
   left: 60%;
 }
 @media (max-width: 600px) {
-  .black.black7 {
+  .key-black.black7 {
     left: 23%;
   }
 }
-.black.black8 {
+.key-black.black8 {
   left: 73.3%;
 }
 @media (max-width: 600px) {
-  .black.black8 {
+  .key-black.black8 {
     left: 48.5%;
   }
 }
-.black.black9 {
+.key-black.black9 {
   left: 80%;
 }
 @media (max-width: 600px) {
-  .black.black9 {
+  .key-black.black9 {
     left: 61%;
   }
 }
-.black.black10 {
+.key-black.black10 {
   left: 86.7%;
 }
 @media (max-width: 600px) {
-  .black.black10 {
+  .key-black.black10 {
     left: 73%;
   }
 }
 
-.black:active {
+.key-black:active {
   box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -2px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
   background: linear-gradient(left, #444 0%, #222 100%);
 }

@@ -9,6 +9,32 @@
     <title>Document</title>
 </head>
 <body>
+    <audio id="note-C3" src="assets/notes/C3.ogg" preload="auto"></audio>
+    <audio id="note-C3#" src="assets/notes/C3s.ogg" preload="auto"></audio>
+    <audio id="note-D3" src="assets/notes/D3.ogg" preload="auto"></audio>
+    <audio id="note-D3#" src="assets/notes/D3s.ogg" preload="auto"></audio>
+    <audio id="note-E3" src="assets/notes/E3.ogg" preload="auto"></audio>
+    <audio id="note-F3" src="assets/notes/F3.ogg" preload="auto"></audio>
+    <audio id="note-F3#" src="assets/notes/F3s.ogg" preload="auto"></audio>
+    <audio id="note-G3" src="assets/notes/G3.ogg" preload="auto"></audio>
+    <audio id="note-G3#" src="assets/notes/G3s.ogg" preload="auto"></audio>
+    <audio id="note-A3" src="assets/notes/A3.ogg" preload="auto"></audio>
+    <audio id="note-A3#" src="assets/notes/A3s.ogg" preload="auto"></audio>
+    <audio id="note-B3" src="assets/notes/B3.ogg" preload="auto"></audio>
+    <audio id="note-C4" src="assets/notes/C4.ogg" preload="auto"></audio>
+    <audio id="note-C4#" src="assets/notes/C4s.ogg" preload="auto"></audio>
+    <audio id="note-D4" src="assets/notes/D4.ogg" preload="auto"></audio>
+    <audio id="note-D4#" src="assets/notes/D4s.ogg" preload="auto"></audio>
+    <audio id="note-E4" src="assets/notes/E4.ogg" preload="auto"></audio>
+    <audio id="note-F4" src="assets/notes/F4.ogg" preload="auto"></audio>
+    <audio id="note-F4#" src="assets/notes/F4s.ogg" preload="auto"></audio>
+    <audio id="note-G4" src="assets/notes/G4.ogg" preload="auto"></audio>
+    <audio id="note-G4#" src="assets/notes/G4s.ogg" preload="auto"></audio>
+    <audio id="note-A4" src="assets/notes/A4.ogg" preload="auto"></audio>
+    <audio id="note-A4#" src="assets/notes/A4s.ogg" preload="auto"></audio>
+    <audio id="note-B4" src="assets/notes/B4.ogg" preload="auto"></audio>
+    <audio id="note-C5" src="assets/notes/C5.ogg" preload="auto"></audio>
+    
     <div class="container">
         <h1>JS Piano</h1>
         <div class="options">
@@ -25,32 +51,32 @@
                 <button><i class="far fa-play-circle"></i>&ThinSpace;Play</button>
             </div>
         </div>
-        <div class="keyboard">
-                <div class="white oct"><span class="note">C</span></div>
-                <div class="black black1 oct"><span class="note">C#</span></div>
-                <div class="key white oct"><span class="note">D</span></div>
-                <div class="black black2 oct"><span class="note">D#</span></div>
-                <div class="white oct"><span class="note">E</span></div>
-                <div class="white oct"><span class="note">F</span></div>
-                <div class="black black3 oct"><span class="note">F#</span></div>
-                <div class="white oct"><span class="note">G</span></div>
-                <div class="black black4 oct"><span class="note">G#</span></div>
-                <div class="key white oct"><span class="note">A</span></div>
-                <div class="black black5 oct"><span class="note">A#</span></div>
-                <div class="white oct"><span class="note">B</span></div>
-                <div class="key white"><span class="note">C</span></div>
-                <div class="black black6"><span class="note">C#</span></div>
-                <div class="white"><span class="note">D</span></div>
-                <div class="black black7"><span class="note">D#</span></div>
-                <div class="white"><span class="note">E</span></div>
-                <div class="key white"><span class="note">F</span></div>
-                <div class="key black black8"><span class="note">F#</span></div>
-                <div class="white"><span class="note">G</span></div>
-                <div class="black black9"><span class="note">G#</span></div>
-                <div class="white"><span class="note">A</span></div>
-                <div class="black black10"><span class="note">A#</span></div>
-                <div class="white"><span class="note">B</span></div>
-                <div class="key white"><span class="note">C</span></div>
+        <div class="keyboard" id="keyboard">
+                <div class="key-white oct" id="C3"><span class="note">C</span></div>
+                <div class="key-black black1 oct" id="C3#"><span class="note">C#</span></div>
+                <div class="key-white oct" id="D3"><span class="note">D</span></div>
+                <div class="key-black black2 oct" id="D3#"><span class="note">D#</span></div>
+                <div class="key-white oct" id="E3"><span class="note">E</span></div>
+                <div class="key-white oct" id="F3"><span class="note">F</span></div>
+                <div class="key-black black3 oct" id="F3#"><span class="note">F#</span></div>
+                <div class="key-white oct" id="G3"><span class="note">G</span></div>
+                <div class="key-black black4 oct" id="G3#"><span class="note">G#</span></div>
+                <div class="key-white oct" id="A3"><span class="note">A</span></div>
+                <div class="key-black black5 oct" id="A3#"><span class="note">A#</span></div>
+                <div class="key-white oct" id="B3"><span class="note">B</span></div>
+                <div class="key-white" id="C4"><span class="note">C</span></div>
+                <div class="key-black black6" id="C4#"><span class="note">C#</span></div>
+                <div class="key-white" id="D4"><span class="note">D</span></div>
+                <div class="key-black black7" id="D4#"><span class="note">D#</span></div>
+                <div class="key-white" id="E4"><span class="note">E</span></div>
+                <div class="key-white" id="F4"><span class="note">F</span></div>
+                <div class="key-black black8" id="F4#"><span class="note">F#</span></div>
+                <div class="key-white" id="G4"><span class="note">G</span></div>
+                <div class="key-black black9" id="G4#"><span class="note">G#</span></div>
+                <div class="key-white" id="A4"><span class="note">A</span></div>
+                <div class="key-black black10" id="A4#"><span class="note">A#</span></div>
+                <div class="key-white" id="B4"><span class="note">B</span></div>
+                <div class="key-white" id="C5"><span class="note">C</span></div>
               </div>
     </div>
     <div class="instructions">Instruccions</div>
