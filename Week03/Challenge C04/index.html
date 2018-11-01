@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
@@ -12,36 +13,47 @@
         <h1>JS Piano</h1>
         <div class="options">
             <div>
-                <button>Demo</button>
-                <button>Notes</button>
-                <button>Keys</button>
+                <button><i class="fas fa-volume-up"></i>&ThinSpace; Demo</button>
             </div>
             <div>
-                <button>Record</button>
-                <button>Stop</button>
-                <button>Play</button>
+                <button><i class="fab fa-itunes-note"></i>&ThinSpace;Notes</button>
+                <button><i class="far fa-keyboard"></i>&ThinSpace;Keys</button>
             </div>
             <div>
-                <button>Record</button>
-                <button>Stop</button>
-                <button>Play</button>
+                <button><i class="far fa-dot-circle"></i></i>&ThinSpace;Record</button>
+                <button><i class="far fa-stop-circle"></i>&ThinSpace;Stop</button>
+                <button><i class="far fa-play-circle"></i>&ThinSpace;Play</button>
             </div>
         </div>
-        <div id="keyboard">
-                <div class="key-white"><span class="note">C</span><div class="key-black"><span class="note">C#</span></div></div>
-                <div class="key-white"><span class="note">D</span><div class="key-black"><span class="note">D#</span></div></div>
-                <div class="key-white"><span class="note">E</span></div>
-                <div class="key-white"><span class="note">F</span><div class="key-black"><span class="note">F#</span></div></div>
-                <div class="key-white"><span class="note">G</span><div class="key-black"><span class="note">G#</span></div></div>
-                <div class="key-white"><span class="note">A</span><div class="key-black"><span class="note">A#</span></div></div>
-                <div class="key-white"><span class="note">B</span></div>
-                <div class="key-white"><span class="note">C</span><div class="key-black"><span class="note">C#</span></div></div>
-                <div class="key-white"><span class="note">D</span><div class="key-black"><span class="note">D#</span></div></div>
-                <div class="key-white"><span class="note">E</span></div>
-                <div class="key-white"><span class="note">F</span><div class="key-black"><span class="note">F#</span></div></div>
-                <div class="key-white"><span class="note">G</span><div class="key-black"><span class="note">G#</span></div></div>
-                <div class="key-white"><span class="note">E</span></div>
-        </div>
+        <div class="keyboard">
+                <div class="white oct"><span class="note">C</span></div>
+                <div class="black black1 oct"><span class="note">C#</span></div>
+                <div class="key white oct"><span class="note">D</span></div>
+                <div class="black black2 oct"><span class="note">D#</span></div>
+                <div class="white oct"><span class="note">E</span></div>
+                <div class="white oct"><span class="note">F</span></div>
+                <div class="black black3 oct"><span class="note">F#</span></div>
+                <div class="white oct"><span class="note">G</span></div>
+                <div class="black black4 oct"><span class="note">G#</span></div>
+                <div class="key white oct"><span class="note">A</span></div>
+                <div class="black black5 oct"><span class="note">A#</span></div>
+                <div class="white oct"><span class="note">B</span></div>
+                <div class="key white"><span class="note">C</span></div>
+                <div class="black black6"><span class="note">C#</span></div>
+                <div class="white"><span class="note">D</span></div>
+                <div class="black black7"><span class="note">D#</span></div>
+                <div class="white"><span class="note">E</span></div>
+                <div class="key white"><span class="note">F</span></div>
+                <div class="key black black8"><span class="note">F#</span></div>
+                <div class="white"><span class="note">G</span></div>
+                <div class="black black9"><span class="note">G#</span></div>
+                <div class="white"><span class="note">A</span></div>
+                <div class="black black10"><span class="note">A#</span></div>
+                <div class="white"><span class="note">B</span></div>
+                <div class="key white"><span class="note">C</span></div>
+              </div>
     </div>
+    <div class="instructions">Instruccions</div>
+<script src="js/main.js"></script>
 </body>
 </html>

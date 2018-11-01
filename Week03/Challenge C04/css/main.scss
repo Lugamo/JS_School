@@ -13,6 +13,16 @@ body {
     overflow: hidden;
 }
 
+// Top of the piano
+.container {
+    max-width: 900px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 10px;
+    border-radius: 10px;
+    box-shadow:-1px -1px 1px rgba(255,255,255,0.2) inset, 0 -5px 2px 3px rgba(0,0,0,0.6) inset;
+    background:linear-gradient(#100c08 10%,#555 100%);
+}
 h1 {
     color: white;
     font-size: 1.8rem;
@@ -20,72 +30,143 @@ h1 {
     letter-spacing: -1px;
     text-align: center;
 }
+.options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    div {
+        margin: 0 12px;
+        display: flex;
 
-.container {
-    max-width: 900px;
-    height: 100%;
-    margin: 0 auto;
-    padding-top: 10px;
-    background-color: #100c08;
-    border-radius: 10px 10px 0 0;
+        button {
+            font-size: 16px;
+            font-family: 'Courgette', 'cursive', sans-serif;
+            color: rgba(236, 225, 225, 0.952);
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
 }
 
-#keyboard {
-    max-width: 900px;
-    width: 100%;
-    background: #000000;
-    margin: 0 auto;
-    user-select: none;
-}
 
-.key-white {
-    float: left;
+
+// Keyboard of the Piano
+.keyboard {
+    width: 95%;
+    height: 200px;
+    display: flex;
+    margin: 10px auto 10px;
     position: relative;
-    width: (100%/13);
+  }
+  
+  %key-style {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 1.2rem;
+    border-radius: 0 0 5px 5px;
+    font-family: 'Courgette', 'cursive', sans-serif;
+  }
+  
+  .white {
+    @extend %key-style;
     height: 100%;
+    width: 12.5%;
     border-left:1px solid #bbb;
     border-bottom:1px solid #bbb;
     border-radius:0 0 5px 5px;
     box-shadow:-1px 0 0 rgba(255,255,255,0.8) inset, 0 0 5px #ccc inset, 0 0 3px rgba(0,0,0,0.2);
     background: #fff;
-    padding-bottom: 33%;
-    .key-black {
-        position: absolute;
-        z-index: 2;
-        width: (50%);
-        height: 66%;
-        border:1px solid #000;
-        border-radius:0 0 3px 3px;
-        box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset, 0 -5px 2px 3px rgba(0,0,0,0.6) inset, 0 2px 4px rgba(0,0,0,0.5);
-        background:linear-gradient(45deg, #222 0%,#555 100%);
-        margin-left: (75%);
-        & span {
-            color: #ffffff;
-        }
+    .note {
+        position: relative;
     }
+  }
+  .white:active {
+	border-left:1px solid #999;
+	border-bottom:1px solid #999;
+	box-shadow:2px 0 3px rgba(0,0,0,0.1) inset, -5px 5px 20px rgba(0,0,0,0.2) inset,0 0 3px rgba(0,0,0,0.2);
+	background: linear-gradient(top, #fff 0%,#e9e9e9 100%);
 }
-.key-white, .key-black {
-    cursor: pointer;
-}
-
-.note {
+  .black {
+    @extend %key-style;
+    height: 70%;
+    width: 3%;
     position: absolute;
-    bottom: .5%;
-    left: 3%;
+    z-index: 2;
+    margin-left: -1.6%;
+    border-radius:0 0 3px 3px;
+    box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset, 0 -5px 2px 3px rgba(0,0,0,0.6) inset, 0 2px 4px rgba(0,0,0,0.5);
+    background:linear-gradient(45deg, #222 0%,#555 100%);
+    .note {
+        position: relative;
+        color: white;
+        font-size: 12px;
+    }
+    @media (max-width: 600px) {
+      width: 6%;
+    }
+    &.black1 {
+      left: 6.7%;
+    }
+    &.black2 {
+      left: 13.3%;
+    }
+    &.black3 {
+      left: 26.7%;
+    }
+    &.black4 {
+      left: 33.4%;
+    }
+    &.black5 {
+      left: 40%;
+    }
+    &.black6 {
+      left: 53.3%;
+      @media (max-width: 600px) {
+        left: 11%;
+      }
+    }
+    &.black7 {
+      left: 60%;
+      @media (max-width: 600px) {
+        left: 23%;
+      }
+    }
+    &.black8 {
+      left: 73.3%;
+      @media (max-width: 600px) {
+        left: 48.5%;
+      }
+    }
+    &.black9 {
+      left: 80%;
+      @media (max-width: 600px) {
+        left: 61%;
+      }
+    }
+    &.black10 {
+      left: 86.7%;
+      @media (max-width: 600px) {
+        left: 73%;
+      }
+    }
+  }
+  .black:active {
+	box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset, 0 -2px 2px 3px rgba(0,0,0,0.6) inset, 0 1px 2px rgba(0,0,0,0.5);
+	background:linear-gradient(left, #444 0%,#222 100%);
 }
 
-.options {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    div {
-        margin: 0 5px;
-        display: flex;
+  .oct {
+    @media (max-width: 600px) {
+      display: none;
     }
-}
+  }
+  
+
+// Rotate the piano for phones
 @media (max-width:500px) {
     h1 {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     .container {
     transform: rotate(270deg);
@@ -101,5 +182,7 @@ h1 {
 
     padding-top: 30px;
     }
-    
+    .instructions {
+        display: none;
+    } 
 }
