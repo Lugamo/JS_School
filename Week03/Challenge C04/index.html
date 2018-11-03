@@ -39,47 +39,46 @@
         <h1>JS Piano</h1>
         <div class="options">
             <div>
-                <button><i class="fas fa-volume-up"></i>&ThinSpace; Demo</button>
+                <button id="demo"><i class="fas fa-volume-up"></i>&ThinSpace; Demo</button>
             </div>
             <div>
-                <button><i class="fab fa-itunes-note"></i>&ThinSpace;Notes</button>
-                <button><i class="far fa-keyboard"></i>&ThinSpace;Keys</button>
+                <button id="showNotes"><i class="fab fa-itunes-note"></i>&ThinSpace;Notes</button>
+                <button id="showKeyboard"><i class="far fa-keyboard"></i>&ThinSpace;Keys</button>
             </div>
             <div>
-                <button><i class="far fa-dot-circle"></i></i>&ThinSpace;Record</button>
-                <button><i class="far fa-stop-circle"></i>&ThinSpace;Stop</button>
-                <button><i class="far fa-play-circle"></i>&ThinSpace;Play</button>
+                <button id="record"><i class="far fa-dot-circle"></i></i>&ThinSpace;Record</button>
+                <button id="stopRecord"><i class="far fa-stop-circle"></i>&ThinSpace;Stop</button>
+                <button id="playRecord"><i class="far fa-play-circle"></i>&ThinSpace;Play</button>
             </div>
         </div>
         <div class="keyboard" id="keyboard">
-                <div class="key-white oct" id="C3"><span class="note">C</span></div>
-                <div class="key-black black1 oct" id="C3#"><span class="note">C#</span></div>
-                <div class="key-white oct" id="D3"><span class="note">D</span></div>
-                <div class="key-black black2 oct" id="D3#"><span class="note">D#</span></div>
-                <div class="key-white oct" id="E3"><span class="note">E</span></div>
-                <div class="key-white oct" id="F3"><span class="note">F</span></div>
-                <div class="key-black black3 oct" id="F3#"><span class="note">F#</span></div>
-                <div class="key-white oct" id="G3"><span class="note">G</span></div>
-                <div class="key-black black4 oct" id="G3#"><span class="note">G#</span></div>
-                <div class="key-white oct" id="A3"><span class="note">A</span></div>
-                <div class="key-black black5 oct" id="A3#"><span class="note">A#</span></div>
-                <div class="key-white oct" id="B3"><span class="note">B</span></div>
-                <div class="key-white" id="C4"><span class="note">C</span></div>
-                <div class="key-black black6" id="C4#"><span class="note">C#</span></div>
-                <div class="key-white" id="D4"><span class="note">D</span></div>
-                <div class="key-black black7" id="D4#"><span class="note">D#</span></div>
-                <div class="key-white" id="E4"><span class="note">E</span></div>
-                <div class="key-white" id="F4"><span class="note">F</span></div>
-                <div class="key-black black8" id="F4#"><span class="note">F#</span></div>
-                <div class="key-white" id="G4"><span class="note">G</span></div>
-                <div class="key-black black9" id="G4#"><span class="note">G#</span></div>
-                <div class="key-white" id="A4"><span class="note">A</span></div>
-                <div class="key-black black10" id="A4#"><span class="note">A#</span></div>
-                <div class="key-white" id="B4"><span class="note">B</span></div>
-                <div class="key-white" id="C5"><span class="note">C</span></div>
+                <div class="key-white oct" id="C3"><span class="note not-show">C</span><span class="keyboard-key not-show">Q</span></div>
+                <div class="key-black black1 oct" id="C3#"><span class="note not-show">C#</span><span class="keyboard-key not-show">2</span></div>
+                <div class="key-white oct" id="D3"><span class="note not-show">D</span><span class="keyboard-key not-show">W</span></div>
+                <div class="key-black black2 oct" id="D3#"><span class="note not-show">D#</span><span class="keyboard-key not-show">3</span></div>
+                <div class="key-white oct" id="E3"><span class="note not-show">E</span><span class="keyboard-key not-show">E</span></div>
+                <div class="key-white oct" id="F3"><span class="note not-show">F</span><span class="keyboard-key not-show">R</span></div>
+                <div class="key-black black3 oct" id="F3#"><span class="note not-show">F#</span><span class="keyboard-key not-show">5</span></div>
+                <div class="key-white oct" id="G3"><span class="note not-show">G</span><span class="keyboard-key not-show">T</span></div>
+                <div class="key-black black4 oct" id="G3#"><span class="note not-show">G#</span><span class="keyboard-key not-show">6</span></div>
+                <div class="key-white oct" id="A3"><span class="note not-show">A</span><span class="keyboard-key not-show">Y</span></div>
+                <div class="key-black black5 oct" id="A3#"><span class="note not-show">A#</span><span class="keyboard-key not-show">7</span></div>
+                <div class="key-white oct" id="B3"><span class="note not-show">B</span><span class="keyboard-key not-show">U</span></div>
+                <div class="key-white" id="C4"><span class="note not-show">C</span><span class="keyboard-key not-show">Z</span></div>
+                <div class="key-black black6" id="C4#"><span class="note not-show">C#</span><span class="keyboard-key not-show">S</span></div>
+                <div class="key-white" id="D4"><span class="note not-show">D</span><span class="keyboard-key not-show">X</span></div>
+                <div class="key-black black7" id="D4#"><span class="note not-show">D#</span><span class="keyboard-key not-show">D</span></div>
+                <div class="key-white" id="E4"><span class="note not-show">E</span><span class="keyboard-key not-show">C</span></div>
+                <div class="key-white" id="F4"><span class="note not-show">F</span><span class="keyboard-key not-show">V</span></div>
+                <div class="key-black black8" id="F4#"><span class="note not-show">F#</span><span class="keyboard-key not-show">G</span></div>
+                <div class="key-white" id="G4"><span class="note not-show">G</span><span class="keyboard-key not-show">B</span></div>
+                <div class="key-black black9" id="G4#"><span class="note not-show">G#</span><span class="keyboard-key not-show">H</span></div>
+                <div class="key-white" id="A4"><span class="note not-show">A</span><span class="keyboard-key not-show">N</span></div>
+                <div class="key-black black10" id="A4#"><span class="note not-show">A#</span><span class="keyboard-key not-show">J</span></div>
+                <div class="key-white" id="B4"><span class="note not-show">B</span><span class="keyboard-key not-show">M</span></div>
+                <div class="key-white" id="C5"><span class="note not-show">C</span><span class="keyboard-key not-show">,</span></div>
               </div>
     </div>
-    <div class="instructions">Instruccions</div>
 <script src="js/main.js"></script>
 </body>
 </html>

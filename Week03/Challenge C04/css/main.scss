@@ -44,6 +44,13 @@ h1 {
             color: rgba(236, 225, 225, 0.952);
             background-color: transparent;
             border-color: transparent;
+            cursor: pointer;
+        }
+        .selected {
+          color: white;
+        }
+        .recording {
+          color: red;
         }
     }
 }
@@ -77,8 +84,12 @@ h1 {
     border-radius:0 0 5px 5px;
     box-shadow:-1px 0 0 rgba(255,255,255,0.8) inset, 0 0 5px #ccc inset, 0 0 3px rgba(0,0,0,0.2);
     background: #fff;
-    .note {
-        position: relative;
+    .note, .keyboard-key {
+      position: relative;
+      margin-bottom: 5px;
+    }
+    .not-show {
+      display: none;
     }
   }
 
@@ -103,10 +114,13 @@ h1 {
     border-radius:0 0 3px 3px;
     box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset, 0 -5px 2px 3px rgba(0,0,0,0.6) inset, 0 2px 4px rgba(0,0,0,0.5);
     background:linear-gradient(45deg, #222 0%,#555 100%);
-    .note {
-        position: relative;
-        color: white;
-        font-size: 12px;
+    .note, .keyboard-key {
+      color: white;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .not-show {
+      display: none;
     }
     @media (max-width: 600px) {
       width: 6%;
