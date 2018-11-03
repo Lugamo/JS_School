@@ -1,13 +1,19 @@
 // Main Javascript file for the piano options and keyboard
+// Following AirBnB style guide
 
 // When true, enable the record in the functions
 let recordKeyboard = false;
+
+// array to save the recorded notes
 let arrayRecorded = [];
+
+// this flags are for piano buttons (demo, notes, keys ...)
 let flagShowNotes = false;
 let flagShowKeyboard = false;
 let flagDemoSong = false;
 let flagRecordedSong = false;
 
+// array of arrays, [note, tempo of the note (ms)]
 const furElise = [
   ['rest', 0],
   ['E4', 175],
@@ -156,6 +162,7 @@ function showPianoNotes() {
   }
 }
 
+// show the keys of the keyboard on the keys of the piano
 function showKeys() {
   const showKeyboardKeys = document.getElementsByClassName('keyboard-key');
 
