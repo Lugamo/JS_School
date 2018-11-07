@@ -1,0 +1,12 @@
+{
+  "name": "challengue-c05",
+  "version": "1.0.0",
+  "description": "Challenge 5 of the JsSchool",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lugamo",
+  "license": "MIT",
+  "devDependencies": {}
+}

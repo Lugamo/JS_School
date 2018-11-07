@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <title>Bookshelf</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="masterHeader">
+            <nav class="navbar">
+                <span class="open-slide">
+                    <a href="#" onclick="openSlideMenu()">
+                    <svg width="30" height="30">
+                        <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
+                        <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
+                        <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+                    </svg>
+                    </a>
+                </span>
+            </nav>
+            <div id="side-menu" class="side-nav">
+                <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+                <a href="#"><i class="fa-li fas fa-globe"></i>Quito</a>
+                <a href="#"><i class="fa-li fas fa-globe"></i>Cartagena</a>
+                <a href="#"><i class="fa-li fas fa-globe"></i>Medellin</a>
+                <a href="#"><i class="fa-li fas fa-tablet-alt"></i>Digital</a>
+                <a href="#"><i class="fa-li fas fa-user-tag"></i>Personal Loans</a>
+                <a href="#"><i class="fa-li fas fa-tags"></i>New Releases</a>
+            </div>
+            <div class="logo">
+                <img id="jobsity-logo" src="images/jobsity.png">
+            </div>
+            <div id="textTittle">Bookshelf</div>
+            <div id="hSearch">
+                <form method="get" action="/search" id="search-bar">
+                    <input name="search" type="text" size="40" placeholder="Search..." />
+                </form>
+            </div>
+            <div id="user">
+                <p>Eduardo Garcia &MediumSpace;&caron;<img id="profile-ph" src="images/user.png"></p>
+            </div>
+        </header>
+        <main class="mainContent">
+            <div class="mainTop">
+                <div type="text" id="nReleases">New Releases</div>
+                <div id="order"><span id="rDate">Release date</span><span id="line">&ensp;|&ensp;</span><span id="pop">Popularity</span></div>
+                <div id="display-opt">
+                    <i class="fa fa-list-ul display-btn"></i>
+                    <i class="fa fa-th-large display-btn"></i>
+                </div>
+            </div>
+            <div class="mainBooks">
+                <div class="Book">
+                    <div class="imageContainer">
+                        <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/7873/9781787300194.jpg">
+                        <button class="btnMark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <p class="bookName">Killing Commendatore</p>
+                    <p class="aName">Haruki Murakami</p>
+                    <p class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+                </div>
+            </div>
+        </main>
+        <aside class="rightBar">
+            <div type="text" class="rbTittle">MOST READ BOOKS</div>
+            <ol>
+                <li>Hooked: How to Build Habit-Forming Products</li>
+                <li>the inevitable understanding the 12 technological forces that will shape our future</li>
+                <li>Lean In: Women, Work, and the Will to Lead</li>
+                <li>Building a Business When There Are No Easy Answers</li>
+                <li>How Google Works</li>
+            </ol>
+        </aside>
+        <aside class="leftBar">
+            <div type="text" class="lbTittle">MAIN</div>
+            <ul class="fa-ul">
+                <li><i class="fa-li fas fa-globe"></i>Quito</li>
+                <li><i class="fa-li fas fa-globe"></i>Cartagena</li>
+                <li><i class="fa-li fas fa-globe"></i>Medellin</li>
+                <li><i class="fa-li fas fa-tablet-alt"></i>Digital</li>
+                <li><i class="fa-li fas fa-user-tag"></i>Personal Loans</li>
+                <li><i class="fa-li fas fa-tags"></i>New Releases</li>
+            </ul>
+            <div type="text" class="lbTittle">YOUR BOOKS</div>
+            <ul class="fa-ul">
+                <li><i class="fa-li fas fa-book-open"></i>Readings</li>
+                <li><i class="fa-li fas fa-history"></i>History</li>
+                <li><i class="fa-li fas fa-bookmark"></i>Read Later</li>
+                <li><i class="fa-li fas fa-heart"></i>Favorites</li>
+            </ul>
+        </aside>
+    </div>
+    <div id="myTemplate">
+        <h4 class="popTittle">Lorem ipsum dolor sit amet consectetur.</h4>
+        <p class="aName"><span class="whiteMedium">Nobel by</span>&MediumSpace; Eduardo Garcia</p>
+        <p class="whiteMedium">300 pages</p>
+        <h5 class="grayMedium">Summary</h5>
+        <p class="whiteMedium">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus doloremque ratione laudantium iure libero nam! Suscipit quibusdam corrupti provident recusandae.</p>
+        <p class="grayMedium">Rating</p>
+        <p class="popStar"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+    </div>
+    
+</body>
+<!--For PopOvers-->
+<script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
+<script src="js/main.js"></script>
+</html>
