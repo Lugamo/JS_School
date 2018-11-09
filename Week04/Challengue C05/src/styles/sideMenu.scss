@@ -1,0 +1,51 @@
+.side-nav{
+  height:100%;
+  width:0;
+  position:fixed;
+  z-index:1;
+  top:0;
+  left:0;
+  background-color:#231f20;
+  opacity:0.99;
+  overflow-x:hidden;
+  padding-top:30px;
+  transition:0.5s;
+
+  .btn-close{
+    padding:0px 10px 0px 30px;
+    font-family: PlutoSansCondBold;
+    font-size:22px;
+    color: #ffffff;
+    display:block;
+    transition:0.3s;
+    cursor: pointer;
+  }
+  .btn-close:hover {
+    color:#6ec1e4;;
+  }
+  .lb-tittle {
+    width: 78.76px;
+    height: 17px;
+    color: #ffffff;
+    font-family: PlutoSansCondBold;
+    font-size: 13px;
+    margin-left: 34px;
+    margin-top:30px;
+  }
+  li {
+    width: 120px;
+    height: 19px;
+    color: #6ec1e4;
+    font-family: PlutoSansCondLight;
+    font-size: 13px;
+    letter-spacing: 0px;
+    list-style-type: none;
+    margin-bottom: 14px;
+    margin-left:15px;
+  }
+  li:hover {
+    cursor: pointer;
+    color:white !important;
+  }
+}
+
