@@ -1,0 +1,37 @@
+@import "./pluto-fonts.scss";
+@import "./sideMenu.scss";
+@import "./mainContent.scss";
+@import "./header.scss";
+@import "./lateralBars.scss";
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: grid;
+  overflow: hidden;
+  @media screen and (min-width: 1095px) { 
+    grid-template-columns: 200px auto 200px;
+    grid-template-rows: 66px auto;
+    grid-template-areas:
+          "theader theader theader"
+          "leftSide main rightSide";
+  }
+  @media screen and (max-width: 1094px) and (min-width:870px)   {
+    grid-template-columns: 200px auto;
+    grid-template-rows: 66px 450px auto;
+    grid-template-areas:
+          "theader theader"
+          "leftSide main"
+          "rightSide main";
+  }
+  @media screen and (max-width: 869px)   {
+    grid-template-rows: 66px 0px auto auto;
+    grid-template-areas:
+            "theader"
+            "leftSide"
+            "main"
+            "rightSide";
+  }
+}

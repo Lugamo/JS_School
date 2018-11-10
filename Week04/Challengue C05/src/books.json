@@ -1,0 +1,244 @@
+{
+  "books": [
+    {
+      "id": "B0001",
+      "tittle": "Everything I Never Told You",
+      "author": "Celeste Ng",
+      "language": "English",
+      "year": "2014",
+      "image-link": "http://books.google.com/books/content?id=JEYCDAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 306,
+      "summary": "Lydia is the favorite child of Marilyn and James Lee; their middle daughter, a girl who inherited her mother's bright blue eyes and her father's jet-black hair. Her parents are determined that Lydia will fulfill the dreams they were unable to pursue-in Marilyn's case that her daughter become a doctor rather than a homemaker, in James's case that Lydia be popular at school, a girl with a busy social life and the center of every party.",
+      "rating": 4,
+      "isbn": "9780143127550",
+      "lend": {
+        "bool": false,
+        "user": ""
+      }
+    },
+    {
+      "id": "B0002",
+      "tittle": "Redeployment",
+      "author": "Phil Klay",
+      "language": "English",
+      "year": "2014",
+      "image-link": "http://books.google.com/books/content?id=lKeMDQAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72atAB-iA3yj7KnB0cuSmm4-ErvhKoG9fg-_PMo22FNsJfCiTPMDFInEEBD6XeZTdGle316mM63XZLa8_BZH_l8kg_veKWvv5kc-XXODSc8T8gxJ_D-1XCzCr7k0gj2HtJUY5u2&source=gbs_api",
+      "pages": 304,
+      "summary": "Taking readers to the front lines of the war in Iraq and back, Redeployment asks us to understand what happened there, and what happened to the soldiers who returned\"--Back cover.",
+      "rating": 4,
+      "isbn": "9780143126829",
+      "lend": {
+        "bool": true,
+        "user": "user001"
+      }
+    },
+    {
+      "id": "B0003",
+      "tittle": "Big Little Lies",
+      "author": "Liane Moriarty",
+      "language": "English",
+      "year": "2014",
+      "image-link": "http://books.google.com/books/content?id=QNQBDAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 512,
+      "summary": "A murder...A tragic accident...Or just parents behaving badly? What's indisputable is that someone is dead. Madeline is a force to be reckoned with. She's funny, biting, and passionate; she remembers everything and forgives no one. Celeste is the kind of beautiful woman who makes the world stop and stare but she is paying a price for the illusion of perfection.",
+      "rating": 4,
+      "isbn": "9780425274866",
+      "lend": {
+        "bool": false,
+        "user": ""
+      }
+    },
+    {
+      "id": "B0004",
+      "tittle": "The Chronicles of Narnia",
+      "author": "C. S. Lewis",
+      "language": "English",
+      "year": "2000",
+      "image-link": "http://books.google.com/books/content?id=XQGhJhEPT10C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 784,
+      "summary": "Journeys to the end of the world, fantastic creatures, and epic battles between good and evil -- what more could any reader ask for in one book? The book that has it all is the lion, the witch and the wardrobe, written in 1949 by C. S. Lewis. But Lewis did not stop there. Six more books followed, and together they became known as The Chronicles of Narnia.",
+      "rating": 4.5,
+      "isbn": "9780060598242",
+      "lend": {
+        "bool": false,
+        "to": ""
+      }
+    },
+    {
+      "id": "B0005",
+      "tittle": "It A Novel",
+      "author": "Stephen King",
+      "language": "English",
+      "year": "1986",
+      "image-link": "http://books.google.com/books/content?id=KiszDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "pages": 1184,
+      "summary": "It began -- and ended -- in 1958 when seven children searched in the drains beneath Derry for an evil creature, but in 1985, Mike, once one of those children, makes six phone calls and disinters an unremembered promise that sets off the ultimate terror.",
+      "rating": 4.5,
+      "isbn": "9781501175466",
+      "lend": {
+        "bool": false,
+        "to": ""
+      }
+    },
+    {
+      "id": "B0006",
+      "tittle": "Bridge of Clay",
+      "author": "Markus Zusak",
+      "language": "English",
+      "year": "2018",
+      "image-link": "http://books.google.com/books/content?id=GcxvDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 544,
+      "summary": "An unforgettable and sweeping family saga from Markus Zusak, the storyteller who gave us the extraordinary bestseller THE BOOK THIEF This is a signed edition with limited copies available. The breathtaking story of five brothers who bring each other up in a world run by their own rules.",
+      "rating": 3.5,
+      "isbn": "9780375845598",
+      "lend": {
+        "bool": false,
+        "to": ""
+      }
+    },
+    {
+      "id": "B0007",
+      "tittle": "Educated A Memoir",
+      "author": "Tara Westover",
+      "language": "English",
+      "year": "2018",
+      "image-link": "http://books.google.com/books/content?id=0RGjtAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 352,
+      "summary": "An unforgettable memoir about a young girl who, kept out of school, leaves her survivalist family and goes on to earn a PhD from Cambridge University",
+      "rating": 4,
+      "isbn": "9780399590504",
+      "lend": {
+        "bool": false,
+        "user": ""
+      }
+    },
+    {
+      "id": "B0008",
+      "tittle": "A Brief History of Time",
+      "author": "Stephen Hawking",
+      "language": "English",
+      "year": "1988",
+      "image-link": "http://books.google.com/books/content?id=QOcpuQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 212,
+      "summary": "An anniversary edition of a now-classic survey of the origin and nature of the universe features a new introduction by the author and a new chapter on the possibility of time travel",
+      "rating": 3.5,
+      "isbn": "9780553380163",
+      "lend": {
+        "bool": false,
+        "to": ""
+      }
+    },
+    {
+      "id": "B0009",
+      "tittle": "Catching Fire",
+      "author": "Suzanne Collins",
+      "language": "English",
+      "year": "2009",
+      "image-link": "http://books.google.com/books/content?id=39AMkgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 391,
+      "summary": "By winning the Hunger Games, Katniss and Peeta have secured a life of safety and plenty for themselves and their families, but because they won by defying the rules, they unwittingly become the faces of an impending rebellion.",
+      "rating": 4.5,
+      "isbn": "9780545586177",
+      "lend": {
+        "bool": false,
+        "user": ""
+      }
+    },
+    {
+      "id": "B0010",
+      "tittle": "Alice's Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "language": "English",
+      "year": "1865",
+      "image-link": "http://books.google.com/books/content?id=AFVVpwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 192,
+      "summary": "Lose yourself in Alice's story as she tumbles down the rabbit hole, swims through her own pool of tears, and finds herself in a rather curious place called Wonderland. There, she'll encounter the frantic White Rabbit, have a frustrating conversation with an eccentric caterpillar, and play croquet with the hot-headed Queen of Hearts.",
+      "rating": 4,
+      "isbn": "9780147515872",
+      "lend": {
+        "bool": true,
+        "user": "user001"
+      }
+    },
+    {
+      "id": "B0011",
+      "tittle": "Chronicle of a Death Foretold",
+      "author": "Gabriel Garcia Marquez",
+      "language": "English",
+      "year": "1981",
+      "image-link": "http://books.google.com/books/content?id=c7g6i1DvUUgC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 120,
+      "summary": "The Nobel laureate weaves a story of a fantastic wedding, the return of the bride to her parents, her brothers' resolve to murder her corruptor, and the townspeoples' refusal to depart from routine.",
+      "rating": 4,
+      "isbn": "9781400034710",
+      "lend": {
+        "bool": false,
+        "to": ""
+      }
+    },
+    {
+      "id": "B0012",
+      "tittle": "Edgar Allan Poe Complete Tales and Poems",
+      "author": "Edgar Allan Poe",
+      "language": "English",
+      "year": "2016",
+      "image-link": "http://books.google.com/books/content?id=uY4NAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 842,
+      "summary": "The life of American writer Edgar Allan Poe was characterized by a dramatic series of successes and failures, breakdowns and recoveries, personal gains and hopes dashed through, despite which he created some of the finest literature the world has ever known.",
+      "rating": 4,
+      "isbn": "9780785814535",
+      "lend": {
+        "bool": false,
+        "to": ""
+      }
+    },
+    {
+      "id": "B0013",
+      "tittle": "Halo: Silent Storm",
+      "author": "Troy Denning",
+      "language": "English",
+      "year": "2018",
+      "image-link": "http://books.google.com/books/content?id=wSRTswEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 400,
+      "summary": "An original full-length novel set in the Halo universe and based on the New York Times bestselling video game series. 2526. It has been almost a year since humanity engaged in its destructive first contact with a theocratic military alliance of alien races known as the Covenant.",
+      "rating": 4,
+      "isbn": "9781501138386",
+      "lend": {
+        "bool": false,
+        "to": ""
+      }
+    },
+    {
+      "id": "B0014",
+      "tittle": "Halo: The Fall of Reach",
+      "author": "Eric Nylund",
+      "language": "English",
+      "year": "2001",
+      "image-link": "http://books.google.com/books/content?id=WyuMCZMqyacC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 448,
+      "summary": "Before the Human-Covenant War engulfed Halo, the planet-colony Reach came under attack by the Covenant, and Earth's specially trained and augmented warriors, code-named SPARTANs, stood alone to fight for humanity's survival.",
+      "rating": 5,
+      "isbn": "9780765367297",
+      "lend": {
+        "bool": true,
+        "to": ""
+      }
+    },
+    {
+      "id": "B0015",
+      "tittle": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "language": "English",
+      "year": "1866",
+      "image-link": "http://books.google.com/books/content?id=j1JXMQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "pages": 604,
+      "summary": "Raskolnikov, an impoverished student, sees himself as extraordinary and therefore free to commit crimes--even murder--in a work that best embodies the existential dilemmas of man's instinctual will to power.",
+      "rating": 4,
+      "isbn": "9781631490330",
+      "lend": {
+        "bool": false,
+        "to": ""
+      }
+    }
+  ]
+}
