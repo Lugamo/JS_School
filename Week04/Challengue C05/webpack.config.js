@@ -58,6 +58,18 @@ module.exports = {
           loader: 'html-loader',
         },
       },
+      {
+        enforce: 'pre',
+        test: /\.handlebars$/,
+        loader: 'handlebars-loader',
+        options: {
+          helperDirs: path.resolve(__dirname, './src/helpers'),
+          precompileOptions: {
+            knownHelpersOnly: false,
+          },
+          inlineRequires: /\/assets\/(:?images|audio|video)\//ig,
+        },
+      },
     ],
   },
   plugins: [

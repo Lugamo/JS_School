@@ -111,7 +111,8 @@ header {
       line-height: 19px;
       text-align: left;
       background-image: url("../../assets/images/search-black.png"); 
-      background-position: 5px 4px; 
+      background-size: 17px;
+      background-position: 10px 6px; 
       background-repeat: no-repeat;
       width: 41%;
       height: 1.3em;
@@ -231,10 +232,30 @@ header {
           z-index: 1;
         }
 
-        img {
+        .cover {
           width: 144px;
           height: 203px;
           border-radius: 2%;
+        }
+        .lend-mark {
+          position: absolute;
+          top: 18%;
+          left: 90%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);;
+          z-index: 1;
+          width: 40px;
+          height: 25px;
+        }
+        .lend-mark-back {
+          position: absolute;
+          top: 23.5%;
+          left: 101.5%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);;
+          z-index: 1;
+          width: 4.77px;
+          height: 8px;
         }
       }
 

@@ -1,0 +1,19 @@
+{{#each books}}
+  <div class="Book">
+      <div class="image-container">
+          <img class="cover" src={{image-link}}>
+          <button class="btn-read"><i class="fas fa-book-open"></i></button>
+          {{#if lend.bool}}
+            <img src="../assets/images/lend-mark.png" class="lend-mark" >
+            <img class="lend-mark-back" src="../assets/images/lend-mark-back.png">
+          {{/if}}
+      </div>
+      <p class="book-name">{{tittle}}</p>
+      <p class="author-name">{{author}}</p>
+      <p class="stars">
+      {{#getRating rating}}
+        {{{this}}}
+      {{/getRating}}
+      </p>
+  </div>
+{{/each}}
