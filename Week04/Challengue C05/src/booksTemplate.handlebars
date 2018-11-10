@@ -1,4 +1,5 @@
-{{#each books}}
+{{!-- {{display the book template depending on the numbers of elements in the json file}} --}}
+{{#each this}}
   <div class="Book tooltip">
     <div class="image-container">
         <img class="cover" src={{image-link}} alt={{tittle}}>
@@ -16,10 +17,10 @@
     {{/getRating}}
     </p>
 
-    <!--For the detail tooltip-->
+    {{!-- {{for the detail tooltip}} --}}
     <div class="tooltiptext">
         <h1>{{tittle}}</h1>
-        <span class="year">2010</span>
+        <span class="year">{{year}}</span>
         <p>Novel by <span class="author">{{author}}</span></p>
         <p>{{pages}} pages</p>
         <h2>Summary</h2>
@@ -28,7 +29,11 @@
         {{#getRating rating}}
           {{{this}}}
         {{/getRating}}
-        <button class="btn-lend">Lend</button>
+        {{#if lend.bool}}
+          <button class="btn-dont-lend" id={{id}}>Dont Lend</button>
+        {{else}}
+          <button class="btn-lend" id={{id}}>Lend</button>
+        {{/if}}
     </div>
 
   </div>

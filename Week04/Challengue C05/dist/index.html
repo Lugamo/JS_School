@@ -8,25 +8,37 @@
     <title>Bookshelf</title>
 </head>
 <body>
+    <!--Wrap all the page to apply grid display-->
     <div class="wrapper">
+        <!--Top of the page-->
         <header>
+            <!---Menu icon which only appears when the screen get small-->
             <nav class="navbar" id="btnMenu"><i class="fas fa-bars"></i></nav>
+            <!--Lateral menu, only apeear when menu icon is clicked-->
             <div class="side-nav" id="side-menu">
                 <div class ="btn-close" id="btn-close"><i class="fas fa-chevron-left"></i>&MediumSpace;&MediumSpace; Back</div>
                 <div id="side-menu-content"></div>
             </div>
+            <!--Logo of the page-->
             <div class="logo"><img src="../assets/images/jobsity.png"></div>
+            <!--Tittle of the page-->
             <div class="text-tittle">Bookshelf</div>
+            <!--Search input-->
             <div class="search-input">
                 <form method="get" action="/search">
                     <input name="search" type="text" size="40" placeholder="Search..." />
                 </form>
             </div>
+            <!--User div-->
             <div class="user">
-                <p>Eduardo Garcia &MediumSpace;&caron;<img class="profile-photo"src="../assets/images/user.png"></p>
+                <div class="user-name">Eduardo Garcia</div>
+                <i class="fas fa-caret-down"></i>
+                <img class="profile-photo" src="../assets/images/user.png">
             </div>
         </header>
+        <!--Main Content, content between the lateral bars-->
         <main class="main-content">
+            <!--Headers and filters of the contents-->
             <div class="main-top">
                 <div type="text" class="content-tittle">New Releases</div>
                 <div class="order-section"><span>Release date</span><span>&ensp;|&ensp;</span><span>Popularity</span>
@@ -36,20 +48,10 @@
                     <i class="fa fa-th-large display-btn"></i>
                 </div>
             </div>
-            <div class="mainBooks" id="booksContainer">
-                <div class="Book">
-                    <div class="image-container">
-                        <img class="cover" src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/7873/9781787300194.jpg">
-                        <button class="btn-read"><i class="fas fa-book-open"></i></button>
-                        <img class="lend-mark" src="../assets/images/lend-mark.png">
-                        <img class="lend-mark-back" src="../assets/images/lend-mark-back.png">
-                    </div>
-                    <p class="book-name">Killing Commendatore</p>
-                    <p class="author-name">Haruki Murakami</p>
-                    <p class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
-                </div>
-            </div>
+            <!--All the books appears inside this div-->
+            <div class="mainBooks" id="booksContainer"></div>
         </main>
+        <!--Right bar of the page-->
         <aside class="right-bar">
             <div type="text" class="rb-tittle">MOST READ BOOKS</div>
             <ol>
@@ -60,6 +62,7 @@
                 <li>How Google Works</li>
             </ol>
         </aside>
+        <!-- Left bar of the page-->
         <aside class="left-bar" id="left-bar">
             <div id="toget">
                 <div type="text" class="lb-tittle">MAIN</div>
