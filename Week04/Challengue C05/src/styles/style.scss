@@ -5,10 +5,12 @@ $font-stack: PlutoSansMedium, sans-serif;
 
 body {
   margin: 0;
+  
 }
 
 .wrapper {
   display: grid;
+  overflow: hidden;
   @media screen and (min-width: 1095px) { 
     grid-template-columns: 200px auto 200px;
     grid-template-rows: 66px auto;
@@ -202,6 +204,7 @@ header {
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
+    
 
     .Book {
       margin-left: 8px;
@@ -303,6 +306,85 @@ header {
         font-size: 10px;
         margin-bottom: 39px;
       }
+      
+    }
+    .tooltip {
+      position: relative;
+      display: inline;
+      font-family: PlutoSansCondLight, $font-stack;
+      font-size: 12px;
+    }
+    .tooltiptext {
+      h1{
+        font-family: PlutoSansCondBold, $font-stack;
+        text-transform: uppercase;
+        color: #6ec1e4;
+        font-size: 13px;
+      }
+      .year{
+        position: absolute;
+        right: 20px;
+        top: 30px;
+        color: #aeaeae;
+      }
+      .author{
+        color: #aeaeae;
+      }
+      h2{
+        font-family: PlutoSansCondBold, $font-stack;
+        font-size: 12px;
+        margin-top: 18px;
+        text-transform: uppercase;
+        margin-top:12px;
+        color: #fff;
+      }
+      p {
+        margin-top:2px;
+        margin-bottom:2px;
+        color: #fff;
+      }
+      .btn-lend {
+        font-family: PlutoSansCondBold, $font-stack;
+        position: absolute;
+        background-color: #6ec1e4;
+        color: #fff;
+        right: 5%;
+        top: 80%;
+        border-radius: 5px;
+        border-color: #6ec1e4;
+        width: 100px;
+        height: 35px;
+      }
+    }
+  
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 250px;
+        background-color: rgba(35,31,32,0.8);
+        border-radius: 5px;
+        padding: 21px 31px;
+        position: absolute;
+        z-index: 3;
+        top: -5px;
+        left: 105%;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    .tooltip .tooltiptext::after {
+      content: " ";
+      position: absolute;
+      top: 20%;
+      right: 100%; 
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent rgba(35,31,32,0.8) transparent transparent;
+    }
+  
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
     }
   }
 }

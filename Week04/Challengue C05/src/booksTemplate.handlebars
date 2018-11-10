@@ -1,19 +1,35 @@
 {{#each books}}
-  <div class="Book">
-      <div class="image-container">
-          <img class="cover" src={{image-link}}>
-          <button class="btn-read"><i class="fas fa-book-open"></i></button>
-          {{#if lend.bool}}
-            <img src="../assets/images/lend-mark.png" class="lend-mark" >
-            <img class="lend-mark-back" src="../assets/images/lend-mark-back.png">
-          {{/if}}
-      </div>
-      <p class="book-name">{{tittle}}</p>
-      <p class="author-name">{{author}}</p>
-      <p class="stars">
-      {{#getRating rating}}
-        {{{this}}}
-      {{/getRating}}
-      </p>
+  <div class="Book tooltip">
+    <div class="image-container">
+        <img class="cover" src={{image-link}} alt={{tittle}}>
+        <button class="btn-read"><i class="fas fa-book-open"></i></button>
+        {{#if lend.bool}}
+          <img src="../assets/images/lend-mark.png" class="lend-mark" >
+          <img class="lend-mark-back" src="../assets/images/lend-mark-back.png">
+        {{/if}}
+    </div>
+    <p class="book-name">{{tittle}}</p>
+    <p class="author-name">{{author}}</p>
+    <p class="stars">
+    {{#getRating rating}}
+      {{{this}}}
+    {{/getRating}}
+    </p>
+
+    <!--For the detail tooltip-->
+    <div class="tooltiptext">
+        <h1>{{tittle}}</h1>
+        <span class="year">2010</span>
+        <p>Novel by <span class="author">{{author}}</span></p>
+        <p>{{pages}} pages</p>
+        <h2>Summary</h2>
+        <p>{{summary}}</p>
+        <h2>Rating</h2>
+        {{#getRating rating}}
+          {{{this}}}
+        {{/getRating}}
+        <button class="btn-lend">Lend</button>
+    </div>
+
   </div>
 {{/each}}

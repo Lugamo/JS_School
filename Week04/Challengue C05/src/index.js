@@ -1,6 +1,7 @@
 import './styles/style.scss';
 import './side-menu';
 
+
 const booksTemplate = require('./booksTemplate.handlebars');
 const text = require('./books.json');
 
