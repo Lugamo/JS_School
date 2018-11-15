@@ -92,7 +92,7 @@ function getBooks() {
           if (err) {
             console.log(err);
           } else {
-            console.log('New Collection created!!');
+            console.log('New Book Collection created!!');
           }
         });
       })

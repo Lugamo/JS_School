@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fill": "node \"./data/fillMongo.js\""
+    "fillbooks": "node \"./data/fillbookMongo.js\"",
+    "fillusers": "node \"./data/filluserMongo.js\"",
+    "fill": "concurrently --kill-others \"npm run fillbooks\" \"npm run fillusers\""
   },
   "author": "Lugamo",
   "license": "MIT",
@@ -20,6 +22,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "concurrently": "^4.0.1",
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0"
