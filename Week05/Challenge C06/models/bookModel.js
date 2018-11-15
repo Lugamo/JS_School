@@ -7,6 +7,11 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 const bookSchema = mongoose.Schema({
+  id: {
+    type: String,
+    trim: true,
+    required: true,
+  },
   title: {
     type: String,
     trim: false,
@@ -44,6 +49,7 @@ const bookSchema = mongoose.Schema({
   },
   isbn: {
     type: String,
+    unique: true,
     trim: true,
     required: true,
   },
@@ -61,35 +67,16 @@ const bookSchema = mongoose.Schema({
     type: Boolean,
     required: true,
   },
-  lend: {
-    islent: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    user: {
-      type: String,
-      required: false,
-      default: null,
-    },
+  quantity: {
+    type: Number,
+    required: true,
+    default: 1,
+  },
+  borrowed: {
+    type: Number,
+    default: 0,
   },
 });
 
 const Book = mongoose.model('Book', bookSchema);
 module.exports = Book;
-/*
-const small = new Book({
-  title: 'small',
-  author: 'edu',
-  year: '2018',
-  image: 'imageww',
-  pages: 222,
-  summary: 'aaa',
-  rating: 3.0,
-  isbn: 'AAAA',
-  language: 'es',
-  city: 'cartagena',
-  digital: true,
-});
-small.save();
-*/

@@ -1,6 +1,9 @@
 /* eslint-disable max-len */
 const fetch = require('node-fetch');
 const mongoose = require('mongoose');
+
+// To generate the ID
+const uuidv4 = require('uuid/v4');
 const Book = require('../models/bookModel');
 
 mongoose.connect('mongodb://localhost/bookshelf');
@@ -27,6 +30,7 @@ const booksIsbn = [
   */
 ];
 const bookObject = {
+  id: '',
   title: '',
   author: '',
   year: 1900,
@@ -38,6 +42,7 @@ const bookObject = {
   language: '',
   city: '',
   digital: true,
+  borrowed: 1,
 };
 // random Int between a set min-max
 function getRandomInt(min, max) {
@@ -51,7 +56,7 @@ function* getCity() {
     yield 'Cartagena';
   }
 }
-async function getBooks() {
+function getBooks() {
   const ApiKey = 'AIzaSyDirtPnHHm5gGIDuEZntIFlu_55xRsl3Jw' //'AIzaSyBo8AzYSOq0ByURMdlhCUghIqNGMCIDgkc';
   const cityIterator = getCity();
   booksIsbn.forEach((isbnBook) => {
@@ -59,6 +64,7 @@ async function getBooks() {
       .then(response => response.json())
       .then((myJson) => {
         const jsonNesting = myJson.items[0].volumeInfo;
+        bookObject.id = uuidv4();
         bookObject.title = jsonNesting.title;
         bookObject.author = jsonNesting.authors;
         // eslint-disable-next-line prefer-destructuring
@@ -73,7 +79,12 @@ async function getBooks() {
         bookObject.isbn = isbnBook.toString();
         bookObject.language = jsonNesting.language;
         bookObject.city = cityIterator.next().value;
+
+        // If the result of random is less than 8 True else false
         bookObject.digital = (getRandomInt(0, 10) < 8);
+
+        // Random number of avaible books (1-3)
+        bookObject.borrowed = getRandomInt(1, 3);
         return bookObject;
       }).then((bookobj) => {
         const newBook = new Book(bookobj);
