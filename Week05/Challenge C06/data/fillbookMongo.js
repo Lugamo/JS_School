@@ -32,7 +32,7 @@ const booksIsbn = [
 const bookObject = {
   id: '',
   title: '',
-  author: '',
+  author: [],
   year: 1900,
   image: '',
   pages: 1,
@@ -42,7 +42,7 @@ const bookObject = {
   language: '',
   city: '',
   digital: true,
-  borrowed: 1,
+  quantity: 1,
 };
 // random Int between a set min-max
 function getRandomInt(min, max) {
@@ -84,7 +84,7 @@ function getBooks() {
         bookObject.digital = (getRandomInt(0, 10) < 8);
 
         // Random number of avaible books (1-3)
-        bookObject.borrowed = getRandomInt(1, 3);
+        bookObject.quantity = getRandomInt(1, 3);
         return bookObject;
       }).then((bookobj) => {
         const newBook = new Book(bookobj);

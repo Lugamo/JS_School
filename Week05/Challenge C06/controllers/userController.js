@@ -40,6 +40,7 @@ function signIn(req, res) {
   });
 }
 
+/*
 function loginRequired(req, res, next) {
   if (req.user) {
     next();
@@ -47,9 +48,9 @@ function loginRequired(req, res, next) {
     return res.status(401).json({ message: 'Unauthorized user!' });
   }
 }
+*/
 
 module.exports = {
   signIn,
   register,
-  loginRequired,
 };

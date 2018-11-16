@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const userController = require('./controllers/userController');
+const bookController = require('./controllers/bookController');
+const credentials = require('./controllers/credentialsController');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,13 +13,23 @@ app.use(bodyParser.urlencoded({
 }));
 
 // To register new users
-app.post('/api/auth/register', (req, res) => {
+app.post('/auth/register', (req, res) => {
   userController.register(req, res);
 });
 
 // To login
-app.post('/api/auth/login', (req, res) => {
+app.post('/auth/login', (req, res) => {
   userController.signIn(req, res);
+});
+
+// Get all books
+app.get('/books', credentials.verifyCredentials, (req, res) => {
+  bookController.getBooks(req, res);
+});
+
+// Get book by isbn
+app.get('/books/:id', credentials.verifyCredentials, (req, res) => {
+  bookController.getBookbyId(req, res);
 });
 
 app.listen(port, () => {

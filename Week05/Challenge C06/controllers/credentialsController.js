@@ -9,8 +9,13 @@ function verifyCredentials(req, res, next) {
     });
   } else {
     req.user = undefined;
-    next();
+    res.status(401).json({
+      status: 401,
+      message: 'You must be authenticated!',
+    });
   }
 }
 
-module.exports = verifyCredentials;
+module.exports = {
+  verifyCredentials,
+};
