@@ -61,7 +61,6 @@ const bookSchema = mongoose.Schema({
   city: {
     type: String,
     trim: false,
-    required: true,
   },
   digital: {
     type: Boolean,
@@ -69,7 +68,6 @@ const bookSchema = mongoose.Schema({
   },
   quantity: {
     type: Number,
-    required: true,
     default: 1,
   },
   borrowed: {

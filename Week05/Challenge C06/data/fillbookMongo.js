@@ -13,7 +13,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 const booksIsbn = [
   '9780143127550',
   '9781501173219',
-  /*
   '9780143126829',
   '9780802123701',
   '9780425274866',
@@ -27,7 +26,6 @@ const booksIsbn = [
   '9780345816023',
   '9780307474728',
   '9781537392349',
-  */
 ];
 const bookObject = {
   id: '',
@@ -43,6 +41,7 @@ const bookObject = {
   city: '',
   digital: true,
   quantity: 1,
+  borrowed: 1,
 };
 // random Int between a set min-max
 function getRandomInt(min, max) {
@@ -78,13 +77,19 @@ function getBooks() {
 
         bookObject.isbn = isbnBook.toString();
         bookObject.language = jsonNesting.language;
-        bookObject.city = cityIterator.next().value;
 
-        // If the result of random is less than 8 True else false
-        bookObject.digital = (getRandomInt(0, 10) < 8);
+        // If the result of random is less than 6 True else false
+        bookObject.digital = (getRandomInt(0, 10) < 6);
 
-        // Random number of avaible books (1-3)
-        bookObject.quantity = getRandomInt(1, 3);
+        if (bookObject.digital === true) {
+          bookObject.city = null;
+          bookObject.quantity = null;
+          bookObject.borrowed = getRandomInt(0, 3);
+        } else {
+          bookObject.city = cityIterator.next().value;
+          bookObject.quantity = getRandomInt(1, 3);
+          bookObject.borrowed = getRandomInt(0, 3);
+        }
         return bookObject;
       }).then((bookobj) => {
         const newBook = new Book(bookobj);

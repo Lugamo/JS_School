@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 // To generate the ID
 const uuidv4 = require('uuid/v4');
 
+const keyword = require('../keyword/keyword');
 const User = require('../models/userModel');
 
 function register(req, res) {
@@ -34,21 +35,17 @@ function signIn(req, res) {
       if (!user.comparePassword(req.body.password, user.hash_password)) {
         res.status(401).json({ message: 'Authentication failed. Wrong password.' });
       } else {
-        return res.json({ token: jwt.sign({ email: user.email, username: user.username, id: user.id }, 'BookAPIs') });
+        return res.json({ token: jwt.sign({
+          email: user.email,
+          username: user.username,
+          id: user.id,
+        },
+        keyword),
+        });
       }
     }
   });
 }
-
-/*
-function loginRequired(req, res, next) {
-  if (req.user) {
-    next();
-  } else {
-    return res.status(401).json({ message: 'Unauthorized user!' });
-  }
-}
-*/
 
 module.exports = {
   signIn,

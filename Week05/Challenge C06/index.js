@@ -27,9 +27,19 @@ app.get('/books', credentials.verifyCredentials, (req, res) => {
   bookController.getBooks(req, res);
 });
 
-// Get book by isbn
+// Get book by id
 app.get('/books/:id', credentials.verifyCredentials, (req, res) => {
   bookController.getBookbyId(req, res);
+});
+
+// Lend a book
+app.post('/books/:id/lend', credentials.verifyCredentials, (req, res) => {
+  bookController.lendABook(req, res);
+});
+
+// show all lend books by the user
+app.get('/user/mybooks', credentials.verifyCredentials, (req, res) => {
+  bookController.booksByUser(req, res);
 });
 
 app.listen(port, () => {
