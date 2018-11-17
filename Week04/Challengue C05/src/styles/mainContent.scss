@@ -167,6 +167,7 @@ $btn-dont-lend: #e46e6e;
       font-family: PlutoSansCondLight, $font-stack;
       font-size: 12px;
     }
+
     .tooltiptext {
       h1{
         font-family: PlutoSansCondBold, $font-stack;
@@ -245,6 +246,16 @@ $btn-dont-lend: #e46e6e;
       border-width: 5px;
       border-style: solid;
       border-color: transparent rgba(35,31,32,0.8) transparent transparent;
+    }
+
+    .tooltip:hover {
+      .image-container::after {
+        opacity: 1;
+        border-radius: 2%;
+      }
+      .image-container .btn-read {
+        opacity: 1;
+      }
     }
   
     .tooltip:hover .tooltiptext {

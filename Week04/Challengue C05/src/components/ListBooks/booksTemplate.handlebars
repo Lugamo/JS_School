@@ -1,0 +1,10 @@
+{{!-- {{display the book template depending on the numbers of elements in the json file}} --}}
+{{#each this}}
+  <div class="Book tooltip">
+    {{!-- {{for the book template}} --}}
+    {{> ../Book/book}}
+
+    {{!-- {{for the detail tooltip}} --}}
+    {{> ../Tooltip/tooltip}}
+  </div>
+{{/each}}

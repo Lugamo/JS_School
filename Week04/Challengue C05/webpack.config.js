@@ -66,7 +66,7 @@ module.exports = {
         test: /\.handlebars$/,
         loader: 'handlebars-loader',
         options: {
-          helperDirs: path.resolve(__dirname, './src/helpers'),
+          helperDirs: path.resolve(__dirname, './src/components/helpers'),
           precompileOptions: {
             knownHelpersOnly: false,
           },

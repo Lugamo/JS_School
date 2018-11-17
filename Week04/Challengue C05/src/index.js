@@ -3,7 +3,7 @@ import './styles/style.scss';
 import './side-menu';
 
 // fot he handlebars templates
-const booksTemplate = require('./booksTemplate.handlebars');
+const booksTemplate = require('./components/ListBooks/booksTemplate.handlebars');
 
 // To create the template to inner in the hatml
 function createBookTemplate(jsondata) {
