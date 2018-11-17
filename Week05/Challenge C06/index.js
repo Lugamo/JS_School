@@ -37,7 +37,7 @@ app.post('/books/:id/lend', credentials.verifyCredentials, (req, res) => {
   bookController.lendABook(req, res);
 });
 
-// show all lend books by the user
+// show all lend books by user
 app.get('/user/mybooks', credentials.verifyCredentials, (req, res) => {
   bookController.booksByUser(req, res);
 });

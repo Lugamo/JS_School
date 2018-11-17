@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "fillbooks": "node \"./data/fillbookMongo.js\"",
     "fillusers": "node \"./data/filluserMongo.js\"",
-    "fill": "concurrently --kill-others \"npm run fillbooks\" \"npm run fillusers\""
+    "fill": "concurrently --kill-others \"npm run fillbooks\" \"npm run fillusers\"",
+    "start": "node index.js"
   },
   "author": "Lugamo",
   "license": "MIT",

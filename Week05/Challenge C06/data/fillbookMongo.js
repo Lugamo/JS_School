@@ -10,22 +10,23 @@ mongoose.connect('mongodb://localhost/bookshelf');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
+// Books to random data
 const booksIsbn = [
   '9780143127550',
-  '9781501173219',
   '9780143126829',
-  '9780802123701',
   '9780425274866',
-  '9781476770390',
+  '9780060598242',
+  '9781501175466',
+  '9780375845598',
+  '9780399590504',
+  '9780553380163',
+  '9780545586177',
+  '9780147515872',
+  '9781400034710',
+  '9780785814535',
   '9781501138386',
-  '9780804172448',
-  '9780812993011',
-  '9781439172742',
-  '9781593279509',
-  '9781449331818',
-  '9780345816023',
-  '9780307474728',
-  '9781537392349',
+  '9780765367297',
+  '9781631490330',
 ];
 const bookObject = {
   id: '',
@@ -55,8 +56,10 @@ function* getCity() {
     yield 'Cartagena';
   }
 }
+
+// Connect to google api, download the data and put it in in MongoDB bookshelf collection
 function getBooks() {
-  const ApiKey = 'AIzaSyDirtPnHHm5gGIDuEZntIFlu_55xRsl3Jw' //'AIzaSyBo8AzYSOq0ByURMdlhCUghIqNGMCIDgkc';
+  const ApiKey = 'AIzaSyDirtPnHHm5gGIDuEZntIFlu_55xRsl3Jw';
   const cityIterator = getCity();
   booksIsbn.forEach((isbnBook) => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbnBook}&key=${ApiKey}`)
@@ -81,13 +84,14 @@ function getBooks() {
         // If the result of random is less than 6 True else false
         bookObject.digital = (getRandomInt(0, 10) < 6);
 
+        // If the book is digital, can be lend unlimited times.
         if (bookObject.digital === true) {
           bookObject.city = null;
           bookObject.quantity = null;
           bookObject.borrowed = getRandomInt(0, 3);
         } else {
           bookObject.city = cityIterator.next().value;
-          bookObject.quantity = getRandomInt(1, 3);
+          bookObject.quantity = 3;
           bookObject.borrowed = getRandomInt(0, 3);
         }
         return bookObject;

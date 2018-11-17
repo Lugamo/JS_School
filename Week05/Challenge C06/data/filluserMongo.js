@@ -8,6 +8,7 @@ mongoose.connect('mongodb://localhost/bookshelf');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
+// Create user with random data
 function createUser(iteration) {
   const userobj = {
     id: uuidv4(),

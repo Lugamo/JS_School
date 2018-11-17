@@ -22,6 +22,7 @@ function checkBookExist(data, res) {
   return data;
 }
 
+// get the books, can be added querys to filter data, return part of the book info
 function getBooks(req, res) {
   const infoNotShow = {
     _id: 0,
@@ -46,6 +47,7 @@ function getBooks(req, res) {
   }
 }
 
+// get all the info about one book
 function getBookbyId(req, res) {
   const bookID = req.params.id;
   Book.find({ id: bookID }).exec()
@@ -56,11 +58,14 @@ function getBookbyId(req, res) {
     });
 }
 
+// lend a book and get it in your collection
 function lendABook(req, res) {
   const bookID = req.params.id;
   Book.find({ id: bookID }).exec()
     .then((result) => {
+      // Check if the id exist
       if (checkBookExist(result, res)) {
+        // Check if the user alredy lend that book or not
         LendUserBook.find({ user: req.user.id, book: bookID }).exec()
           .then((lend) => {
             const newLend = new LendUserBook({
@@ -69,11 +74,17 @@ function lendABook(req, res) {
               bookTitle: result[0].title,
             });
             if (lend.length === 0) {
+              /**
+               * If the book is not digital, check the availability
+               * If the book is digital just lend it
+               */
               if (result[0].quantity > result[0].borrowed || result[0].digital === true) {
+                // Save the transaction
                 newLend.save((err) => {
                   if (err) {
                     console.log(err);
                   } else {
+                    // And increment the borrowed field of the book
                     Book.update(
                       { id: bookID },
                       { $inc: { borrowed: 1 } },

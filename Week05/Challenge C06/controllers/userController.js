@@ -8,6 +8,8 @@ const uuidv4 = require('uuid/v4');
 const keyword = require('../keyword/keyword');
 const User = require('../models/userModel');
 
+
+// Add a new user to the collection
 function register(req, res) {
   const newUser = new User(req.body);
   newUser.hash_password = bcrypt.hashSync(req.body.password, 10);
@@ -24,6 +26,7 @@ function register(req, res) {
   });
 }
 
+// Login to get a token
 function signIn(req, res) {
   User.findOne({
     email: req.body.email,
