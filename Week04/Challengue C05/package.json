@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "dev": "webpack-dev-server"
+    "loadweb": "webpack-dev-server",
+    "loadjserver": "json-server --watch \"./src/books.json\"",
+    "dev": "concurrently --kill-others \"npm run loadweb\" \"npm run loadjserver\""
   },
   "author": "Lugamo",
   "license": "MIT",
@@ -15,6 +17,7 @@
     "@babel/preset-env": "^7.1.5",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "concurrently": "^4.0.1",
     "css-loader": "^1.0.1",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
