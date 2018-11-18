@@ -1,0 +1,17 @@
+<div class="tooltiptext">
+    <h1>{{tittle}}</h1>
+    <span class="year">{{year}}</span>
+    <p>Novel by <span class="author">{{author}}</span></p>
+    <p>{{pages}} pages</p>
+    <h2>Summary</h2>
+    <p>{{summary}}</p>
+    <h2>Rating</h2>
+    {{#getRating rating}}
+      {{{this}}}
+    {{/getRating}}
+    {{#if lend.bool}}
+      <button class="btn-dont-lend" id={{id}}>Dont Lend</button>
+    {{else}}
+      <button class="btn-lend" id={{id}}>Lend</button>
+    {{/if}}
+</div>
