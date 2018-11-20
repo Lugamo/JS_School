@@ -28,7 +28,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
       },
@@ -44,6 +44,9 @@ module.exports = {
         test: /\.otf$/,
         use: [{
           loader: 'file-loader',
+          options: {
+            outputPath: './public/assets/',
+          },
         }],
       },
       {
@@ -65,7 +68,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './dist/index.html',
+      template: './src/index.html',
+      filename: './index.html',
     }),
   ],
 };

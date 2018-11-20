@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "loadweb": "webpack-dev-server"
+    "build": "webpack",
+    "dev": "webpack-dev-server --mode development"
   },
   "author": "Lugamo",
   "license": "MIT",
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",

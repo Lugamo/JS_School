@@ -1,6 +1,15 @@
+/* eslint-disable react/jsx-filename-extension */
 /* eslint-disable no-console */
 import './styles/style.scss';
-import './side-menu';
+import Header from './components/header/header';
+import RightBar from './components/sidebars/rightbar';
+import LeftBar from './components/sidebars/leftbar';
+import MainContent from './components/maincontent/maincontent';
+
+// import './side-menu';
+
+const React = require('react');
+const ReactDOM = require('react-dom');
 
 // Request to get the data from ther server
 /*
@@ -20,3 +29,18 @@ ourRequest.onerror = () => {
 };
 ourRequest.send();
 */
+const App = () => {
+  return (
+    <div className="wrapper">
+      <Header />
+      <LeftBar />
+      <MainContent />
+      <RightBar />
+    </div>
+  );
+};
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root'),
+);
