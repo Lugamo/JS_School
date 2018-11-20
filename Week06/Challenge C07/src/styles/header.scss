@@ -1,0 +1,123 @@
+
+header {
+  grid-area: theader;
+  display: grid;
+  background: #fcf8f3;
+  border-bottom: 1px solid #6ec1e4;
+  @media screen and (min-width: 1095px) { 
+    grid-template-columns: 0px 200px 2fr 2fr 200px;
+    grid-template-areas: 
+            "navBar logo text-tittle search-input user";
+  }
+  @media screen and (max-width: 1094px) and (min-width:870px)   {
+    grid-template-columns: 0px 200px auto 2fr 0px;
+    grid-template-areas: 
+            "navBar logo text-tittle search-input user";
+  }
+  @media screen and (max-width: 869px)   {
+    grid-template-columns: 65px 0px auto 0px 0px;
+    grid-template-areas: 
+            "navBar logo text-tittle search-input user";
+  }
+  
+  .navbar {
+    grid-area: navBar;
+    font-size: 40px;
+    cursor: pointer;
+    @media screen and (min-width: 870px) { 
+      display: none;
+    }
+    i {
+      margin: 12px 15px 0px 15px;
+    }
+  }
+  .logo {
+    grid-area: logo;
+    @media screen and (max-width: 869px) { 
+      display: none;
+    }
+    background: #ffffff;
+    img {
+      max-width: 140px;
+      margin-top: 13px;
+      margin-left:35px;
+    }
+    
+  }
+  .text-tittle {
+    grid-area: text-tittle;
+    width: 103.45px;
+    height: 32px;
+    color: #000000;
+    font-family: PlutoSansMedium, $font-stack;
+    font-size: 19px;
+    margin-top:21px;
+    margin-left: 18px;
+  }
+  .search-input {
+    grid-area: search-input;
+    @media screen and (max-width: 869px)   {
+      display: none;
+    }
+
+    form {
+      position: relative;
+      bottom: 3px;
+      justify-items: center;
+      margin-top:21px;
+    }
+
+    form input[type="text"] {
+      position: relative;
+      left: 43%;
+      border: 1px solid #6ec1e4;
+      font-family: PlutoSansRegular, $font-stack;
+      color: black;
+      font-size: 11px;
+      line-height: 19px;
+      text-align: left;
+      background-image: url("../../assets/images/search-black.png"); 
+      background-size: 17px;
+      background-position: 10px 6px; 
+      background-repeat: no-repeat;
+      width: 41%;
+      height: 1.3em;
+      padding: 7px 15px 6px 34px;
+      border-radius: 20px;
+      text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+      transition: all 0.7s ease 0s;
+    }
+    
+    form input[type="text"]::placeholder {
+      color:black;
+    }
+  }
+  .user {
+    grid-area: user;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 220px;
+    min-width: 50px;
+    border-left: 1px solid gray;
+    @media screen and (max-width: 869px) { 
+      display: none;
+    }
+    .user-name {
+      color: #000000;
+      font-family: PlutoSansCondRegular, $font-stack;
+      font-size: 14px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    .profile-photo {
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+    }
+    i{
+      margin-right: 16px;
+    }
+  }
+}
