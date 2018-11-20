@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const userController = require('./controllers/userController');
 const bookController = require('./controllers/bookController');
 const credentials = require('./controllers/credentialsController');
@@ -10,6 +11,10 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true,
+}));
+app.use(cors({
+  origin: 'http://localhost:8080',
+  credentials: true,
 }));
 
 // To register new users
