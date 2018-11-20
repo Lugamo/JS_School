@@ -1,6 +1,9 @@
 {
   "name": "challenge-c06",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.12.0"
+  },
   "description": "REST API for bookshelf",
   "main": "index.js",
   "scripts": {
@@ -9,9 +12,6 @@
     "fillusers": "node \"./data/filluserMongo.js\"",
     "fill": "concurrently --kill-others \"npm run fillbooks\" \"npm run fillusers\"",
     "start": "node index.js"
-  },
-  "engines": {
-    "node": "8.12.0"
   },
   "author": "Lugamo",
   "license": "MIT",
