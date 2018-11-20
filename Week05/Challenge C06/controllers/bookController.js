@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Book = require('../models/bookModel');
 const LendUserBook = require('../models/book-userModel');
 
-mongoose.connect('mongodb://localhost/bookshelf');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/bookshelf');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
