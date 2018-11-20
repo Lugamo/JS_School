@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const uuidv4 = require('uuid/v4');
 const Book = require('../models/bookModel');
 
-mongoose.connect('mongodb://localhost/bookshelf');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/bookshelf');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
