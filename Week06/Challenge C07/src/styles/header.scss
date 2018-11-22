@@ -25,6 +25,8 @@ header {
   .navbar {
     grid-area: navBar;
     font-size: 40px;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
     @media screen and (min-width: 870px) { 
       display: none;

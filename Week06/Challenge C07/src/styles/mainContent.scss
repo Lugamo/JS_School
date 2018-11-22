@@ -197,6 +197,13 @@ $btn-dont-lend: #e46e6e;
         margin-bottom:2px;
         color: #fff;
       }
+      .summary {  
+        height:77px;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
       .btn-lend {
         font-family: PlutoSansCondBold, $font-stack;
         position: absolute;
