@@ -26,8 +26,6 @@ function checkBookExist(data, res) {
 function getBooks(req, res) {
   const infoNotShow = {
     _id: 0,
-    quantity: 0,
-    borrowed: 0,
   };
   const theQuery = req.query;
   if (Object.keys(theQuery).length === 0) {
@@ -40,7 +38,13 @@ function getBooks(req, res) {
     Book.find({ digital: theQuery.digital }, infoNotShow).exec()
       .then(datajson => queryResponse(datajson, res));
   } else if (theQuery.isbn) {
-    Book.find({ digital: theQuery.isbn }, infoNotShow).exec()
+    Book.find({ isbn: theQuery.isbn }, infoNotShow).exec()
+      .then(datajson => queryResponse(datajson, res));
+  } else if (theQuery.title) {
+    Book.find({ title: { $regex: theQuery.title, $options: 'i' } }, infoNotShow).exec()
+      .then(datajson => queryResponse(datajson, res));
+  } else if (theQuery.author) {
+    Book.find({ author: { $regex: theQuery.author, $options: 'i' } }, infoNotShow).exec()
       .then(datajson => queryResponse(datajson, res));
   } else {
     res.status(204).send('Not allowed Query');
