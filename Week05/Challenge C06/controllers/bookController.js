@@ -7,7 +7,11 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 function queryResponse(data, res) {
-  res.status(200).send(data);
+  if (data.length === 0) {
+    res.status(200).send({ message: 'Book not found' });
+  } else {
+    res.status(200).send(data);
+  }
 }
 function checkBookExist(data, res) {
   if (data.length === 0) {
