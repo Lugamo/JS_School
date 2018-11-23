@@ -10,7 +10,7 @@ function queryResponse(data, res) {
   if (data.length === 0) {
     res.status(200).send({ message: 'Book not found' });
   } else {
-    res.status(200).send(data);
+    res.status(200).send({ message: 'OK', books: data });
   }
 }
 function checkBookExist(data, res) {
@@ -49,6 +49,14 @@ function getBooks(req, res) {
       .then(datajson => queryResponse(datajson, res));
   } else if (theQuery.author) {
     Book.find({ author: { $regex: theQuery.author, $options: 'i' } }, infoNotShow).exec()
+      .then(datajson => queryResponse(datajson, res));
+  } else if (theQuery.q) {
+    Book.find({
+      $or: [
+        { author: { $regex: theQuery.q, $options: 'i' } },
+        { title: { $regex: theQuery.q, $options: 'i' } }
+      ],
+    }, infoNotShow).exec()
       .then(datajson => queryResponse(datajson, res));
   } else {
     res.status(204).send('Not allowed Query');
