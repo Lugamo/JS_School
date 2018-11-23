@@ -1,13 +1,11 @@
-/* eslint-disable react/jsx-filename-extension */
-import '../../styles/mainContent.scss';
+/* eslint-disable react/prop-types */
+import React from 'react';
+import '../styles/mainContent.scss';
 
-const React = require('react');
-// const ReactDOM = require('react-dom');
-
-const TopBarContent = () => {
+const TopBarContent = ({ title }) => {
   return (
     <div className="main-top">
-      <div type="text" className="content-tittle">New Releases</div>
+      <div type="text" className="content-tittle">{title}</div>
       <div className="order-section">
         <span>Release date</span>
         <span>&ensp;|&ensp;</span>

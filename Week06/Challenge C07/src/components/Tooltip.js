@@ -1,14 +1,12 @@
 /* eslint-disable react/prop-types */
-import '../../styles/mainContent.scss';
-import Stars from './stars';
+import React from 'react';
+import '../styles/mainContent.scss';
+import Stars from './Stars';
 
-const React = require('react');
-
-
-const Tooltip = (value) => {
+const Tooltip = ({ bookData }) => {
   const {
     digital, title, author, rating, year, pages, summary,
-  } = value.props;
+  } = bookData;
   return (
     <div className="tooltiptext">
       <h1>{title}</h1>

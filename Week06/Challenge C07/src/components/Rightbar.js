@@ -1,8 +1,5 @@
-/* eslint-disable react/jsx-filename-extension */
-import '../../styles/lateralBars.scss';
-
-const React = require('react');
-// const ReactDOM = require('react-dom');
+import React from 'react';
+import '../styles/lateralBars.scss';
 
 const RightBar = () => {
   return (

@@ -1,8 +1,6 @@
-import '../../styles/header.scss';
-import userlogo from '../../../assets/images/user.png';
-
-const React = require('react');
-// const ReactDOM = require('react-dom');
+import React from 'react';
+import '../styles/header.scss';
+import userlogo from '../../assets/images/user.png';
 
 const User = () => {
   return (

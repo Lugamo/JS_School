@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import '../../styles/mainContent.scss';
-
-const React = require('react');
+import React from 'react';
+import '../styles/mainContent.scss';
 
 const Stars = (value) => {
   const stars = Math.floor(value);
