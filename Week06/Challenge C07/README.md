@@ -20,7 +20,13 @@
       npm start
       ```
 
-3. In another bash open the Challenge C07 and run:
+3. In another bash open Challenge C07 and install all the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Then run the project:
 
    ```bash
    npm run dev
