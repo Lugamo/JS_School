@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/mainContent.scss';
 
 const TopBarContent = ({ title }) => {
@@ -19,4 +19,7 @@ const TopBarContent = ({ title }) => {
   );
 };
 
+TopBarContent.propTypes = {
+  title: PropTypes.string.isRequired,
+}
 export default TopBarContent;

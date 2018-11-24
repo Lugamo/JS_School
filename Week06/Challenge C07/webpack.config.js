@@ -7,9 +7,11 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   devServer: {
     contentBase: `${__dirname}/dist`,
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -50,7 +52,7 @@ module.exports = {
         }],
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|gif)$/,
         use: [{
           loader: 'url-loader',
           options: {

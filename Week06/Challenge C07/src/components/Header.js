@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/header.scss';
 import logo from '../../assets/images/jobsity.png';
 import User from './User';
@@ -15,10 +15,10 @@ class Header extends React.Component {
     this.state = {
       sidemenuVisible: false,
     };
-    this.toogleMenu = this.toogleMenu.bind(this);
+    this.onToogleMenu = this.onToogleMenu.bind(this);
   }
 
-  toogleMenu() {
+  onToogleMenu() {
     const { sidemenuVisible } = this.state;
     this.setState({
       sidemenuVisible: !sidemenuVisible,
@@ -27,18 +27,26 @@ class Header extends React.Component {
 
   render() {
     const { sidemenuVisible } = this.state;
-    const { filterBooks } = this.props;
+    const { onfilterBooksApply } = this.props;
     return (
       <header>
-        <nav type="button" className="navbar" onClick={this.toogleMenu}><i className="fas fa-bars" /></nav>
-        <SideMenu visible={sidemenuVisible} closeMenu={this.toogleMenu} filterBooks={filterBooks} />
+        <nav type="button" className="navbar" onClick={this.onToogleMenu}><i className="fas fa-bars" /></nav>
+        <SideMenu
+          visible={sidemenuVisible}
+          closeMenu={this.onToogleMenu}
+          onfilterBooksApply={onfilterBooksApply}
+        />
+
         <div className="logo"><img src={logo} alt="jobsity-logo" /></div>
         <div className="text-tittle">Bookshelf</div>
-        <Search />
+        <Search onfilterBooksApply={onfilterBooksApply} />
         <User />
       </header>
     );
   }
-};
+}
 
+Header.propTypes = {
+  onfilterBooksApply: PropTypes.func.isRequired,
+};
 export default Header;

@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/mainContent.scss';
 import Stars from './Stars';
 
@@ -34,6 +34,10 @@ const Tooltip = ({ bookData }) => {
           }
     </div>
   );
+};
+
+Tooltip.propTypes = {
+  bookData: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default Tooltip;

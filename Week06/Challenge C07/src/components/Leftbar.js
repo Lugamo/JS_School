@@ -3,10 +3,10 @@ import React from 'react';
 import '../styles/lateralBars.scss';
 import MenuOptions from './Menuoptions';
 
-const LeftBar = ({ filterBooks }) => {
+const LeftBar = ({ onfilterBooksApply }) => {
   return (
     <aside className="left-bar">
-      <MenuOptions filterBooks={filterBooks} />
+      <MenuOptions onfilterBooksApply={onfilterBooksApply} />
     </aside>
   );
 };

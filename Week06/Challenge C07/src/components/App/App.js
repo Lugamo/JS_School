@@ -1,11 +1,10 @@
+import React from 'react';
 import '../../styles/style.scss';
 import Header from '../Header';
 import RightBar from '../Rightbar';
 import LeftBar from '../Leftbar';
 import MainContent from '../Maincontent';
 import handleResponse from '../../helpers/handleResponse';
-
-const React = require('react');
 
 class App extends React.Component {
   constructor(props) {
@@ -14,34 +13,38 @@ class App extends React.Component {
     this.state = {
       books: [],
       loading: false,
+      message: '',
       error: '',
       query: '',
       title: 'All',
     };
-    this.filterBooks = this.filterBooks.bind(this);
-    this.setTitleOfContent = this.setTitleOfContent.bind(this);
+    this.onfilterBooks = this.onfilterBooks.bind(this);
     this.getData = this.getData.bind(this);
   }
 
   componentDidMount() {
-    this.setState({ loading: true });
     this.getData();
   }
 
-  setTitleOfContent(contentTitle) {
+  onfilterBooks(filter, contentTitle) {
     this.setState({
+      query: filter,
       title: contentTitle,
+    }, () => {
+      this.getData();
     });
   }
 
   getData() {
+    this.setState({ loading: true });
     const { query } = this.state;
     const url = `http://localhost:3000/books${query}`;
     fetch(url)
       .then(response => handleResponse(response))
       .then((data) => {
         this.setState({
-          books: data,
+          books: data.books,
+          message: data.message,
           loading: false,
         });
       })
@@ -53,28 +56,25 @@ class App extends React.Component {
       });
   }
 
-  filterBooks(filter, contentTitle) {
-    this.setState({
-      query: filter,
-      title: contentTitle,
-    }, () => {
-      this.getData();
-    });
-  }
-
   render() {
     const {
       books,
       loading,
       error,
       title,
+      message,
     } = this.state;
-    // console.log(error);
     return (
       <div className="wrapper">
-        <Header filterBooks={this.filterBooks} />
-        <LeftBar filterBooks={this.filterBooks} />
-        <MainContent books={books} loading={loading} title={title} error={error} />
+        <Header onfilterBooksApply={this.onfilterBooks} />
+        <LeftBar onfilterBooksApply={this.onfilterBooks} />
+        <MainContent
+          books={books}
+          loading={loading}
+          title={title}
+          error={error}
+          message={message}
+        />
         <RightBar />
       </div>
     );

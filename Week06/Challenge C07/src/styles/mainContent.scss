@@ -10,6 +10,17 @@ $btn-dont-lend: #e46e6e;
   padding-left: 50px;
   padding-right: 50px;
 
+  .loading {
+    margin-top: 10%;
+    align-content: center;
+  }
+  .notFound {
+    text-align: center;
+    margin-top: 10%;
+    font-family: $font-stack;
+    font-size: 50px;
+  }
+
   .main-top {
     display: flex;
     justify-content: space-between;
