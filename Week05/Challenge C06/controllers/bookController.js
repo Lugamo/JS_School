@@ -7,7 +7,11 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 function queryResponse(data, res) {
-  res.status(200).send(data);
+  if (data.length === 0) {
+    res.status(200).send({ message: 'Book not found' });
+  } else {
+    res.status(200).send({ message: 'OK', books: data });
+  }
 }
 function checkBookExist(data, res) {
   if (data.length === 0) {
@@ -26,8 +30,6 @@ function checkBookExist(data, res) {
 function getBooks(req, res) {
   const infoNotShow = {
     _id: 0,
-    quantity: 0,
-    borrowed: 0,
   };
   const theQuery = req.query;
   if (Object.keys(theQuery).length === 0) {
@@ -40,7 +42,21 @@ function getBooks(req, res) {
     Book.find({ digital: theQuery.digital }, infoNotShow).exec()
       .then(datajson => queryResponse(datajson, res));
   } else if (theQuery.isbn) {
-    Book.find({ digital: theQuery.isbn }, infoNotShow).exec()
+    Book.find({ isbn: theQuery.isbn }, infoNotShow).exec()
+      .then(datajson => queryResponse(datajson, res));
+  } else if (theQuery.title) {
+    Book.find({ title: { $regex: theQuery.title, $options: 'i' } }, infoNotShow).exec()
+      .then(datajson => queryResponse(datajson, res));
+  } else if (theQuery.author) {
+    Book.find({ author: { $regex: theQuery.author, $options: 'i' } }, infoNotShow).exec()
+      .then(datajson => queryResponse(datajson, res));
+  } else if (theQuery.q) {
+    Book.find({
+      $or: [
+        { author: { $regex: theQuery.q, $options: 'i' } },
+        { title: { $regex: theQuery.q, $options: 'i' } }
+      ],
+    }, infoNotShow).exec()
       .then(datajson => queryResponse(datajson, res));
   } else {
     res.status(204).send('Not allowed Query');

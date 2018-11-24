@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const userController = require('./controllers/userController');
 const bookController = require('./controllers/bookController');
 const credentials = require('./controllers/credentialsController');
@@ -10,6 +11,10 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true,
+}));
+app.use(cors({
+  origin: 'http://localhost:8080',
+  credentials: true,
 }));
 
 // To register new users
@@ -23,22 +28,22 @@ app.post('/auth/login', (req, res) => {
 });
 
 // Get all books
-app.get('/books', credentials.verifyCredentials, (req, res) => {
+app.get('/books', (req, res) => {
   bookController.getBooks(req, res);
 });
 
 // Get book by id
-app.get('/books/:id', credentials.verifyCredentials, (req, res) => {
+app.get('/books/:id', (req, res) => {
   bookController.getBookbyId(req, res);
 });
 
 // Lend a book
-app.post('/books/:id/lend', credentials.verifyCredentials, (req, res) => {
+app.post('/books/:id/lend', (req, res) => {
   bookController.lendABook(req, res);
 });
 
 // show all lend books by user
-app.get('/user/mybooks', credentials.verifyCredentials, (req, res) => {
+app.get('/user/mybooks', (req, res) => {
   bookController.booksByUser(req, res);
 });
 
