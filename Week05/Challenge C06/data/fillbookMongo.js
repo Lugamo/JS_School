@@ -19,7 +19,7 @@ const booksIsbn = [
   '9781501175466',
   '9780375845598',
   '9780399590504',
-  '9780553380163',
+  '9780547928227',
   '9780545586177',
   '9780147515872',
   '9781400034710',
@@ -27,6 +27,27 @@ const booksIsbn = [
   '9781501138386',
   '9780765367297',
   '9781631490330',
+  '9780525540830',
+  '9780441013593',
+  '9780547928227',
+  '9780399592522',
+  '9780451491619',
+  '9781506703671',
+  '9781503904194',
+  '9781524796280',
+  '9780399593512',
+  '9781506703350',
+  '9780802119599',
+  '9781982102319',
+  '9781617293344',
+  '9780307389732',
+  '9781616550417',
+  '9780399179228',
+  '9780062874832',
+  '9781338263893',
+  '9780525478812',
+  '9781451673319',
+  '9781477848661',
 ];
 const bookObject = {
   id: '',
@@ -68,7 +89,14 @@ function getBooks() {
         const jsonNesting = myJson.items[0].volumeInfo;
         bookObject.id = uuidv4();
         bookObject.title = jsonNesting.title;
-        bookObject.author = jsonNesting.authors;
+
+        // If no author, put the publisher as an author
+        if (jsonNesting.authors) {
+          bookObject.author = jsonNesting.authors;
+        } else {
+          bookObject.author = [jsonNesting.publisher];
+        }
+
         // eslint-disable-next-line prefer-destructuring
         bookObject.year = jsonNesting.publishedDate.split('-')[0];
         bookObject.image = jsonNesting.imageLinks.thumbnail;
@@ -106,7 +134,7 @@ function getBooks() {
         });
       })
       .catch((err) => {
-        console.log(`there was a problem: ${err}`);
+        console.log(`there was a problem: ${err} --- ${isbnBook}`);
       });
   });
 }

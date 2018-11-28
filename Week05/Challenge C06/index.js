@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const userController = require('./controllers/userController');
 const bookController = require('./controllers/bookController');
-const credentials = require('./controllers/credentialsController');
+// const credentials = require('./controllers/credentialsController');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -18,12 +18,12 @@ app.use(cors({
 }));
 
 // To register new users
-app.post('/auth/register', (req, res) => {
+app.post('/users', (req, res) => {
   userController.register(req, res);
 });
 
 // To login
-app.post('/auth/login', (req, res) => {
+app.post('/token', (req, res) => {
   userController.signIn(req, res);
 });
 
@@ -42,8 +42,12 @@ app.post('/books/:id/lend', (req, res) => {
   bookController.lendABook(req, res);
 });
 
+app.post('/books/:id/delete', (req, res) => {
+  bookController.deleteABook(req, res);
+});
+
 // show all lend books by user
-app.get('/user/mybooks', (req, res) => {
+app.get('/me/books', (req, res) => {
   bookController.booksByUser(req, res);
 });
 

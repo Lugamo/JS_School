@@ -6,6 +6,10 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/bookshelf
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
+const dateBook = new Date();
+let loanBook = new Date();
+loanBook = dateBook.setDate(dateBook.getDate() + 15);
+
 const bookuserSchema = mongoose.Schema({
   user: {
     type: String,
@@ -22,9 +26,13 @@ const bookuserSchema = mongoose.Schema({
     trim: false,
     required: true,
   },
-  lendDate: {
+  loanDate: {
     type: Date,
-    default: Date.now,
+    required: false,
+    minimum: dateBook.getTime,
+    maximum: loanBook.getTime,
+    exclusivemaximum: false,
+    default: dateBook.setDate(dateBook.getDate() + 5),
   },
 });
 

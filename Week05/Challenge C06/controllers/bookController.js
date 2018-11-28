@@ -10,9 +10,21 @@ function queryResponse(data, res) {
   if (data.length === 0) {
     res.status(200).send({ message: 'Book not found' });
   } else {
-    res.status(200).send({ message: 'OK', books: data });
+    res.status(200).send(
+      {
+        message: 'OK',
+        docs: data.docs,
+        total: data.total,
+        limit: data.limit,
+        page: data.page,
+        pages: data.pages,
+        nextPage: data.page < data.pages ? `&page=${data.page + 1}` : null,
+        prevPage: data.page > 1 ? `&page=${data.page - 1}` : null,
+      },
+    );
   }
 }
+
 function checkBookExist(data, res) {
   if (data.length === 0) {
     const notFound = {
@@ -28,35 +40,45 @@ function checkBookExist(data, res) {
 
 // get the books, can be added querys to filter data, return part of the book info
 function getBooks(req, res) {
-  const infoNotShow = {
-    _id: 0,
-  };
   const theQuery = req.query;
+  let query = {};
+  const options = {
+    select: '_id',
+    page: 1,
+    limit: 15,
+  };
+
   if (Object.keys(theQuery).length === 0) {
-    Book.find({}, infoNotShow).exec()
+    Book.paginate(query, options)
       .then(datajson => queryResponse(datajson, res));
   } else if (theQuery.city) {
-    Book.find({ city: theQuery.city }, infoNotShow).exec()
+    query = { city: theQuery.city };
+    Book.paginate(query, options)
       .then(datajson => queryResponse(datajson, res));
   } else if (theQuery.digital) {
-    Book.find({ digital: theQuery.digital }, infoNotShow).exec()
+    query = { digital: theQuery.digital };
+    Book.paginate(query, options)
       .then(datajson => queryResponse(datajson, res));
   } else if (theQuery.isbn) {
-    Book.find({ isbn: theQuery.isbn }, infoNotShow).exec()
+    query = { isbn: theQuery.isbn };
+    Book.paginate(query, options)
       .then(datajson => queryResponse(datajson, res));
   } else if (theQuery.title) {
-    Book.find({ title: { $regex: theQuery.title, $options: 'i' } }, infoNotShow).exec()
+    query = { title: { $regex: theQuery.title, $options: 'i' } };
+    Book.paginate(query, options)
       .then(datajson => queryResponse(datajson, res));
   } else if (theQuery.author) {
-    Book.find({ author: { $regex: theQuery.author, $options: 'i' } }, infoNotShow).exec()
+    query = { author: { $regex: theQuery.author, $options: 'i' } };
+    Book.paginate(query, options)
       .then(datajson => queryResponse(datajson, res));
   } else if (theQuery.q) {
-    Book.find({
+    query = {
       $or: [
         { author: { $regex: theQuery.q, $options: 'i' } },
-        { title: { $regex: theQuery.q, $options: 'i' } }
+        { title: { $regex: theQuery.q, $options: 'i' } },
       ],
-    }, infoNotShow).exec()
+    };
+    Book.paginate(query, options)
       .then(datajson => queryResponse(datajson, res));
   } else {
     res.status(204).send('Not allowed Query');
@@ -82,10 +104,11 @@ function lendABook(req, res) {
       // Check if the id exist
       if (checkBookExist(result, res)) {
         // Check if the user alredy lend that book or not
-        LendUserBook.find({ user: req.user.id, book: bookID }).exec()
+        // req.user.id
+        LendUserBook.find({ user: '4e749986-1646-4852-b04c-c1ffc317dd73', book: bookID }).exec()
           .then((lend) => {
             const newLend = new LendUserBook({
-              user: req.user.id,
+              user: '4e749986-1646-4852-b04c-c1ffc317dd73',
               book: bookID,
               bookTitle: result[0].title,
             });
@@ -121,6 +144,40 @@ function lendABook(req, res) {
     });
 }
 
+function deleteABook(req, res) {
+  const bookID = req.params.id;
+  Book.find({ id: bookID }).exec()
+    .then((result) => {
+      // Check if the id exist
+      if (checkBookExist(result, res)) {
+        // Check if the user alredy lend that book or not
+        LendUserBook.find({ user: '4e749986-1646-4852-b04c-c1ffc317dd73', book: bookID }).exec()
+          .then((lend) => {
+            if (lend.length !== 0) {
+              // Save the transaction
+              console.log(lend);
+              LendUserBook.findByIdAndRemove(lend[0].id, (err) => {
+                if (err) {
+                  console.log(err);
+                } else {
+                  // And increment the borrowed field of the book
+                  Book.update(
+                    { id: bookID },
+                    { $inc: { borrowed: -1 } },
+                  ).exec();
+                  res.status(200).send({
+                    message: 'book delete from your collection!!',
+                  });
+                }
+              });
+            } else {
+              res.status(200).send({ message: 'You don\'t have copies of this book' });
+            }
+          });
+      }
+    });
+}
+
 function booksByUser(req, res) {
   const infoNotShow = {
     _id: 0,
@@ -143,4 +200,5 @@ module.exports = {
   getBookbyId,
   lendABook,
   booksByUser,
+  deleteABook,
 };
