@@ -11,6 +11,9 @@ const MainContent = ({
   title,
   message,
   error,
+  page,
+  pages,
+  location,
 }) => (
   <main className="main-content">
     <TopBarContent title={title} />
@@ -20,7 +23,7 @@ const MainContent = ({
       message={message}
       error={error}
     />
-    <BottomBarContent />
+    <BottomBarContent page={page} pages={pages} location={location} />
   </main>
 );
 

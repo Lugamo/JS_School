@@ -22,6 +22,8 @@ class App extends React.Component {
       message: '',
       error: '',
       title: 'All',
+      page: 1,
+      pages: 1,
     };
     this.getData = this.getData.bind(this);
   }
@@ -93,7 +95,6 @@ class App extends React.Component {
     this.setState({ loading: true });
     const query = Object.keys(params).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`).join('&');
     const url = `http://localhost:3000/books?${query}`;
-    console.log(url);
     fetch(url)
       .then(response => handleResponse(response))
       .then((data) => {
@@ -102,6 +103,8 @@ class App extends React.Component {
           message: data.message,
           loading: false,
           title: contentTitle,
+          page: data.page,
+          pages: data.pages,
         });
       })
       .catch((error) => {
@@ -114,13 +117,15 @@ class App extends React.Component {
 
   render() {
     // eslint-disable-next-line react/prop-types
-    const { history } = this.props;
+    const { history, location } = this.props;
     const {
       books,
       loading,
       error,
       title,
       message,
+      page,
+      pages,
     } = this.state;
     return (
       <div className="wrapper">
@@ -132,6 +137,9 @@ class App extends React.Component {
           title={title}
           error={error}
           message={message}
+          page={page}
+          pages={pages}
+          location={location}
         />
         <RightBar />
       </div>

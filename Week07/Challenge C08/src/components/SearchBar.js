@@ -15,7 +15,7 @@ class Search extends React.Component {
     if (e.key === 'Enter') {
       if (e.target.value) {
         e.preventDefault();
-        history.push(`/books/All?search=${e.target.value}&page=1`); // ('/books/All?search=the'); // (`/books/All?search=${e.target.value}`);
+        history.push(`/books/all?search=${e.target.value}&page=1`); // ('/books/All?search=the'); // (`/books/All?search=${e.target.value}`);
       } else {
         e.preventDefault();
       }

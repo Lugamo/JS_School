@@ -23,17 +23,24 @@ $btn-dont-lend: #e46e6e;
   .main-bottom {
     text-align: center;
     align-content: center;
+    margin: 10px 2px 40px 2px;
+    font-family: PlutoSansCondMedium, $font-stack;
     .pagination {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .inline {
+        display: flex;
+      }
       a {
-        color: black;
+        color: #383838;
         float: left;
         padding: 8px 16px;
         text-decoration: none;
       }
     
       a.active {
-        background-color: #4CAF50;
+        background-color: $blue-color;
         color: white;
         border-radius: 5px;
       }
