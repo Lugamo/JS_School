@@ -44,9 +44,6 @@ function getBooks(req, res) {
   const theQuery = req.query;
   const thePage = theQuery.page;
 
-  console.log(theQuery.city);
-  console.log(thePage);
-
   // Default query and options for books
   let query = {};
   const options = {
@@ -55,7 +52,7 @@ function getBooks(req, res) {
     limit: 15,
   };
 
-  if (!theQuery.city && !theQuery.digital && !theQuery.isbn && theQuery.page) {
+  if (!theQuery.city && !theQuery.digital && !theQuery.isbn && !theQuery.q && theQuery.page) {
     Book.paginate(query, options)
       .then(datajson => queryResponse(datajson, res));
   } else if (theQuery.city) {
