@@ -7,7 +7,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 function queryResponse(data, res) {
-  if (data.length === 0) {
+  if (data.docs.length === 0) {
     res.status(200).send({ message: 'Book not found' });
   } else {
     const indexPage = Number(data.page);
