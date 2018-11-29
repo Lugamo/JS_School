@@ -10,16 +10,17 @@ function queryResponse(data, res) {
   if (data.length === 0) {
     res.status(200).send({ message: 'Book not found' });
   } else {
+    const indexPage = Number(data.page);
     res.status(200).send(
       {
         message: 'OK',
         docs: data.docs,
         total: data.total,
         limit: data.limit,
-        page: data.page,
+        page: indexPage,
         pages: data.pages,
-        nextPage: data.page < data.pages ? `&page=${data.page + 1}` : null,
-        prevPage: data.page > 1 ? `&page=${data.page - 1}` : null,
+        nextPage: indexPage < data.pages ? `&page=${indexPage + 1}` : null,
+        prevPage: indexPage > 1 ? `&page=${indexPage - 1}` : null,
       },
     );
   }
@@ -41,14 +42,20 @@ function checkBookExist(data, res) {
 // get the books, can be added querys to filter data, return part of the book info
 function getBooks(req, res) {
   const theQuery = req.query;
+  const thePage = theQuery.page;
+
+  console.log(theQuery.city);
+  console.log(thePage);
+
+  // Default query and options for books
   let query = {};
   const options = {
-    select: '_id',
-    page: 1,
+    select: '-_id',
+    page: (Number(thePage) || 1),
     limit: 15,
   };
 
-  if (Object.keys(theQuery).length === 0) {
+  if (!theQuery.city && !theQuery.digital && !theQuery.isbn && theQuery.page) {
     Book.paginate(query, options)
       .then(datajson => queryResponse(datajson, res));
   } else if (theQuery.city) {
