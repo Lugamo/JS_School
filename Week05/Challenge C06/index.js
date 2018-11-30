@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const userController = require('./controllers/userController');
 const bookController = require('./controllers/bookController');
-// const credentials = require('./controllers/credentialsController');
+const credentials = require('./controllers/credentialsController');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -28,26 +28,26 @@ app.post('/token', (req, res) => {
 });
 
 // Get all books
-app.get('/books', (req, res) => {
+app.get('/books', credentials.verifyCredentials, (req, res) => {
   bookController.getBooks(req, res);
 });
 
 // Get book by id
-app.get('/books/:id', (req, res) => {
+app.get('/books/:id', credentials.verifyCredentials, (req, res) => {
   bookController.getBookbyId(req, res);
 });
 
 // Lend a book
-app.post('/books/:id/lend', (req, res) => {
+app.post('/books/:id/lend', credentials.verifyCredentials, (req, res) => {
   bookController.lendABook(req, res);
 });
 
-app.post('/books/:id/delete', (req, res) => {
+app.post('/books/:id/delete', credentials.verifyCredentials, (req, res) => {
   bookController.deleteABook(req, res);
 });
 
 // show all lend books by user
-app.get('/me/books', (req, res) => {
+app.get('/me/books', credentials.verifyCredentials, (req, res) => {
   bookController.booksByUser(req, res);
 });
 

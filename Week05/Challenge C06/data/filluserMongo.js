@@ -12,7 +12,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 function createUser(iteration) {
   const userobj = {
     id: uuidv4(),
-    username: `User-${iteration}`,
+    username: `Username-${iteration}`,
     fullname: `Full name for user-${iteration}`,
     email: `user-${iteration}@jobsity.com`,
     hash_password: bcrypt.hashSync(`pass00${iteration}`, 10),
