@@ -193,7 +193,19 @@ function booksByUser(req, res) {
       if (result.length === 0) {
         res.status(200).send({ message: 'No borrowed book yet' });
       } else {
-        res.status(200).send(result);
+        const thePage = req.query.page;
+        const arrayID = [];
+        const options = {
+          select: '-_id',
+          page: (Number(thePage) || 1),
+          limit: 15,
+        };
+        result.forEach((element) => {
+          arrayID.push(element.book);
+        });
+        const query = { id: { $in: arrayID } };
+        Book.paginate(query, options)
+          .then(datajson => queryResponse(datajson, res));
       }
     });
 }
