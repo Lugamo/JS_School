@@ -38,11 +38,11 @@ app.get('/books/:id', credentials.verifyCredentials, (req, res) => {
 });
 
 // Lend a book
-app.post('/books/:id/lend', credentials.verifyCredentials, (req, res) => {
+app.post('/books/:id/:userid', credentials.verifyCredentials, (req, res) => {
   bookController.lendABook(req, res);
 });
 
-app.post('/books/:id/delete', credentials.verifyCredentials, (req, res) => {
+app.delete('/books/:id/:userid', credentials.verifyCredentials, (req, res) => {
   bookController.deleteABook(req, res);
 });
 

@@ -95,7 +95,7 @@ function getBookbyId(req, res) {
   Book.find({ id: bookID }).exec()
     .then((result) => {
       if (checkBookExist(result, res)) {
-        queryResponse(result, res);
+        res.status(200).send(result);
       }
     });
 }
