@@ -109,10 +109,10 @@ function lendABook(req, res) {
       if (checkBookExist(result, res)) {
         // Check if the user alredy lend that book or not
         // req.user.id
-        LendUserBook.find({ user: '4e749986-1646-4852-b04c-c1ffc317dd73', book: bookID }).exec()
+        LendUserBook.find({ user: req.user.id, book: bookID }).exec()
           .then((lend) => {
             const newLend = new LendUserBook({
-              user: '4e749986-1646-4852-b04c-c1ffc317dd73',
+              user: req.user.id,
               book: bookID,
               bookTitle: result[0].title,
             });
@@ -155,7 +155,7 @@ function deleteABook(req, res) {
       // Check if the id exist
       if (checkBookExist(result, res)) {
         // Check if the user alredy lend that book or not
-        LendUserBook.find({ user: '4e749986-1646-4852-b04c-c1ffc317dd73', book: bookID }).exec()
+        LendUserBook.find({ user: req.user.id, book: bookID }).exec()
           .then((lend) => {
             if (lend.length !== 0) {
               // Save the transaction
