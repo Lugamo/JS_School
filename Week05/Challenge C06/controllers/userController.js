@@ -45,7 +45,7 @@ function signIn(req, res) {
             id: user.id,
           },
           keyword),
-          user: user.id,
+          user: user.username,
         });
       }
     }
