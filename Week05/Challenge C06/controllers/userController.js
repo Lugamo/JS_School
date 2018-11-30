@@ -38,12 +38,14 @@ function signIn(req, res) {
       if (!user.comparePassword(req.body.password, user.hash_password)) {
         res.status(401).json({ message: 'Authentication failed. Wrong password.' });
       } else {
-        return res.json({ token: jwt.sign({
-          email: user.email,
-          username: user.username,
-          id: user.id,
-        },
-        keyword),
+        return res.json({
+          token: jwt.sign({
+            email: user.email,
+            username: user.username,
+            id: user.id,
+          },
+          keyword),
+          user: user.id,
         });
       }
     }
