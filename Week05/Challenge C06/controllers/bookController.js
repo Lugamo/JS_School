@@ -185,7 +185,6 @@ function deleteABook(req, res) {
 function booksByUser(req, res) {
   const infoNotShow = {
     _id: 0,
-    book: 0,
     user: 0,
     __v: 0,
   };
