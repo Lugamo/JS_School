@@ -1,21 +1,21 @@
 import React from 'react';
 
-const AppContext = React.createContext();
+const IndexContext = React.createContext();
 
-function withAppContext(WrappedComponent) {
+function withIndexContext(WrappedComponent) {
   return class extends React.PureComponent {
     render() {
       return (
-        <AppContext.Consumer>
+        <IndexContext.Consumer>
           {value => (
             <WrappedComponent {...this.props} {...value} />
           )}
-        </AppContext.Consumer>
+        </IndexContext.Consumer>
       );
     }
   };
 }
-export default AppContext;
+export default IndexContext;
 export {
-  withAppContext,
-}
+  withIndexContext,
+};

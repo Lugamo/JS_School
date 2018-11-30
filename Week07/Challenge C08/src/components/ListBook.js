@@ -21,8 +21,9 @@ class List extends React.Component {
       i += 1;
       return (
         <div className="Book tooltip">
-          <Book bookData={book} key={`B${i}`} />
-          <Tooltip bookData={book} key={`T${i}`} />
+          <Book bookData={book} key={`B${i}`}>
+            <Tooltip bookData={book} key={`T${i}`} />
+          </Book>
         </div>
       );
     });

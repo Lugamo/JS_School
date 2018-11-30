@@ -4,8 +4,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../styles/mainContent.scss';
 
-const BottomBarContent = ({ page, pages, location }) => {
+const BottomBarContent = ({ pagination, location }) => {
   const path = location.pathname;
+  const { page, pages } = pagination;
 
   // the query without last character, ex: ?page= / ?search=the&page=
   const query = location.search.slice(0, -1);

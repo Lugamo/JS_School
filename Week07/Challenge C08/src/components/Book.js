@@ -5,7 +5,7 @@ import lendMarkFront from '../../assets/images/lend-mark.png';
 import lendMarkBack from '../../assets/images/lend-mark-back.png';
 import Stars from './Stars';
 
-const Book = ({ bookData }) => {
+const Book = ({ bookData, children }) => {
   const {
     quantity, borrowed, image, title, author, rating, city,
   } = bookData;
@@ -42,6 +42,7 @@ const Book = ({ bookData }) => {
       <p className="stars">
         {Stars(rating)}
       </p>
+      {children}
     </div>
   );
 };
