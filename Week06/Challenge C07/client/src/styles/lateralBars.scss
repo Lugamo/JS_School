@@ -1,0 +1,74 @@
+$font-stack: PlutoSansMedium, sans-serif;
+$blue-color: #6ec1e4; 
+$black-background: #231f20;
+
+.right-bar {
+  grid-area: rightSide;
+  background: $black-background;
+  color: #6ec1e4;
+
+  @media screen and (max-width: 869px)   {
+    width: 100vw;
+  }
+  
+  .rb-tittle {
+    width: 115.67px;
+    height: 17px;
+    color: #fcf8f3;
+    font-family: PlutoSansCondBold, $font-stack;
+    font-size: 12px;
+    margin-left: 34px;
+    margin-top:27px;
+  }
+  li {
+    height: 16px;
+    color: #fcf8f3ab;
+    font-family: PlutoSansCondLight, $font-stack;
+    font-size: 12px;
+    list-style-position:inside;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 30px;
+    margin-bottom: 30px;
+  }
+  li:hover {
+    cursor: pointer;
+    color:#ffffff !important;
+  }
+}
+
+.left-bar {
+  grid-area: leftSide;
+  background: $black-background;
+  color: #6ec1e4;
+
+  @media screen and (max-width: 869px)   {
+    display: none;
+  }
+
+  .lb-tittle {
+    width: 78.76px;
+    height: 17px;
+    color: #ffffff;
+    font-family: PlutoSansCondBold, $font-stack;
+    font-size: 13px;
+    margin-left: 34px;
+    margin-top:27px;
+  }
+  li {
+    width: 120px;
+    height: 19px;
+    color: #6ec1e4;
+    font-family: PlutoSansCondLight, $font-stack;
+    font-size: 13px;
+    letter-spacing: 0px;
+    list-style-type: none;
+    margin-bottom: 14px;
+    margin-left:15px;
+  }
+  li:hover {
+    cursor: pointer;
+    color: #ffffff !important;
+  }
+}

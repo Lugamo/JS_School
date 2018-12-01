@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/bookshelf');
 
@@ -76,5 +77,6 @@ const bookSchema = mongoose.Schema({
   },
 });
 
+bookSchema.plugin(mongoosePaginate);
 const Book = mongoose.model('Book', bookSchema);
 module.exports = Book;
