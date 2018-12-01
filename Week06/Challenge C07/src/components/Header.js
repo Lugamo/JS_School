@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import '../styles/header.scss';
 import logo from '../../assets/images/jobsity.png';
 import User from './User';
-import Search from './Searchbar';
-import SideMenu from './Sidemenu';
+import Search from './SearchBar';
+import SideMenu from './SideMenu';
 
 class Header extends React.Component {
   constructor(props) {
@@ -18,6 +18,7 @@ class Header extends React.Component {
     this.onToogleMenu = this.onToogleMenu.bind(this);
   }
 
+  // Show the side bar menu on click
   onToogleMenu() {
     const { sidemenuVisible } = this.state;
     this.setState({
@@ -27,19 +28,19 @@ class Header extends React.Component {
 
   render() {
     const { sidemenuVisible } = this.state;
-    const { onfilterBooksApply } = this.props;
+    const { onFilterBooksApply } = this.props;
     return (
       <header>
         <nav type="button" className="navbar" onClick={this.onToogleMenu}><i className="fas fa-bars" /></nav>
         <SideMenu
           visible={sidemenuVisible}
           closeMenu={this.onToogleMenu}
-          onfilterBooksApply={onfilterBooksApply}
+          onFilterBooksApply={onFilterBooksApply}
         />
 
         <div className="logo"><img src={logo} alt="jobsity-logo" /></div>
         <div className="text-tittle">Bookshelf</div>
-        <Search onfilterBooksApply={onfilterBooksApply} />
+        <Search onFilterBooksApply={onFilterBooksApply} />
         <User />
       </header>
     );
@@ -47,6 +48,6 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  onfilterBooksApply: PropTypes.func.isRequired,
+  onFilterBooksApply: PropTypes.func.isRequired,
 };
 export default Header;

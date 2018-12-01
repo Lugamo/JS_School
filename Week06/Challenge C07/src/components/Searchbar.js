@@ -9,11 +9,12 @@ class Search extends React.Component {
   }
 
   Searchbook(e) {
-    const { onfilterBooksApply } = this.props;
+    const { onFilterBooksApply } = this.props;
+    // When Key Enter is press and searchbar is not empty -> change the query
     if (e.key === 'Enter') {
       if (e.target.value) {
         e.preventDefault();
-        onfilterBooksApply(`?q=${e.target.value}`, 'Found Books');
+        onFilterBooksApply(`?q=${e.target.value}`, 'Found Books');
       } else {
         e.preventDefault();
       }
@@ -32,7 +33,7 @@ class Search extends React.Component {
 }
 
 Search.propTypes = {
-  onfilterBooksApply: PropTypes.func.isRequired,
+  onFilterBooksApply: PropTypes.func.isRequired,
 };
 
 export default Search;

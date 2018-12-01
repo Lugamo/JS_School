@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/mainContent.scss';
 import loadgif from '../../assets/images/loading.gif';
-import BookTooltip from './Booktooltip';
+import Book from './Book';
+import Tooltip from './Tooltip';
 
 class List extends React.Component {
   constructor(props) {
@@ -15,16 +16,21 @@ class List extends React.Component {
   renderList() {
     const { books } = this.props;
     let i = 0;
+    // for every book in JSON array, render the component
     return books.map((book) => {
       i += 1;
       return (
-        <BookTooltip bookData={book} key={i} />
+        <div className="Book tooltip">
+          <Book bookData={book} key={`B${i}`} />
+          <Tooltip bookData={book} key={`T${i}`} />
+        </div>
       );
     });
   }
 
   render() {
     const { loading, error, message } = this.props;
+    // While fetch all the data, show a loading gif
     if (loading) {
       return (
         <div className="mainBooks">
@@ -32,9 +38,11 @@ class List extends React.Component {
         </div>
       );
     }
+    // Show any error
     if (error) {
       return <div>{error}</div>;
     }
+    // If the fetch is complete but response a empty array
     if (message !== 'OK') {
       return (
         <div className="mainBooks">
@@ -42,6 +50,7 @@ class List extends React.Component {
         </div>
       );
     }
+    // Everything ok, show all books
     return (
       <div className="mainBooks">
         {this.renderList()}

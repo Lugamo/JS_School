@@ -12,19 +12,25 @@ class MenuOptions extends React.Component {
     this.Booksby = this.Booksby.bind(this);
   }
 
+  // onClick apply onFilterbooks (change the query value/state)
   Booksby(location, title) {
     return () => {
-      const { onfilterBooksApply } = this.props;
+      const { onFilterBooksApply } = this.props;
       const { closeMenu } = this.props;
+      /**
+       * Check if closeMenu is a prop
+       * this component have two parents. One send closeMenu prop, other one NOT
+       * */
       if (closeMenu) {
         closeMenu();
       }
-      onfilterBooksApply(location, title);
+      onFilterBooksApply(location, title);
     };
   }
 
   render() {
     return (
+      // NavLinks to apply styles in React Router Links
       <div>
         <div type="text" className="lb-tittle">MAIN</div>
         <ul className="fa-ul">
@@ -63,7 +69,7 @@ class MenuOptions extends React.Component {
 }
 
 MenuOptions.propTypes = {
-  onfilterBooksApply: PropTypes.func.isRequired,
+  onFilterBooksApply: PropTypes.func.isRequired,
   closeMenu: PropTypes.func,
 };
 

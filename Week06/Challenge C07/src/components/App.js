@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../styles/style.scss';
-import Header from '../Header';
-import RightBar from '../Rightbar';
-import LeftBar from '../Leftbar';
-import MainContent from '../Maincontent';
-import handleResponse from '../../helpers/handleResponse';
+import '../styles/style.scss';
+import Header from './Header';
+import RightBar from './RightBar';
+import LeftBar from './LeftBar';
+import MainContent from './MainContent';
+import handleResponse from '../helpers/handleResponse';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class App extends React.Component {
       query: '',
       title: 'All',
     };
-    this.onfilterBooks = this.onfilterBooks.bind(this);
+    this.onFilterBooks = this.onFilterBooks.bind(this);
     this.getData = this.getData.bind(this);
   }
 
@@ -26,7 +26,8 @@ class App extends React.Component {
     this.getData();
   }
 
-  onfilterBooks(filter, contentTitle) {
+  // Change state of query, therefore, change the data that server response
+  onFilterBooks(filter, contentTitle) {
     this.setState({
       query: filter,
       title: contentTitle,
@@ -35,6 +36,7 @@ class App extends React.Component {
     });
   }
 
+  // Get requesto to the API to get all the books or filter ones by querystrings
   getData() {
     this.setState({ loading: true });
     const { query } = this.state;
@@ -66,8 +68,8 @@ class App extends React.Component {
     } = this.state;
     return (
       <div className="wrapper">
-        <Header onfilterBooksApply={this.onfilterBooks} />
-        <LeftBar onfilterBooksApply={this.onfilterBooks} />
+        <Header onFilterBooksApply={this.onFilterBooks} />
+        <LeftBar onFilterBooksApply={this.onFilterBooks} />
         <MainContent
           books={books}
           loading={loading}

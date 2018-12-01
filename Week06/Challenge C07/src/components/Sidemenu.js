@@ -3,16 +3,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/header.scss';
-import MenuOptions from './Menuoptions';
+import MenuOptions from './MenuOptions';
 
-const SideMenu = ({ visible, closeMenu, onfilterBooksApply }) => {
+const SideMenu = ({ visible, closeMenu, onFilterBooksApply }) => {
   return (
     <div style={{ width: visible ? 250 : 0 }} className="side-nav">
       <div className="btn-close" onClick={closeMenu}>
         <i className="fas fa-chevron-left" />
         Back
       </div>
-      <MenuOptions onfilterBooksApply={onfilterBooksApply} closeMenu={closeMenu} />
+      <MenuOptions onFilterBooksApply={onFilterBooksApply} closeMenu={closeMenu} />
     </div>
   );
 };
@@ -20,7 +20,7 @@ const SideMenu = ({ visible, closeMenu, onfilterBooksApply }) => {
 SideMenu.propTypes = {
   visible: PropTypes.bool.isRequired,
   closeMenu: PropTypes.func.isRequired,
-  onfilterBooksApply: PropTypes.func.isRequired,
+  onFilterBooksApply: PropTypes.func.isRequired,
 };
 
 export default SideMenu;

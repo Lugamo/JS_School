@@ -33,8 +33,10 @@ const Book = ({ bookData }) => {
       <p className="author-name">{author[0]}</p>
       {city
         ? (
+          // If the book have a city
           <p className="author-name">{city}</p>
         ) : (
+          // If the city of the book=null
           <p className="author-name">Digital</p>
         )}
       <p className="stars">

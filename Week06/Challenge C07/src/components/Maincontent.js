@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import '../styles/mainContent.scss';
-import TopBarContent from './Topbarcontent';
-import List from './listbook';
+import TopBarContent from './TopBarContent';
+import List from './ListBook';
 
 const MainContent = ({
   books,
