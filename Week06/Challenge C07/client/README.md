@@ -4,7 +4,7 @@
 
 1. Run the MongoDB shell.
 
-2. Open the Project of the Challenge C06.
+2. Open the Project of the folder "server".
 
    1. Run the following command to populate the Database.
 
@@ -20,7 +20,7 @@
       npm start
       ```
 
-3. In another bash open Challenge C07 and install all the dependencies:
+3. In another bash open the folder "client" and install all the dependencies:
 
    ```bash
    npm install
