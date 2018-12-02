@@ -8,7 +8,10 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const dateBook = new Date();
 let loanBook = new Date();
+let defaultDate = new Date();
 loanBook = dateBook.setDate(dateBook.getDate() + 15);
+defaultDate = dateBook.setDate(dateBook.getDate() + 5);
+
 
 const bookuserSchema = mongoose.Schema({
   user: {
@@ -32,7 +35,7 @@ const bookuserSchema = mongoose.Schema({
     minimum: dateBook.getTime,
     maximum: loanBook.getTime,
     exclusivemaximum: false,
-    default: dateBook.setDate(dateBook.getDate() + 5),
+    default: defaultDate.getTime,
   },
 });
 

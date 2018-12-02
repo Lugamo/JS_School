@@ -52,7 +52,7 @@ Authenticated: Bearer token
 NOTE: All POST requests must be sent using x-www-form-urlencoded.
 ```
 
-##### Create a user ( POST: /auth/register ):
+##### Create a user ( POST: /register ):
 
 To create an user we need to send in the body of the request: fullname, username, email and the password:
 
@@ -73,7 +73,7 @@ If everything is ok we will receive the data about the user:
 }
 ```
 
-##### Login an user ( POST: /auth/login )
+##### Login an user ( POST: /token )
 
 To login we need to send in the body of the request the email and the password of the user, you can use one of the test users or the recently created.
 
@@ -105,7 +105,7 @@ To use this endpoint we need to send the token, this endpoint will show all the 
 
 ![Login](./Images-for-Readme/BookbyID.JPG)
 
-##### Lend a book ( POST: /books/:id/lend )
+##### Lend a book ( POST: /books/:id/user )
 
 The users can lend books, there are two categories of books:
 
@@ -133,7 +133,7 @@ If everything is ok, you could receive one of the following messages:
 }
 ```
 
-##### Show all books by user ( GET: /user/mybooks )
+##### Show all books by user ( GET: /me/books )
 
 Show all the books borrowed by the user:
 
