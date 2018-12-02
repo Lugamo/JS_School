@@ -27,7 +27,7 @@ class Header extends React.Component {
 
   render() {
     // eslint-disable-next-line react/prop-types
-    const { history } = this.props;
+    const { history, user } = this.props;
     const { sidemenuVisible } = this.state;
     return (
       <header>
@@ -40,7 +40,7 @@ class Header extends React.Component {
         <div className="logo"><img src={logo} alt="jobsity-logo" /></div>
         <div className="text-tittle">Bookshelf</div>
         <Search history={history} />
-        <User />
+        <User user={user} />
       </header>
     );
   }

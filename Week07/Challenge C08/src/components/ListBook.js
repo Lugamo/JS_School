@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/mainContent.scss';
@@ -21,9 +20,8 @@ class List extends React.Component {
       i += 1;
       return (
         <div className="Book tooltip">
-          <Book bookData={book} key={`B${i}`}>
-            <Tooltip bookData={book} key={`T${i}`} />
-          </Book>
+          <Book bookData={book} key={`B${i}`} />
+          <Tooltip bookData={book} key={`T${i}`} />
         </div>
       );
     });

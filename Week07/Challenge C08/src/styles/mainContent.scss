@@ -10,6 +10,45 @@ $btn-dont-lend: #e46e6e;
   padding-left: 50px;
   padding-right: 50px;
 
+  .detailTitle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #000000;
+    font-family: PlutoSansMedium;
+    font-size: 25px;
+  }
+
+  .detailImageSummary {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .imageBox {
+      .detailCover {
+        width: 187px;
+        height: 264px;
+        border-radius: 2%;
+      }
+    }
+    .summaryBox {
+      
+      p {
+        margin-left: 10px;
+        max-height:205px;
+        max-width: 550px;
+        display: -webkit-box;
+        -webkit-line-clamp: 10;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-family: PlutoSansCondLight;
+        color: #000000;
+      }
+      .stars {
+        color: $blue-color;
+      }
+    }
+  }
+
   .loading {
     margin-top: 10%;
     align-content: center;

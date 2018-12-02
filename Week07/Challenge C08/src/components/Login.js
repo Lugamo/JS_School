@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/style.scss';
 import { NavLink } from 'react-router-dom';
 import { withIndexContext } from './IndexContext';
@@ -28,14 +29,15 @@ class Login extends React.Component {
   }
 
   handleLog() {
-    const { updateUser } = this.props;
+    const { updateUser, history } = this.props;
     const url = 'http://localhost:3000/token';
     const { email, password } = this.state;
     const data = `email=${email}&password=${password}`;
+    const { state } = this.props.location;
 
     fetch(url, {
-      method: 'POST', // or 'PUT'
-      body: data, // data can be `string` or {object}!
+      method: 'POST',
+      body: data,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
@@ -43,7 +45,14 @@ class Login extends React.Component {
       .catch(error => console.error('Error:', error))
       .then((response) => {
         if (response.token) {
-          updateUser(response.token);
+          updateUser(response.token, response.user);
+          if (state) {
+            const { pathname, search } = state.prevLocation.location;
+            const prevLocation = `${pathname}${search}`;
+            history.push(prevLocation);
+          } else {
+            history.push('/books/all?page=1');
+          }
         } else {
           this.setState({
             credentials: false,
@@ -73,7 +82,7 @@ class Login extends React.Component {
         <p className="login-lost">
           Not an user?
           {' '}
-          <NavLink to="/">
+          <NavLink to="/login">
             Register now
           </NavLink>
         </p>
@@ -89,5 +98,11 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  updateUser: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
+  location: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default withIndexContext(Login);
