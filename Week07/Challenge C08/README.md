@@ -44,7 +44,3 @@
 
    Project: http://localhost:8080/
 
-Run the MongoDB shell.
-
-Open the project of the folder "Challenge C06"
-
