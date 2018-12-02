@@ -106,6 +106,7 @@ function getBookbyId(req, res) {
 // lend a book and get it in your collection
 function lendABook(req, res) {
   const bookID = req.params.id;
+  const theloanDate = req.body.loanDate;
   Book.find({ id: bookID }).exec()
     .then((result) => {
       // Check if the id exist
@@ -118,6 +119,7 @@ function lendABook(req, res) {
               user: req.user.id,
               book: bookID,
               bookTitle: result[0].title,
+              loanDate: theloanDate,
             });
             if (lend.length === 0) {
               /**
@@ -169,7 +171,6 @@ function deleteABook(req, res) {
           .then((lend) => {
             if (lend.length !== 0) {
               // Save the transaction
-              console.log(lend);
               LendUserBook.findByIdAndRemove(lend[0].id, (err) => {
                 if (err) {
                   console.log(err);
