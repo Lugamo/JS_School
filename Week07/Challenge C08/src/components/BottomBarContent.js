@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import '../styles/mainContent.scss';
 
@@ -37,6 +37,11 @@ const BottomBarContent = ({ pagination, location }) => {
     }
     </div>
   );
+};
+
+BottomBarContent.propTypes = {
+  pagination: PropTypes.objectOf(PropTypes.any).isRequired,
+  location: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default BottomBarContent;

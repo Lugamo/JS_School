@@ -1,35 +1,50 @@
-# Challenge C07
+# Challenge C08
 
 ### Instructions
 
 1. Run the MongoDB shell.
 
-2. Open the Project of the Challenge C06.
+2. Open the project folder of "/Week05/Challenge C06"
 
-   1. Run the following command to populate the Database.
+   1. If you use this project before run this command to delete old data. if it is not like that you can skip this step.
+
+      ```bash
+      npm run delete
+      ```
+
+   2. Install new dependencies
+
+      ```bash
+      npm install
+      ```
+
+   3. Run the following command to populate the database, some values like city, borrowed or quantity are randomly generated, the other ones come from the Google books API.
 
       ```bash
       npm run fill
       ```
 
-      **Note**: This command don't erase the previous data, therefore, if you already run this script in previous challenge, you can jump this step.
-
-   2. Start the API.
+   4. Start the API.
 
       ```bash
       npm start
       ```
 
-3. In another bash open Challenge C07 and install all the dependencies:
+3. In another bash open the project "Challenge C08" and install the dependecies
 
    ```bash
    npm install
    ```
 
-4. Then run the project:
+4. Then run the project.
 
    ```bash
    npm run dev
    ```
 
-   Project: <http://localhost:8080/>
+   Project: http://localhost:8080/
+
+Run the MongoDB shell.
+
+Open the project of the folder "Challenge C06"
+

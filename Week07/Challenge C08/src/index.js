@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import {
   BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
-import FakeApp from './components/FakeApp';
+import App from './components/App';
 import Notfound from './components/NotFound';
 import Login from './components/Login';
 import IndexContext from './components/IndexContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 class Index extends React.Component {
   constructor(props) {
@@ -16,14 +17,16 @@ class Index extends React.Component {
       password: null,
       isLoggedIn: false,
       token: null,
+      user: null,
     };
     this.updateUser = this.updateUser.bind(this);
   }
 
-  updateUser(tok) {
+  updateUser(tok, username) {
     this.setState({
       isLoggedIn: true,
       token: tok,
+      user: username,
     });
   }
 
@@ -33,7 +36,9 @@ class Index extends React.Component {
       password,
       isLoggedIn,
       token,
+      user,
     } = this.state;
+    // Using Context to pass the user data between login and books routes
     return (
       <IndexContext.Provider
         value={{
@@ -41,13 +46,25 @@ class Index extends React.Component {
           password,
           isLoggedIn,
           token,
+          user,
           updateUser: this.updateUser,
         }}
       >
         <BrowserRouter>
           <Switch>
             <Route path="/" exact render={() => (<Redirect to="/books/all?page=1" />)} />
-            <Route path="/books/:location" component={FakeApp} exact />
+            <ProtectedRoute
+              path="/books/:location"
+              loggedIn={isLoggedIn}
+              component={App}
+              exact
+            />
+            <ProtectedRoute
+              path="/books/detail/:bookid"
+              loggedIn={isLoggedIn}
+              component={App}
+              exact
+            />
             <Route path="/login" component={Login} exact />
             <Route component={Notfound} />
           </Switch>
@@ -55,7 +72,6 @@ class Index extends React.Component {
       </IndexContext.Provider>
     );
   }
-  // Redirect "/" to main page or Notfound component for strange urls
 }
 
 ReactDOM.render(

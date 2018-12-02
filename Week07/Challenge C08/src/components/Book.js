@@ -1,50 +1,68 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withAppContext } from './AppContext';
 import '../styles/mainContent.scss';
 import lendMarkFront from '../../assets/images/lend-mark.png';
 import lendMarkBack from '../../assets/images/lend-mark-back.png';
 import Stars from './Stars';
 
-const Book = ({ bookData, children }) => {
-  const {
-    quantity, borrowed, image, title, author, rating, city,
-  } = bookData;
-  return (
-    <div>
-      <div className="image-container">
-        <img className="cover" src={image} alt={title} />
-        <button type="button" className="btn-read">
-          <i className="fas fa-book-open" />
-        </button>
-        {quantity
-          && [
-            (borrowed >= quantity
-              && (
-                <div>
-                  <img src={lendMarkFront} className="lend-mark" alt="Book Mark" />
-                  <img src={lendMarkBack} className="lend-mark-back" alt="Book Mark" />
-                </div>
-              )
-            ),
-          ]
-        }
-      </div>
-      <p className="book-name">{title}</p>
-      <p className="author-name">{author[0]}</p>
-      {city
-        ? (
-          // If the book have a city
-          <p className="author-name">{city}</p>
-        ) : (
-          // If the city of the book=null
-          <p className="author-name">Digital</p>
-        )}
-      <p className="stars">
-        {Stars(rating)}
-      </p>
-      {children}
-    </div>
-  );
-};
+class Book extends React.Component {
+  constructor(props) {
+    super(props);
+    this.goBook = this.goBook.bind(this);
+  }
 
-export default Book;
+  // eslint-disable-next-line class-methods-use-this
+  goBook(bookID) {
+    const { thehistory } = this.props;
+    thehistory.push(`/books/detail/${bookID}`);
+  }
+
+  render() {
+    const { bookData } = this.props;
+    const {
+      quantity, borrowed, image, title, author, rating, city, id,
+    } = bookData;
+    return (
+      <div>
+        <div className="image-container">
+          <img className="cover" src={image} alt={title} />
+          <button type="button" className="btn-read" onClick={() => this.goBook(id)}>
+            <i className="fas fa-book-open" />
+          </button>
+          {quantity
+            && [
+              (borrowed >= quantity
+                && (
+                  <div>
+                    <img src={lendMarkFront} className="lend-mark" alt="Book Mark" />
+                    <img src={lendMarkBack} className="lend-mark-back" alt="Book Mark" />
+                  </div>
+                )
+              ),
+            ]
+          }
+        </div>
+        <p className="book-name">{title}</p>
+        <p className="author-name">{author[0]}</p>
+        {city
+          ? (
+            // If the book have a city
+            <p className="author-name">{city}</p>
+          ) : (
+            // If the city of the book=null
+            <p className="author-name">Digital</p>
+          )}
+        <p className="stars">
+          {Stars(rating)}
+        </p>
+      </div>
+    );
+  }
+}
+
+Book.propTypes = {
+  bookData: PropTypes.objectOf(PropTypes.any).isRequired,
+  thehistory: PropTypes.objectOf(PropTypes.any).isRequired,
+};
+export default withAppContext(Book);

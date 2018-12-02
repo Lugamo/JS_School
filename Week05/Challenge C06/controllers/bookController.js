@@ -118,6 +118,7 @@ function lendABook(req, res) {
               user: req.user.id,
               book: bookID,
               bookTitle: result[0].title,
+              loanDate: req.body.loanDate,
             });
             if (lend.length === 0) {
               /**
@@ -136,15 +137,22 @@ function lendABook(req, res) {
                       { $inc: { borrowed: 1 } },
                     ).exec();
                     res.status(200).send({
+                      status: 'OK',
                       message: 'book added to your collection!!',
                     });
                   }
                 });
               } else {
-                res.status(200).send({ message: 'No more copies of this book to lend' });
+                res.status(200).send({
+                  status: 'BAD',
+                  message: 'No more copies of this book to lend',
+                });
               }
             } else {
-              res.status(200).send({ message: 'This book is alredy yours' });
+              res.status(200).send({
+                status: 'BAD',
+                message: 'This book is alredy yours',
+              });
             }
           });
       }
@@ -162,7 +170,6 @@ function deleteABook(req, res) {
           .then((lend) => {
             if (lend.length !== 0) {
               // Save the transaction
-              console.log(lend);
               LendUserBook.findByIdAndRemove(lend[0].id, (err) => {
                 if (err) {
                   console.log(err);

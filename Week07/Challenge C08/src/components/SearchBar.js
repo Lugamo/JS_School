@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/header.scss';
 
 class Search extends React.Component {
@@ -9,7 +10,6 @@ class Search extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   Searchbook(e) {
-    // eslint-disable-next-line react/prop-types
     const { history } = this.props;
     // When Key Enter is press and searchbar is not empty -> change the query
     if (e.key === 'Enter') {
@@ -32,5 +32,9 @@ class Search extends React.Component {
     );
   }
 }
+
+Search.propTypes = {
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default Search;
