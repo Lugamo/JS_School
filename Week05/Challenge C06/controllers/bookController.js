@@ -136,15 +136,22 @@ function lendABook(req, res) {
                       { $inc: { borrowed: 1 } },
                     ).exec();
                     res.status(200).send({
+                      status: 'OK',
                       message: 'book added to your collection!!',
                     });
                   }
                 });
               } else {
-                res.status(200).send({ message: 'No more copies of this book to lend' });
+                res.status(200).send({
+                  status: 'BAD',
+                  message: 'No more copies of this book to lend',
+                });
               }
             } else {
-              res.status(200).send({ message: 'This book is alredy yours' });
+              res.status(200).send({
+                status: 'BAD',
+                message: 'This book is alredy yours',
+              });
             }
           });
       }
