@@ -10,13 +10,6 @@ function doLogin({ email, password }) {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     }).then(res => res.json())
-      .catch(error => {
-        dispatch({
-          type: 'LOGIN_FAILURE',
-          payload: {},
-          error: error.toString(),
-        });
-      })
       .then((response) => {
         if (response.token) {
           dispatch({
@@ -33,6 +26,13 @@ function doLogin({ email, password }) {
             error: response.message.toString(),
           });
         }
+      })
+      .catch(error => {
+        dispatch({
+          type: 'LOGIN_FAILURE',
+          payload: {},
+          error: error.toString(),
+        });
       });
   }
 }

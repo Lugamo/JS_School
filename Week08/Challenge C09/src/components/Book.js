@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withAppContext } from './AppContext';
 import lendMarkFront from '../assets/images/lend-mark.png';
 import lendMarkBack from '../assets/images/lend-mark-back.png';
 import Stars from './Stars';
@@ -33,7 +32,7 @@ class Book extends React.Component {
             && [
               (borrowed >= quantity
                 && (
-                  <div>
+                  <div key={`${id}-lendImage`}>
                     <img src={lendMarkFront} className="lend-mark" alt="Book Mark" />
                     <img src={lendMarkBack} className="lend-mark-back" alt="Book Mark" />
                   </div>

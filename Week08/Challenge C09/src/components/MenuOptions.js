@@ -51,7 +51,7 @@ class MenuOptions extends React.Component {
               <i className="fa-li fas fa-tablet-alt" />
               <NavLink to="/books/digital?page=1" activeStyle={{ color: 'white' }}>Digital</NavLink>
             </li>
-            <li>
+            <li onClick={this.booksBy()}>
               <i className="fa-li fas fa-user-tag" />
               <NavLink to="/books/me?page=1" activeStyle={{ color: 'white' }}>Personal Loans</NavLink>
             </li>

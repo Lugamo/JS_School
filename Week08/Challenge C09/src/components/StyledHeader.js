@@ -152,7 +152,7 @@ const theNavBar = ({ classes, children, ...rest }) => (
 
 const theLogo = ({ classes, children, ...rest }) => (
   <div className={classes.myLogo}>
-    <img {...rest} />
+    <img {...rest} alt='Jobsity-logo'/>
   </div>
 );
 
@@ -166,7 +166,7 @@ const theUser = ({ classes, children, ...rest }) => (
   <div className={classes.myUser}>
     {children}
     <i className="fas fa-caret-down" />
-    <img className={classes.myProfilePhoto} {...rest} />
+    <img className={classes.myProfilePhoto} {...rest} alt='user-account-ph' />
   </div>
 );
 

@@ -12,13 +12,6 @@ function getDataBook( params = {}, endpoint, token ) {
         Authorization: `Bearer ${token}`,
       },
     }).then(res => res.json())
-      .catch(error => {
-        dispatch({
-          type: 'BOOK_FAILURE',
-          payload: {},
-          error: error.message.toString(),
-        });
-      })
       .then(response => {
         dispatch({
           type: 'BOOK_SUCCESS',
@@ -30,6 +23,13 @@ function getDataBook( params = {}, endpoint, token ) {
               pages: response.pages,
             },
           }
+        });
+      })
+      .catch(error => {
+        dispatch({
+          type: 'BOOK_FAILURE',
+          payload: {},
+          error: error.message.toString(),
         });
       });
   }

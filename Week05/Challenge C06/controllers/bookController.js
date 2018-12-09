@@ -106,7 +106,7 @@ function getBookbyId(req, res) {
 // lend a book and get it in your collection
 function lendABook(req, res) {
   const bookID = req.params.id;
-  Book.find({ id: bookID }).exec()
+  const trasactionDate = new Date();  Book.find({ id: bookID }).exec()
     .then((result) => {
       // Check if the id exist
       if (checkBookExist(result, res)) {
@@ -139,6 +139,7 @@ function lendABook(req, res) {
                     res.status(200).send({
                       status: 'OK',
                       message: 'book added to your collection!!',
+                      trasactionDate: trasactionDate.getTime,
                     });
                   }
                 });
@@ -146,12 +147,14 @@ function lendABook(req, res) {
                 res.status(200).send({
                   status: 'BAD',
                   message: 'No more copies of this book to lend',
+                  transactionDate: trasactionDate.getTime(),
                 });
               }
             } else {
               res.status(200).send({
                 status: 'BAD',
                 message: 'This book is alredy yours',
+                transactionDate: trasactionDate.getTime(),
               });
             }
           });

@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as userActions from '../actions/bookActions';
+import * as loanActions from '../actions/loanActions';
 import { withRouter } from 'react-router-dom'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -27,8 +28,6 @@ class BookDetail extends React.Component {
     this.state = {
       startDate: new Date(),
       loanComplete: false,
-      loanMessage: 'default',
-      loanStatus: 'BAD',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleLoan = this.handleLoan.bind(this);
@@ -40,6 +39,16 @@ class BookDetail extends React.Component {
     getDataBook({}, `/books/${match.params.bookid}`, '', history);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { transactionDate } = this.props.loan;
+
+    if (transactionDate !== nextProps.loan.transactionDate) {
+      this.setState({
+        loanComplete: true,
+      })
+    }
+  }
+
   handleChange(date) {
     this.setState({
       startDate: date,
@@ -48,37 +57,18 @@ class BookDetail extends React.Component {
 
   // onClick make a post request to server to loan a book
   handleLoan() {
-    const { match } = this.props;
+    const { match, doLoan } = this.props;
     const { token } = this.props.user;
     const { startDate } = this.state;
-    const url = `http://localhost:3001/books/${match.params.bookid}/user`;
-    const data = `loanDate=${startDate.getTime()}`;
-    fetch(url, {
-      method: 'POST',
-      body: data,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Bearer ${token}`,
-      },
-    }).then(res => res.json())
-      .catch(error => console.error('Error:', error))
-      .then((response) => {
-        this.setState({
-          loanStatus: response.status,
-          loanMessage: response.message,
-          loanComplete: true,
-        });
-      });
+
+    doLoan(match.params.bookid, startDate, token);
   }
 
   render() {
     const { loading, books, message } = this.props.book;
-    const {
-      loanComplete,
-      startDate,
-      loanMessage,
-      loanStatus,
-    } = this.state;
+    const { loanComplete, startDate } = this.state;
+    const { loanMessage, loanStatus } = this.props.loan;
+
     if (loading) {
       return (
         <ThemeProvider theme={theme}>
@@ -161,18 +151,28 @@ class BookDetail extends React.Component {
                       <p>{loanMessage}</p>
                     </div>
                   ) : (
-                    <div className="picker" key={`${books[0].id}-picker`}>
-                      <p>Please select the day to return the book:</p>
-                      <DatePicker
-                        inline
-                        selected={startDate}
-                        onChange={this.handleChange}
-                        minDate={new Date()}
-                        maxDate={addDays(new Date(), 15)}
-                      />
-                      <br />
-                      <button type="button" onClick={this.handleLoan}>Borrow Book</button>
-                    </div>
+                    (books[0].digital
+                      ? ( 
+                        <div className="picker" key={`${books[0].id}-picker`}>
+                          <p>This book is digital, once you request it you will get it forever</p>
+                          <br />
+                          <button type="button" onClick={this.handleLoan}>Borrow Book</button>
+                        </div>
+                      ) : (
+                        <div className="picker" key={`${books[0].id}-picker`}>
+                          <p>Please select the day to return the book:</p>
+                          <DatePicker
+                            inline
+                            selected={startDate}
+                            onChange={this.handleChange}
+                            minDate={new Date()}
+                            maxDate={addDays(new Date(), 15)}
+                          />
+                          <br />
+                          <button type="button" onClick={this.handleLoan}>Borrow Book</button>
+                        </div>
+                      )
+                    )
                   )
                 ),
               ] : [
@@ -203,12 +203,13 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     book: state.book,
+    loan: state.loan,
   };
 };
 
 // get the actions 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(userActions, dispatch);
+  return bindActionCreators({ ...userActions, ...loanActions}, dispatch);
 }
 
 // Ask about how to do this without using mapStateToProps
