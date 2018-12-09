@@ -22,15 +22,15 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "jsonwebtoken": "^8.4.0",
-    "mongodb": "^3.1.10",
-    "mongoose": "^5.3.15",
+    "jsonwebtoken": "^8.3.0",
+    "mongodb": "^3.1.9",
+    "mongoose": "^5.3.12",
     "mongoose-paginate": "^5.0.3",
     "node-fetch": "^2.3.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0",
+    "concurrently": "^4.0.1",
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0"
