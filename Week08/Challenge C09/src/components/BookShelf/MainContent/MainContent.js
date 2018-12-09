@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as bookActions from '../actions/bookActions';
 import queryString from 'query-string';
 import {ThemeProvider} from 'react-jss';
+
+import * as bookActions from '../../../actions/bookActions';
 import BottomBarContent from './BottomBarContent';
 import List from './ListBook';
 import * as Style from './StyledMainContent';
-import theme from './Theme';
+import theme from '../../Theme';
 
 const capitalize = (s) => {
   if (typeof s !== 'string') return '';

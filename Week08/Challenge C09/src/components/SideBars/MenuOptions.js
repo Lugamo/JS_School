@@ -4,9 +4,10 @@
 import React, {Fragment} from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import * as Style from './StyledSideBars';
 import {ThemeProvider} from 'react-jss';
-import theme from './Theme';
+
+import * as Style from './StyledSideBars';
+import theme from '../Theme';
 
 class MenuOptions extends React.Component {
   constructor(props) {

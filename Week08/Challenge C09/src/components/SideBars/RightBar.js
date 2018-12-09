@@ -1,7 +1,8 @@
 import React from 'react';
-import * as Style from './StyledSideBars';
 import {ThemeProvider} from 'react-jss';
-import theme from './Theme';
+
+import * as Style from './StyledSideBars';
+import theme from '../Theme';
 
 const RightBar = () => (
   <ThemeProvider theme={theme}>

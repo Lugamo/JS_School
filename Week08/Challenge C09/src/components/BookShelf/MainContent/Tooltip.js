@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import '../styles/mainContent.scss';
 import Stars from './Stars';
 
 const Tooltip = ({ bookData }) => {
@@ -13,10 +12,10 @@ const Tooltip = ({ bookData }) => {
       <span className="year">{year}</span>
       <p>
         Novel by
-        <span className="author">{author}</span>
+        <span className="author"> {author}</span>
       </p>
       <p>
-        {pages}
+        {pages}{' '}
         pages
       </p>
       <h2>Summary</h2>

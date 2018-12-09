@@ -6,16 +6,17 @@ import {
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as userActions from '../actions/bookActions';
-import * as loanActions from '../actions/loanActions';
 import { withRouter } from 'react-router-dom'
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import Stars from './Stars';
-import loadgif from '../assets/images/loading.gif';
-import * as Style from './StyledMainContent';
 import {ThemeProvider} from 'react-jss';
-import theme from './Theme';
+import DatePicker from 'react-datepicker';
+
+import 'react-datepicker/dist/react-datepicker.css';
+import * as bookActions from '../../../actions/bookActions';
+import * as loanActions from '../../../actions/loanActions';
+import Stars from './Stars';
+import loadgif from '../../../assets/images/loading.gif';
+import * as Style from './StyledMainContent';
+import theme from '../../Theme';
 
 function addDays(today, plusDays) {
   today.setDate(today.getDate() + plusDays);
@@ -209,7 +210,7 @@ const mapStateToProps = state => {
 
 // get the actions 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ ...userActions, ...loanActions}, dispatch);
+  return bindActionCreators({ ...bookActions, ...loanActions}, dispatch);
 }
 
 // Ask about how to do this without using mapStateToProps

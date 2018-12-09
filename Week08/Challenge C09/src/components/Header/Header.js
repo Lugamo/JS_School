@@ -3,12 +3,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
-import logo from '../assets/images/jobsity.png';
-import userlogo from '../assets/images/user.png';
-import SideMenu from './SideMenu';
-import * as Style from './StyledHeader';
 import {ThemeProvider} from 'react-jss';
-import theme from './Theme';
+import logo from '../../assets/images/jobsity.png';
+import userlogo from '../../assets/images/user.png';
+import SideMenu from '../SideBars/SideMenu';
+import * as Style from './StyledHeader';
+import theme from '../Theme';
 
 class Header extends React.Component {
   constructor(props) {

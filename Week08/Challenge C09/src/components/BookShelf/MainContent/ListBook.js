@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
-import loadgif from '../assets/images/loading.gif';
+import {ThemeProvider} from 'react-jss';
+
+import loadgif from '../../../assets/images/loading.gif';
 import Book from './Book';
 import Tooltip from './Tooltip';
 import * as Style from './StyledMainContent';
-import {ThemeProvider} from 'react-jss';
-import theme from './Theme';
+import theme from '../../Theme';
 
 class List extends React.Component {
   constructor(props) {

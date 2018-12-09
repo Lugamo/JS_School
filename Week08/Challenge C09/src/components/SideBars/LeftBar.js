@@ -1,9 +1,9 @@
 import React from 'react';
-// import '../styles/lateralBars.scss';
+import {ThemeProvider} from 'react-jss';
+
 import MenuOptions from './MenuOptions';
 import * as Style from './StyledSideBars';
-import {ThemeProvider} from 'react-jss';
-import theme from './Theme';
+import theme from '../Theme';
 
 const LeftBar = () => (
   <ThemeProvider theme={theme}>

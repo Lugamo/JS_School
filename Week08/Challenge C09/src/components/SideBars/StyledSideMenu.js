@@ -25,7 +25,7 @@ const styles = theme => ({
       width: '120px',
       height: '19px',
       color: theme.colorPrimary,
-      fontFamily: '"PlutoSansCondLight"',
+      fontFamily: '"PlutoSansCondLight", sans-serif',
       fontSize: '13px',
       letterSpacing: '0px',
       listStyleType: 'none',
@@ -37,7 +37,7 @@ const styles = theme => ({
         color: '#ffffff !important',
       },
       '& a': {
-        fontFamily: '"PlutoSansCondLight"',
+        fontFamily: '"PlutoSansCondLight", sans-serif',
         '&:any-link': {
           textDecoration: 'none',
           color: theme.colorPrimary,
@@ -50,7 +50,7 @@ const styles = theme => ({
   },
   myBtnClose: {
     padding: '0px 10px 0px 30px',
-    fontFamily: '"PlutoSansCondBold"',
+    fontFamily: '"PlutoSansCondBold", sans-serif',
     fontSize: '22px',
     color: '#ffffff',
     display: 'block',

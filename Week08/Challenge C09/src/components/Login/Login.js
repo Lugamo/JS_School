@@ -3,11 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as userActions from '../actions/userActions';
 import { NavLink } from 'react-router-dom';
-import * as Style from './StyledLogin';
 import {ThemeProvider} from 'react-jss';
-import theme from './Theme';
+
+import * as userActions from '../../actions/userActions';
+import * as Style from './StyledLogin';
+import theme from '../Theme';
 
 class Login extends React.Component {
   constructor(props) {

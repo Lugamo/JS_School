@@ -34,7 +34,7 @@ const styles = theme => ({
     '& .notFound': {
       textAlign: 'center',
       marginTop: '10%',
-      fontFamily: '"PlutoSansMedium"',
+      fontFamily: '"PlutoSansMedium", sans-serif',
       fontSize: '50px',
     },
     '& .loading': {
@@ -47,7 +47,7 @@ const styles = theme => ({
       marginTop: '20px',
       marginBottom: '20px',
       color: '#000000',
-      fontFamily: '"PlutoSansMedium"',
+      fontFamily: '"PlutoSansMedium", sans-serif',
       fontSize: '25px',
     },
     '& .detailImageSummary': {
@@ -71,7 +71,7 @@ const styles = theme => ({
           WebkitLineClamp: '10',
           WebkitBoxOrient: 'vertical',
           overflow: 'hidden',
-          fontFamily: '"PlutoSansCondLight"',
+          fontFamily: '"PlutoSansCondLight", sans-serif',
           color: '#000000',
         },
         '& .stars': {
@@ -93,7 +93,7 @@ const styles = theme => ({
       '&__tab': {
         display: 'inline-block',
         bottom: '-1px',
-        fontFamily: '"PlutoSansMedium"',
+        fontFamily: '"PlutoSansMedium", sans-serif',
         position: 'relative',
         listStyle: 'none',
         cursor: 'pointer',
@@ -157,7 +157,7 @@ const styles = theme => ({
             fontSize: '20px',
             paddingTop: '25%',
             textAlign: 'center',
-            fontFamily: '"PlutoSansCondLight"',
+            fontFamily: '"PlutoSansCondLight", sans-serif',
           }
         },
     
@@ -172,7 +172,7 @@ const styles = theme => ({
             fontSize: '20px',
             paddingTop: '25%',
             textAlign: 'center',
-            fontFamily: '"PlutoSansCondLight"'
+            fontFamily: '"PlutoSansCondLight", sans-serif'
           }
         },
         '& .picker': {
@@ -180,7 +180,7 @@ const styles = theme => ({
           margin: '10px auto',
     
           '& p': {
-            fontFamily: '"PlutoSansCondLight"',
+            fontFamily: '"PlutoSansCondLight", sans-serif',
             color: '#000000'
           },
   
@@ -201,14 +201,14 @@ const styles = theme => ({
         },
         '& ul': {
           listStyleType: 'none',
-          fontFamily: '"PlutoSansCondLight"',
+          fontFamily: '"PlutoSansCondLight", sans-serif',
           fontSize: '15px',
           color: '#000000',
           '& li': {
             marginBottom: '10px',
             '& .field': {
               marginRight: '5px',
-              fontFamily: '"PlutoSansCondBold"',
+              fontFamily: '"PlutoSansCondBold", sans-serif',
             }
           }
         }
@@ -219,7 +219,7 @@ const styles = theme => ({
     textAlign: 'center',
     alignContent: 'center',
     margin: '10px 2px 40px 2px',
-    fontFamily: '"PlutoSansCondMedium"',
+    fontFamily: '"PlutoSansCondMedium", sans-serif',
   },
   myPagination: {
     display: 'flex',
@@ -255,14 +255,14 @@ const styles = theme => ({
     width: '170px',
     height: '27px',
     color: theme.sideBarBackground,
-    fontFamily: '"PlutoSansCondLight"',
+    fontFamily: '"PlutoSansCondLight", sans-serif',
     fontSize: '18px'
   },
   myMainTopOrder: {
     width: '160.63px',
     height: '19px',
     color: '#979797',
-    fontFamily: '"PlutoSansCondRegular"',
+    fontFamily: '"PlutoSansCondRegular", sans-serif',
     fontSize: '13px',
 
     '@media screen and (max-width: 869px)': { 
@@ -370,7 +370,7 @@ const styles = theme => ({
       '& .book-name': {
         width: '144px',
         color: '#383838',
-        fontFamily: '"PlutoSansCondMedium"',
+        fontFamily: '"PlutoSansCondMedium", sans-serif',
         fontSize: '12px',
         marginTop: '11px',
         marginBottom: '0',
@@ -383,7 +383,7 @@ const styles = theme => ({
         width: '144px',
         height: '17px',
         color: '#9e9e9e',
-        fontFamily: '"PlutoSansCondLight"',
+        fontFamily: '"PlutoSansCondLight", sans-serif',
         fontSize: '10px',
         marginTop: '3px',
         marginBottom: '0',
@@ -398,13 +398,13 @@ const styles = theme => ({
     '& .tooltip': {
       position: 'relative',
       display: 'inline',
-      fontFamily: '"PlutoSansCondLight"',
+      fontFamily: '"PlutoSansCondLight", sans-serif',
       fontSize: '12px',
     },
 
     '& .tooltiptext': {
       '& h1': {
-        fontFamily: '"PlutoSansCondBold"',
+        fontFamily: '"PlutoSansCondBold", sans-serif',
         textTransform: 'uppercase',
         color: theme.colorPrimary,
         fontSize: '13px',
@@ -419,7 +419,7 @@ const styles = theme => ({
         color: '#aeaeae',
       },
       '& h2': {
-        fontFamily: '"PlutoSansCondBold"',
+        fontFamily: '"PlutoSansCondBold", sans-serif',
         fontSize: '12px',
         marginTop: '18px',
         textTransform: 'uppercase',

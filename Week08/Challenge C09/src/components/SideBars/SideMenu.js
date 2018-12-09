@@ -3,9 +3,10 @@
 import React from 'react';
 import { ThemeProvider } from 'react-jss';
 import PropTypes from 'prop-types';
+
 import MenuOptions from './MenuOptions';
 import * as Style from './StyledSideMenu';
-import theme from './Theme';
+import theme from '../Theme';
 
 const SideMenu = ({ visible, closeMenu }) => (
   <ThemeProvider theme={theme}>

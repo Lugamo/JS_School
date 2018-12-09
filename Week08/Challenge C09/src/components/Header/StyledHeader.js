@@ -1,5 +1,6 @@
 import React from 'react';
 import injectSheet from 'react-jss'
+import searchIcon from '../../assets/images/search-black.png';
 
 const styles = theme => ({
   '@font-face': [
@@ -65,7 +66,7 @@ const styles = theme => ({
     width: '103.45px',
     height: '32px',
     color: theme.colorText,
-    fontFamily: '"PlutoSansMedium"',
+    fontFamily: '"PlutoSansMedium", sans-serif',
     fontSize: '19px',
     marginTop: '21px',
     marginLeft: '18px',
@@ -87,7 +88,7 @@ const styles = theme => ({
   },
   myUserName: {
     color: theme.colorText,
-    fontFamily: '"PlutoSansCondRegular"',
+    fontFamily: '"PlutoSansCondRegular", sans-serif',
     fontSize: '14px',
     marginRight: '10px',
     marginLeft: '10px'
@@ -118,7 +119,7 @@ const styles = theme => ({
         fontSize: '11px',
         lineHeight: '19px',
         textAlign: 'left',
-        backgroundImage: 'url("../../assets/images/search-black.png")',
+        backgroundImage: `url(${searchIcon})`,
         backgroundSize: '17px',
         backgroundPosition: '10px 6px',
         backgroundRepeat: 'no-repeat',

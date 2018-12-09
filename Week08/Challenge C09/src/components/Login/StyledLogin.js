@@ -28,7 +28,7 @@ const styles = theme => ({
     color: '#000000',
     textAlign: 'center',
     background: '#fcf8f3',
-    fontFamily: '"PlutoSansMedium"',
+    fontFamily: '"PlutoSansMedium", sans-serif',
   },
   myLoginInput: {
     width: '285px',
@@ -56,17 +56,17 @@ const styles = theme => ({
     borderRadius: '5px',
     cursor: 'pointer',
     outline: '0',
-    fontFamily: '"PlutoSansMedium"',
+    fontFamily: '"PlutoSansMedium", sans-serif',
   },
   myLoginLost: {
     textAlign: 'center',
     marginBottom: '0px',
     color: '#9e9e9e',
-    fontFamily: '"PlutoSansCondLight"',
+    fontFamily: '"PlutoSansCondLight", sans-serif',
     fontSize: '14px',
     '& a': {
       color: '#6ec1e4',
-      fontFamily: '"PlutoSansCondLight"',
+      fontFamily: '"PlutoSansCondLight", sans-serif',
       textDecoration: 'none',
       fontSize: '15px',
     }
@@ -76,7 +76,7 @@ const styles = theme => ({
     marginBottom: '10px',
     textAlign: 'center',
     color: 'rgb(250, 81, 81)',
-    fontFamily: 'PlutoSansCondLight',
+    fontFamily: '"PlutoSansCondLight", sans-serif',
     fontSize: '14px'
   }
 });

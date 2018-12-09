@@ -1,36 +1,48 @@
 import React from 'react';
 import {
-  BrowserRouter, Route, Switch,
+  BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
-import Header from './Header';
-import RightBar from './RightBar';
-import LeftBar from './LeftBar';
-import MainContent from './MainContent';
-import BookDetail from './BookDetail';
-import * as Style from './StyledApp';
-import {ThemeProvider} from 'react-jss';
-import theme from './Theme';
+import { connect } from 'react-redux';
+
+import BookShelf from './BookShelf/BookShelf';
+import Notfound from './NotFound/NotFound';
+import Login from './Login/Login';
+import ProtectedRoute from './ProtectedRoute';
 
 
 class App extends React.Component {
-
   render() {
+    // If the user is Null -> redirect.
+    const { token } = this.props.user;
     return (
+      
       <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <Style.Wrapper>
-            <Header/>
-            <RightBar />
-            <LeftBar />
-            <Switch>
-              <Route path="/books/:location" component={MainContent} exact />
-              <Route path="/books/detail/:bookid" component={BookDetail} exact />
-            </Switch>
-          </Style.Wrapper>
-        </ThemeProvider>
+        <Switch>
+          <Route path="/" exact render={() => (<Redirect to="/books/all?page=1" />)} />
+          <ProtectedRoute
+            path="/books/:location"
+            loggedIn={token}
+            component={BookShelf}
+            exact
+          />
+          <ProtectedRoute
+            path="/books/detail/:bookid"
+            loggedIn={token}
+            component={BookShelf}
+            exact
+          />
+          <Route path="/login" component={Login} exact />
+          <Route component={Notfound} />
+        </Switch>
       </BrowserRouter>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(App);

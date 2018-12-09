@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {ThemeProvider} from 'react-jss';
 import { NavLink } from 'react-router-dom';
 import * as Style from './StyledMainContent';
-import theme from './Theme';
+import theme from '../../Theme';
 
 const BottomBarContent = ({ pagination, location }) => {
   const path = location.pathname;

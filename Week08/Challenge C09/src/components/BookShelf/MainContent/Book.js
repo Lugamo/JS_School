@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import lendMarkFront from '../assets/images/lend-mark.png';
-import lendMarkBack from '../assets/images/lend-mark-back.png';
+import lendMarkFront from '../../../assets/images/lend-mark.png';
+import lendMarkBack from '../../../assets/images/lend-mark-back.png';
 import Stars from './Stars';
 
 class Book extends React.Component {

@@ -1,5 +1,4 @@
 import React from 'react';
-// import '../styles/mainContent.scss';
 
 // get the rating number and return the corresponding icons star tags
 const Stars = (value, id, type) => {
