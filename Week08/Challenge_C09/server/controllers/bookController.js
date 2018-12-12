@@ -105,14 +105,13 @@ function getBookbyId(req, res) {
 
 // lend a book and get it in your collection
 function lendABook(req, res) {
-  const socketIO = req.app.get('socketIO');
   const bookID = req.params.id;
-  const trasactionDate = new Date();
-  Book.find({ id: bookID }).exec()
+  const trasactionDate = new Date();  Book.find({ id: bookID }).exec()
     .then((result) => {
       // Check if the id exist
       if (checkBookExist(result, res)) {
         // Check if the user alredy lend that book or not
+        // req.user.id
         LendUserBook.find({ user: req.user.id, book: bookID }).exec()
           .then((lend) => {
             const newLend = new LendUserBook({
@@ -137,20 +136,11 @@ function lendABook(req, res) {
                       { id: bookID },
                       { $inc: { borrowed: 1 } },
                     ).exec();
-
-                    // Find the book to response the data about the book
-                    Book.find({ id: bookID }).exec()
-                      .then((response) => {
-                        res.status(200).send({
-                          status: 'OK',
-                          message: 'book added to your collection!!',
-                          trasactionDate: trasactionDate.getTime,
-                          bookData: response,
-                        });
-
-                        // Emit that someone lend a copy of the book
-                        socketIO.broadcast.emit('reservation_done', response);
-                      });
+                    res.status(200).send({
+                      status: 'OK',
+                      message: 'book added to your collection!!',
+                      trasactionDate: trasactionDate.getTime,
+                    });
                   }
                 });
               } else {

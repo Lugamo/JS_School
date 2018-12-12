@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
-import {ThemeProvider} from 'react-jss';
-
+import { ThemeProvider } from 'react-jss';
+import socketIOClient from 'socket.io-client';
 import loadgif from '../../../assets/images/loading.gif';
 import Book from './Book';
 import Tooltip from './Tooltip';
@@ -59,6 +59,14 @@ class List extends React.Component {
         </ThemeProvider>
       );
     }
+
+    // Listening if any book change
+    const socket = socketIOClient('http://localhost:3001');
+
+    socket.on('reservation_done', (data) => {
+      console.log(data);
+    });
+
     // Everything ok, show all books
     return (
       <ThemeProvider theme={theme}>

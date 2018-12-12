@@ -65,7 +65,7 @@ class Login extends React.Component {
   handleLog() {
     const { doLogin } = this.props
     const { email, password } = this.state;
-    doLogin({ email, password }); 
+    doLogin({ email, password });
   }
 
   render() {
@@ -74,13 +74,13 @@ class Login extends React.Component {
       <ThemeProvider theme={theme}>
         <Style.Form>
           <Style.Title>Bookshelf</Style.Title>
-          <Style.Input 
-            placeholder={'Email'} 
+          <Style.Input
+            placeholder={'Email'}
             type={'email'}
             onChange={this.handleEmail}
           />
-          <Style.Input 
-            placeholder={'Password'} 
+          <Style.Input
+            placeholder={'Password'}
             type={'password'}
             onChange={this.handlePassword}
           />
@@ -111,7 +111,7 @@ const mapStateToProps = state => {
   };
 };
 
-// get the actions 
+// get the actions
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(userActions, dispatch);
 }

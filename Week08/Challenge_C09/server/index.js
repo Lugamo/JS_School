@@ -1,24 +1,11 @@
-/* eslint-disable import/order */
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const http = require('http');
-const socketIO = require('socket.io');
-
 const userController = require('./controllers/userController');
 const bookController = require('./controllers/bookController');
 const credentials = require('./controllers/credentialsController');
 
 const app = express();
-// our server instance
-const server = http.createServer(app);
-
-// This creates our socket using the instance of the server
-const io = socketIO(server);
-
-// set socketIo for use in another parts of the app
-app.set('socketIO', io);
-
 const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
@@ -65,6 +52,6 @@ app.get('/me/books', credentials.verifyCredentials, (req, res) => {
   bookController.booksByUser(req, res);
 });
 
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`Started up at port ${port}`);
 });
