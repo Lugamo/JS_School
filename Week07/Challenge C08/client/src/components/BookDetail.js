@@ -118,7 +118,7 @@ class BookDetail extends React.Component {
               <li>
                 <span className="field">Author(s):</span>
                 {books[0].author.map(author => (
-                  <span>
+                  <span key={`${books[0].id}-${author}`}>
                     {author}
                   </span>
                 ))}
@@ -150,7 +150,7 @@ class BookDetail extends React.Component {
                       <p>{loanMessage}</p>
                     </div>
                   ) : (
-                    <div className="picker">
+                    <div className="picker" key={`${books[0].id}-picker`}>
                       <p>Please select the day to return the book:</p>
                       <DatePicker
                         inline

@@ -16,15 +16,15 @@ class Login extends React.Component {
     this.handleLog = this.handleLog.bind(this);
   }
 
-  handleEmail(text) {
+  handleEmail(event) {
     this.setState({
-      email: text.target.value,
+      email: event.target.value,
     });
   }
 
-  handlePassword(text) {
+  handlePassword(event) {
     this.setState({
-      password: text.target.value,
+      password: event.target.value,
     });
   }
 
@@ -70,13 +70,13 @@ class Login extends React.Component {
           type="text"
           className="login-input"
           placeholder="Email Adress"
-          onChange={text => this.handleEmail(text)}
+          onChange={this.handleEmail}
         />
         <input
           type="password"
           className="login-input"
           placeholder="Password"
-          onChange={text => this.handlePassword(text)}
+          onChange={this.handlePassword}
         />
         <button type="button" className="login-button" onClick={() => this.handleLog()}>Log In</button>
         <p className="login-lost">

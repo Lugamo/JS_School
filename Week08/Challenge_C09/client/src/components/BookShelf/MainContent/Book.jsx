@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withAppContext } from './AppContext';
-import '../styles/mainContent.scss';
-import lendMarkFront from '../../assets/images/lend-mark.png';
-import lendMarkBack from '../../assets/images/lend-mark-back.png';
+import lendMarkFront from '../../../assets/images/lend-mark.png';
+import lendMarkBack from '../../../assets/images/lend-mark-back.png';
 import Stars from './Stars';
 
 class Book extends React.Component {
@@ -14,8 +12,8 @@ class Book extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   goBook(bookID) {
-    const { thehistory } = this.props;
-    thehistory.push(`/books/detail/${bookID}`);
+    const { history } = this.props;
+    history.push(`/books/detail/${bookID}`);
   }
 
   render() {
@@ -63,6 +61,7 @@ class Book extends React.Component {
 
 Book.propTypes = {
   bookData: PropTypes.objectOf(PropTypes.any).isRequired,
-  thehistory: PropTypes.objectOf(PropTypes.any).isRequired,
+  history: PropTypes.objectOf(PropTypes.any),
 };
-export default withAppContext(Book);
+
+export default Book;
