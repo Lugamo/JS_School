@@ -34,7 +34,7 @@ class Book extends React.Component {
             && [
               (borrowed >= quantity
                 && (
-                  <div>
+                  <div key={`${id}-lendImage`}>
                     <img src={lendMarkFront} className="lend-mark" alt="Book Mark" />
                     <img src={lendMarkBack} className="lend-mark-back" alt="Book Mark" />
                   </div>
@@ -54,7 +54,7 @@ class Book extends React.Component {
             <p className="author-name">Digital</p>
           )}
         <p className="stars">
-          {Stars(rating)}
+          {Stars(rating, id, 'B')}
         </p>
       </div>
     );

@@ -19,9 +19,9 @@ class List extends React.Component {
     return books.map((book) => {
       i += 1;
       return (
-        <div className="Book tooltip">
-          <Book bookData={book} key={`B${i}`} />
-          <Tooltip bookData={book} key={`T${i}`} />
+        <div className="Book tooltip" key={`BT${i}`}>
+          <Book bookData={book} />
+          <Tooltip bookData={book} />
         </div>
       );
     });
