@@ -4,19 +4,24 @@
 
 1. Run MongoDB shell.
 
-2. Open the project folder of "/Week05/Challenge C06" and start the API.
-
-   ```bash
-   npm start
-   ```
-
-3. In another bash open the project "Challenge C09" and install the dependencies.
+2. Open the folder "server" in this challenge and install the API.
 
    ```bash
    npm install
    ```
 
-4. Then run the Project.
+3. Start the API.
+
+   ```bash
+   npm start
+   ``
+4. In another bash open the project "Challenge C09" and install the dependencies.
+
+   ```bash
+   npm install
+   ```
+
+5. Then run the Project.
 
    ```bash
    npm start
