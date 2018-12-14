@@ -1,4 +1,4 @@
-import { BOOK_REQUEST, BOOK_SUCCESS, BOOK_FAILURE, BOOK_UPDATE } from './bookTypes';
+import { BOOKS_REQUEST, BOOKS_SUCCESS, BOOKS_FAILURE, UPDATE_BOOK } from './bookTypes';
 const initialState = {
   books: [],
   loading: false,
@@ -9,21 +9,23 @@ const initialState = {
     page: 1,
     pages: 1,
   },
+  singleBook: [],
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case BOOK_REQUEST:
+    case BOOKS_REQUEST:
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case BOOK_SUCCESS:
+    case BOOKS_SUCCESS:
       return {
         ...state,
         loading: false,
         books: action.payload.books,
+        singleBook: action.payload.singleBook,
         message: action.payload.message,
         pagination: {
           page: action.payload.pagination.page,
@@ -31,16 +33,26 @@ export default (state = initialState, action) => {
         },
         error: null,
       };
-    case BOOK_FAILURE:
+    case BOOKS_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.error,
       };
-    case BOOK_UPDATE:
+    case UPDATE_BOOK:
       return {
         ...state,
-        books: action.payload.books,
+        books: state.books.map((book) => {
+          if(book.id === action.payload.bookID) {
+            delete action.payload.data.id;
+            return { 
+              ...book, 
+              ...action.payload.data,
+            }
+          }
+
+          return book;
+        })
       };
     default:
       return state;

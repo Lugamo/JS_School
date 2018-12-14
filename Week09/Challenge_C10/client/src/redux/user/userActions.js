@@ -41,15 +41,13 @@ function doLogin({ email, password }) {
 }
 
 function setDataFromStorage(username, token) {
-  return dispatch => {
-    dispatch({
+    return ({
       type: LOGIN_SUCCESS,
       payload: {
         username,
         token,
       }
     });
-  }
 }
 
 export {

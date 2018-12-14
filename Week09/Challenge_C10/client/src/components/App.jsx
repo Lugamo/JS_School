@@ -15,14 +15,8 @@ import ProtectedRoute from './ProtectedRoute';
 
 class App extends React.Component {
   render() {
-    const checkStorage = JSON.parse(sessionStorage.getItem('userdata'));
-    let { token } = this.props.user;
+    const { token } = this.props.user;
 
-    // Check if theres any local storage
-    if (checkStorage && !token) {
-      const { setDataFromStorage } = this.props;
-      setDataFromStorage(checkStorage.username, checkStorage.token);
-    }
     // If the user is Null -> redirect.
     return (
       <BrowserRouter>

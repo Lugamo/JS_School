@@ -1,4 +1,4 @@
-export const BOOK_REQUEST = 'BOOK_REQUEST';
-export const BOOK_SUCCESS = 'BOOK_SUCCESS';
-export const BOOK_FAILURE = 'BOOK_FAILURE';
-export const BOOK_UPDATE = 'BOOK_UPDATE';
+export const BOOKS_REQUEST = 'BOOKS_REQUEST';
+export const BOOKS_SUCCESS = 'BOOKS_SUCCESS';
+export const BOOKS_FAILURE = 'BOOKS_FAILURE';
+export const UPDATE_BOOK = 'UPDATE_BOOK';

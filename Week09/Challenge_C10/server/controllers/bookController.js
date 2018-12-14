@@ -140,17 +140,17 @@ function lendABook(req, res) {
                       { $inc: { borrowed: 1 } },
                     ).exec()
                       .then(() => {
-                        Book.find({ id: bookID }).exec()
-                          .then((response) => {
+                        Book.findOne({ id: bookID }).exec()
+                          .then((book) => {
                             res.status(200).send({
                               status: 'OK',
                               message: 'book added to your collection!!',
                               trasactionDate: trasactionDate.getTime,
-                              bookData: response,
+                              bookData: book,
                             });
 
                             // Emit that someone lend a copy of the book
-                            socketIO.emit('reservation_done', response);
+                            socketIO.emit('reservation_done', book);
                           });
                       });
                   }

@@ -171,7 +171,18 @@ const styles = theme => ({
           height: '203px',
           borderRadius: '2%',
         },
-
+        '& .lend-mark-text': {
+          color: '#ffffff',
+          fontFamily: '"PlutoSansMedium", sans-serif',
+          position: 'absolute',
+          top: '14%',
+          left: '96%',
+          transform: 'translate(-50%, -50%)',
+          MsTransform: 'translate(-50%, -50%)',
+          zIndex: '1',
+          width: '40px',
+          height: '25px',
+        },
         '& .lend-mark': {
           position: 'absolute',
           top: '18%',

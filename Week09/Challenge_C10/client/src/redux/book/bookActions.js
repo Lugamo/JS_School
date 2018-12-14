@@ -1,8 +1,8 @@
-import { BOOK_REQUEST, BOOK_SUCCESS, BOOK_FAILURE, BOOK_UPDATE} from './bookTypes';
+import { BOOKS_REQUEST, BOOKS_SUCCESS, BOOKS_FAILURE, UPDATE_BOOK } from './bookTypes';
 
 function getDataBook(params = {}, endpoint, token) {
   return (dispatch) => {
-    dispatch({ type: BOOK_REQUEST });
+    dispatch({ type: BOOKS_REQUEST });
 
     const query = Object.keys(params).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`).join('&');
     const url = `http://localhost:3001${endpoint}${query}`;
@@ -16,7 +16,7 @@ function getDataBook(params = {}, endpoint, token) {
     }).then(res => res.json())
       .then((response) => {
         dispatch({
-          type: BOOK_SUCCESS,
+          type: BOOKS_SUCCESS,
           payload: {
             books: response.docs,
             message: response.message,
@@ -29,7 +29,7 @@ function getDataBook(params = {}, endpoint, token) {
       })
       .catch((error) => {
         dispatch({
-          type: BOOK_FAILURE,
+          type: BOOKS_FAILURE,
           payload: {},
           error: error.message.toString(),
         });
@@ -37,24 +37,17 @@ function getDataBook(params = {}, endpoint, token) {
   };
 }
 
-function updateLoanedBook(allBooks, loanBook) {
-  return (dispatch) => {
-    for (let i = 0; i < allBooks.length; i += 1) {
-      if (allBooks[i].id === loanBook.id) {
-        allBooks[i].borrowed = loanBook.borrowed;
-        break;
-      }
+function updateBook(bookID, data) {
+  return ({
+    type: UPDATE_BOOK,
+    payload: {
+      bookID,
+      data,
     }
-    dispatch({
-      type: BOOK_UPDATE,
-      payload: {
-        books: allBooks,
-      },
-    });
-  }
+  })
 }
 
 export {
   getDataBook,
-  updateLoanedBook,
+  updateBook,
 }

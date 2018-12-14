@@ -33,8 +33,9 @@ class BookDetail extends React.Component {
 
   // After Mount call the function to change the state
   componentDidMount() {
-    const { match, history, getDataBook } = this.props;
-    getDataBook({}, `/books/${match.params.bookid}`, '', history);
+    const { match, getDataBook, user } = this.props;
+    const { token } = user;
+    getDataBook({}, `/books/${match.params.bookid}`, token);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -66,6 +67,7 @@ class BookDetail extends React.Component {
     const { loading, books, message } = this.props.book;
     const { loanComplete, startDate } = this.state;
     const { loanMessage, loanStatus } = this.props.loan;
+
 
     if (loading) {
       return (

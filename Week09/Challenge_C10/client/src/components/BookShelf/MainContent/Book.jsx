@@ -34,6 +34,7 @@ class Book extends React.Component {
                 && (
                   <div key={`${id}-lendImage`}>
                     <img src={lendMarkFront} className="lend-mark" alt="Book Mark" />
+                    <p className="lend-mark-text">OUT</p>
                     <img src={lendMarkBack} className="lend-mark-back" alt="Book Mark" />
                   </div>
                 )

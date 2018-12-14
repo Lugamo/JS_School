@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import socketIOClient from 'socket.io-client';
 import { bindActionCreators } from 'redux';
 import loadgif from '../../../assets/images/loading.gif';
 import Book from './Book';
@@ -34,8 +33,7 @@ class List extends React.Component {
   }
 
   render() {
-    const { loading, error, message, book } = this.props;
-    const { books } = book;
+    const { loading, error, message } = this.props;
     // While fetch all the data, show a loading gif
     if (loading) {
       return (
@@ -56,14 +54,6 @@ class List extends React.Component {
         </Style.MainBooks>
       );
     }
-
-    // Listening if any book change
-    const socket = socketIOClient('http://localhost:3001');
-    console.log(this.props.book)
-    socket.on('reservation_done', (response) => {
-      const { updateLoanedBook } = this.props;
-      updateLoanedBook(books, response[0])
-    });
 
     // Everything ok, show all books
     return (
