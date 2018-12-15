@@ -59,7 +59,9 @@ class BookDetail extends React.Component {
     const { match, doLoan } = this.props;
     const { token } = this.props.user;
     const { startDate } = this.state;
-
+    this.setState({
+      loanComplete: true,
+    });
     doLoan(match.params.bookid, startDate, token);
   }
 
@@ -68,20 +70,23 @@ class BookDetail extends React.Component {
     const { loanComplete, startDate } = this.state;
     const { loanMessage, loanStatus } = this.props.loan;
 
-
     if (loading) {
       return (
-        <Style.MainBooks>
-          <img className="loading" src={loadgif} alt="Loading" />
-        </Style.MainBooks>
+        <Style.MainContent>
+          <Style.MainBooks>
+            <img className="loading" src={loadgif} alt="Loading" />
+          </Style.MainBooks>
+        </Style.MainContent>
       );
     }
     // If the fetch is complete but response a empty array
     if (message !== 'OK') {
       return (
-        <Style.MainBooks>
-          <div className="notFound">{message}</div>
-        </Style.MainBooks>
+        <Style.MainContent>
+          <Style.MainBooks>
+            <div className="notFound">{message}</div>
+          </Style.MainBooks>
+        </Style.MainContent>
       );
     }
     return (
@@ -138,7 +143,7 @@ class BookDetail extends React.Component {
               </ul>
             </TabPanel>
             <TabPanel>
-              {books[0].quantity > books[0].borrowed || books[0].digital
+              {books[0].quantity >= books[0].borrowed || books[0].digital
                 ? [
                   (loanComplete
                     ? (
@@ -186,7 +191,6 @@ class BookDetail extends React.Component {
 
 BookDetail.propTypes = {
   match: PropTypes.objectOf(PropTypes.any).isRequired,
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
   book: PropTypes.objectOf(PropTypes.any),
   loading: PropTypes.bool,
   message: PropTypes.string,

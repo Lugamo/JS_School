@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 import queryString from 'query-string';
 import * as bookActions from '../../../redux/book/bookActions';
 import BottomBarContent from './BottomBarContent';
@@ -25,7 +25,6 @@ class MainContent extends Component {
   componentDidMount() {
     this.handleLocation(this.props);
   }
-  
 
   componentWillReceiveProps(nextProps) {
     const { location } = this.props;
@@ -105,12 +104,14 @@ class MainContent extends Component {
             <i className="fa fa-th-large display-btn" />
           </Style.MainTopDisplay>
         </Style.MainContentTop>
-        <List
-          books={books}
-          loading={loading}
-          message={message}
-          error={error}
-        />
+        <Style.MainBooks>
+          <List
+            books={books}
+            loading={loading}
+            message={message}
+            error={error}
+          />
+        </Style.MainBooks>
         <BottomBarContent pagination={pagination} location={location} />
       </Style.MainContent>
     );

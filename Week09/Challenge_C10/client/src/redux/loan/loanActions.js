@@ -1,20 +1,27 @@
+import { ajax } from 'rxjs/ajax';
 import { LOAN_REQUEST, LOAN_SUCCESS, LOAN_FAILURE } from './loanTypes';
+import defaultUrl from '../../services/defaultURL';
 
 function doLoan(bookID, loanDate, token) {
   return (dispatch) => {
     dispatch({ type: LOAN_REQUEST });
 
-    const url = `http://localhost:3001/books/${bookID}/user`;
+    const url = `${defaultUrl}/books/${bookID}/user`;
     const data = `loanDate=${loanDate.getTime()}`;
-    fetch(url, {
+
+    const request$ = ajax({
+      url,
       method: 'POST',
       body: data,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: `Bearer ${token}`,
       },
-    }).then(res => res.json())
-      .then((response) => {
+    });
+
+    request$.subscribe(
+      (res) => {
+        const { response } = res;
         dispatch({
           type: LOAN_SUCCESS,
           payload: {
@@ -23,17 +30,18 @@ function doLoan(bookID, loanDate, token) {
             transactionDate: response.transactionDate,
           },
         });
-      })
-      .catch((error) => {
+      },
+      (error) => {
         dispatch({
           type: LOAN_FAILURE,
           payload: {},
           error: error.message.toString(),
         });
-      });
+      },
+    );
   };
 }
 
 export {
   doLoan,
-}
+};

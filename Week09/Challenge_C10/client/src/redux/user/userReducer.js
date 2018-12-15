@@ -1,4 +1,6 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from './userTypes';
+import {
+  LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOG_OUT,
+} from './userTypes';
 
 const initialState = {
   username: null,
@@ -16,6 +18,7 @@ export default (state = initialState, action) => {
         error: null,
       };
     case LOGIN_SUCCESS:
+      sessionStorage.setItem('userdata', JSON.stringify({ token: action.payload.token, username: action.payload.username }));
       return {
         ...state,
         isLoggingIn: false,
@@ -27,6 +30,13 @@ export default (state = initialState, action) => {
         ...state,
         isLoggingIn: false,
         error: action.error,
+      };
+    case LOG_OUT:
+      sessionStorage.clear('userdata');
+      return {
+        ...state,
+        username: null,
+        token: null,
       };
     default:
       return state;

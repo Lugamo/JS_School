@@ -21,7 +21,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact render={() => (<Redirect to="/books/all?page=1" />)} />
+          <Route path="/" render={() => (<Redirect to="/books/all?page=1" />)} exact />
           <ProtectedRoute
             path="/books/:location"
             loggedIn={token}

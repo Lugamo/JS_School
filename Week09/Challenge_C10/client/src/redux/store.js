@@ -13,12 +13,13 @@ const store = createStore(
   initialState,
   compose(
     applyMiddleware(
-    routerMiddleware(history),
-    thunk,
-  )),
+      routerMiddleware(history),
+      thunk,
+    ),
+  ),
 );
 
 export {
   store,
-  history
-}
+  history,
+};

@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux';
 import loadgif from '../../../assets/images/loading.gif';
 import Book from './Book';
 import Tooltip from './Tooltip';
-import * as Style from './StyledMainContent';
 import * as bookActions from '../../../redux/book/bookActions';
 
 class List extends React.Component {
@@ -37,29 +36,23 @@ class List extends React.Component {
     // While fetch all the data, show a loading gif
     if (loading) {
       return (
-        <Style.MainBooks>
-          <img className="loading" src={loadgif} alt="Loading" />
-        </Style.MainBooks>
+        <img className="loading" src={loadgif} alt="Loading" />
       );
     }
     // Show any error
     if (error) {
-      return <div>{error}</div>;
+      return <div className="notFound">{error}</div>;
     }
     // If the fetch is complete but response a empty array
     if (message !== 'OK') {
       return (
-        <Style.MainBooks>
-          <div className="notFound">{message}</div>
-        </Style.MainBooks>
+        <div className="notFound">{message}</div>
       );
     }
 
     // Everything ok, show all books
     return (
-      <Style.MainBooks>
-        {this.renderList()}
-      </Style.MainBooks>
+      this.renderList()
     );
   }
 }

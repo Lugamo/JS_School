@@ -1,9 +1,9 @@
 import React from 'react';
-import injectSheet from 'react-jss'
+import injectSheet from 'react-jss';
 
 const styles = theme => ({
   '@font-face': {
-    ...theme.font
+    ...theme.font,
   },
   mySideMenu: {
     height: '100%',
@@ -27,7 +27,7 @@ const styles = theme => ({
       marginBottom: '14px',
       marginLeft: '15px',
       ...theme.li,
-    }
+    },
   },
   myBtnClose: {
     padding: '0px 10px 0px 30px',
@@ -40,8 +40,8 @@ const styles = theme => ({
 
     '&:hover': {
       color: theme.colorPrimary,
-    }
-  }
+    },
+  },
 });
 
 const theSideMenu = ({ classes, children, ...rest }) => (
@@ -55,12 +55,12 @@ const theBtnClose = ({ classes, children, ...rest }) => (
     <i className="fas fa-chevron-left" />
     {children}
   </div>
-); 
+);
 
 const SideMenu = injectSheet(styles)(theSideMenu);
 const BtnClose = injectSheet(styles)(theBtnClose);
 
 export {
   SideMenu,
-  BtnClose
-}
+  BtnClose,
+};

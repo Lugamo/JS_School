@@ -4,7 +4,7 @@ import searchIcon from '../../assets/images/search-black.png';
 
 const styles = theme => ({
   '@font-face': [
-    ...theme.font
+    ...theme.font,
   ],
   myHeader: {
     gridArea: 'theader',
@@ -58,6 +58,8 @@ const styles = theme => ({
     ...theme.title,
   },
   myUser: {
+    float: 'right',
+    position: 'relative',
     gridArea: 'user',
     display: 'flex',
     alignItems: 'center',
@@ -70,6 +72,12 @@ const styles = theme => ({
     },
     '& i': {
       marginRight: '16px',
+      cursor: 'pointer',
+    },
+    '& p': {
+      fontFamily: '"PlutoSansCondRegular", sans-serif',
+      margin: ' 5px 1px 5px 5px',
+      cursor: 'pointer',
     },
   },
   myUserName: {
@@ -79,6 +87,16 @@ const styles = theme => ({
     marginRight: '10px',
     marginLeft: '10px',
   },
+  myDropdownItems: props => ({
+    display: props.display,
+    marginTop: '30px',
+    position: 'absolute',
+    background: theme.headerBackground,
+    minWidth: '110px',
+    boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.5)',
+    zIndex: '1',
+    borderRadius: '2px',
+  }),
   myProfilePhoto: {
     marginRight: '10px',
     height: '36px',
@@ -152,13 +170,18 @@ const theTitle = ({ classes, children, ...rest }) => (
 const theUser = ({ classes, children, ...rest }) => (
   <div className={classes.myUser}>
     {children}
-    <i className="fas fa-caret-down" />
     <img className={classes.myProfilePhoto} {...rest} alt="user-account-ph" />
   </div>
 );
 
 const theUserName = ({ classes, children, ...rest }) => (
   <div className={classes.myUserName} {...rest}>{children}</div>
+);
+
+const theDropdown = ({ classes, children, ...rest }) => (
+  <div className={classes.myDropdownItems} {...rest}>
+    {children}
+  </div>
 );
 
 const theSearch = ({ classes, ...rest }) => (
@@ -174,6 +197,7 @@ const NavBar = injectSheet(styles)(theNavBar);
 const Logo = injectSheet(styles)(theLogo);
 const Title = injectSheet(styles)(theTitle);
 const User = injectSheet(styles)(theUser);
+const Dropdown = injectSheet(styles)(theDropdown);
 const UserName = injectSheet(styles)(theUserName);
 const Search = injectSheet(styles)(theSearch);
 
@@ -183,6 +207,7 @@ export {
   Logo,
   Title,
   User,
+  Dropdown,
   UserName,
   Search,
 };

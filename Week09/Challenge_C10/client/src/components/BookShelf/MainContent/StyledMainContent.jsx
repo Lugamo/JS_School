@@ -4,7 +4,7 @@ import tabs from '../../commons/tabs';
 
 const styles = theme => ({
   '@font-face': [
-    ...theme.font
+    ...theme.font,
   ],
   myMainContent: {
     gridArea: 'main',

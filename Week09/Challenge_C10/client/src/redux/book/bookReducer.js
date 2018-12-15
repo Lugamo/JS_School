@@ -1,4 +1,8 @@
-import { BOOKS_REQUEST, BOOKS_SUCCESS, BOOKS_FAILURE, UPDATE_BOOK } from './bookTypes';
+/* eslint-disable no-param-reassign */
+import {
+  BOOKS_REQUEST, BOOKS_SUCCESS, BOOKS_FAILURE, UPDATE_BOOK,
+} from './bookTypes';
+
 const initialState = {
   books: [],
   loading: false,
@@ -37,22 +41,23 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        message: action.payload.message,
         error: action.error,
       };
     case UPDATE_BOOK:
       return {
         ...state,
         books: state.books.map((book) => {
-          if(book.id === action.payload.bookID) {
+          if (book.id === action.payload.bookID) {
             delete action.payload.data.id;
-            return { 
-              ...book, 
+            return {
+              ...book,
               ...action.payload.data,
-            }
+            };
           }
 
           return book;
-        })
+        }),
       };
     default:
       return state;

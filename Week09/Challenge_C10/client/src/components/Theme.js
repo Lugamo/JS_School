@@ -66,18 +66,17 @@ const theme = {
         textDecoration: 'none',
         color: '#6ec1e4',
       },
-      '&:hover':{
+      '&:hover': {
         color: '#ffffff !important',
       },
-    }
+    },
   },
   title: {
     height: '32px',
     color: '#00000',
     fontFamily: '"PlutoSansMedium", sans-serif',
     fontSize: '19px',
-  }
-  
+  },
 };
 
 export default theme;

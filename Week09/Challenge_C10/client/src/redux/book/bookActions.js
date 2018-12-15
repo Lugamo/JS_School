@@ -1,20 +1,28 @@
-import { BOOKS_REQUEST, BOOKS_SUCCESS, BOOKS_FAILURE, UPDATE_BOOK } from './bookTypes';
+import { ajax } from 'rxjs/ajax';
+import defaultUrl from '../../services/defaultURL';
+import {
+  BOOKS_REQUEST, BOOKS_SUCCESS, BOOKS_FAILURE, UPDATE_BOOK,
+} from './bookTypes';
 
 function getDataBook(params = {}, endpoint, token) {
   return (dispatch) => {
     dispatch({ type: BOOKS_REQUEST });
 
     const query = Object.keys(params).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`).join('&');
-    const url = `http://localhost:3001${endpoint}${query}`;
+    const url = `${defaultUrl}${endpoint}${query}`;
 
-    fetch(url, {
+    const request$ = ajax({
+      url,
       method: 'GET',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: `Bearer ${token}`,
       },
-    }).then(res => res.json())
-      .then((response) => {
+    });
+
+    request$.subscribe(
+      (res) => {
+        const { response } = res;
         dispatch({
           type: BOOKS_SUCCESS,
           payload: {
@@ -26,14 +34,18 @@ function getDataBook(params = {}, endpoint, token) {
             },
           },
         });
-      })
-      .catch((error) => {
+      },
+      (error) => {
+        const message = error.response ? error.response.message : 'Error';
         dispatch({
           type: BOOKS_FAILURE,
-          payload: {},
+          payload: {
+            message,
+          },
           error: error.message.toString(),
         });
-      });
+      },
+    );
   };
 }
 
@@ -43,11 +55,11 @@ function updateBook(bookID, data) {
     payload: {
       bookID,
       data,
-    }
-  })
+    },
+  });
 }
 
 export {
   getDataBook,
   updateBook,
-}
+};

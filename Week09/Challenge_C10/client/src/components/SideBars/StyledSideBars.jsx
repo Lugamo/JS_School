@@ -1,9 +1,9 @@
 import React from 'react';
-import injectSheet from 'react-jss'
+import injectSheet from 'react-jss';
 
 const styles = theme => ({
   '@font-face': [
-    ...theme.font
+    ...theme.font,
   ],
   myRightBar: {
     gridArea: 'rightSide',
@@ -32,12 +32,12 @@ const styles = theme => ({
       marginBottom: '14px',
       marginLeft: '15px',
       ...theme.li,
-    }
+    },
   },
-  mySideTitle: (props) => ({
+  mySideTitle: props => ({
     width: props.width,
     ...theme.sideBarTitle,
-  })
+  }),
 });
 
 const theRightBar = ({ classes, children, ...rest }) => (
@@ -54,8 +54,7 @@ const theLefttBar = ({ classes, children, ...rest }) => (
   <aside className={classes.myLeftBar} {...rest}>
     {children}
   </aside>
-); 
-
+);
 
 const RightBar = injectSheet(styles)(theRightBar);
 const SideTitle = injectSheet(styles)(theSideTitle);
@@ -65,4 +64,4 @@ export {
   RightBar,
   SideTitle,
   LeftBar,
-}
+};

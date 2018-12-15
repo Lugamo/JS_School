@@ -3,7 +3,7 @@ import injectSheet from 'react-jss';
 
 const styles = theme => ({
   '@font-face': [
-    ...theme.font
+    ...theme.font,
   ],
   myPageNotFound: {
     textAlign: 'center',

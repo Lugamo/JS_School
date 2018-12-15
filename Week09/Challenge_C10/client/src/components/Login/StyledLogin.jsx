@@ -5,7 +5,7 @@ import input from '../commons/input';
 
 const styles = theme => ({
   '@font-face': [
-    ...theme.font
+    ...theme.font,
   ],
   myLogin: {
     margin: '100px auto',
@@ -29,7 +29,7 @@ const styles = theme => ({
     ...input,
   },
   myLoginButton: {
-    ...button
+    ...button,
   },
   myLoginLost: {
     textAlign: 'center',
