@@ -16,7 +16,7 @@ const initialState = {
       end: 52, //seconds
       duration: '00:00:00 - 00:00:52',
       thumbnail: false,
-      tags: ['Animation', 'Fantasy'],
+      tags: ['animation', 'fantasy'],
     },
   ]
 }

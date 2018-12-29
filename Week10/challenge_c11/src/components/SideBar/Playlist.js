@@ -102,7 +102,7 @@ class Playlist extends Component {
       <Fragment>
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" color="inherit" noWrap>
-            Mix Playlist
+            Clip Playlist
           </Typography>
           <IconButton className={classes.sideIcon} color={playlist.autoplay ? "primary" : "default"} onClick={() => autoPlay()}>
             <PlaylistPlayIcon />

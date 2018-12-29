@@ -61,7 +61,7 @@ class Form extends Component {
     const { tagField } = this.state;
     const { newTag } = this.props;
     if (tagField !== '') {
-      newTag(tagField);
+      newTag(tagField.toLowerCase());
       this.setState({
         tagField: '',
       })
@@ -134,7 +134,8 @@ class Form extends Component {
           <DialogTitle id="form-dialog-title">{formType === 'edit' ? 'Edit Clip' : 'New Clip'}</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              To create a new clip you have to fill the following fields.
+              {formType === 'edit' ? 'To Edit the clip you have to change the following fields' : 'To create a new clip you have to fill the following fields.'}
+              
             </DialogContentText>
             <TextField
               autoFocus

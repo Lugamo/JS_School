@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fromEvent } from 'rxjs';
+import Mousetrap from 'mousetrap';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -38,34 +39,44 @@ class Content extends Component {
   }
 
   componentDidMount() {
+    // Binding the shortcut to the functions
+    Mousetrap.bind('alt+n', this.onNext);
+    Mousetrap.bind('alt+b', this.onPrevious);
+    Mousetrap.bind('alt+p', this.onPlayPause);
+
     this.initializeStream();
+  }
+
+  componentWillUnmount() {
+    Mousetrap.unbind('alt+n', this.onNext);
+    Mousetrap.unbind('alt+b', this.onPrevious);
+    Mousetrap.unbind('alt+p', this.onPlayPause);
   }
 
   componentWillReceiveProps(nextProps) {
     const { playlist } = this.props;
     const { now, autoplay } = playlist;
-    const { replayBtn, isPlaying } = this.state;
+    const { replayBtn } = this.state;
     const video = this.video.current;
 
     if (now !== nextProps.playlist.now) {
       video.load();
       if (autoplay) {
         if (replayBtn === true) {
-          this.setState({ videoLoading : false})
-          video.pause();
+          this.setState({ videoLoading : false}, () => video.pause());
         } else {
           setTimeout(() => {
-            this.setState({ videoLoading : false})
-            video.play();
+            this.setState({ videoLoading : false}, () => video.play());
           }, 3000)
         }
       } else {
-        this.setState({ videoLoading : false})
-        if (isPlaying === true) {
-          video.play();
-        } else {
-          video.pause();
-        }
+        this.setState({ 
+          videoLoading : false,
+          isPlaying: false,
+          replayBtn: false,
+          completed: 0,
+          buffer: 0,
+        }, () => video.pause());
       }
     }
   }
@@ -144,14 +155,16 @@ class Content extends Component {
     const { repeat, now, list, autoplay } = playlist;
     
     // repeat option active and the video is the last one of the playlist
-    if (repeat === true && now === list.length - 1) {
-      this.setState({
-        replayBtn: false,
-        isPlaying: autoplay ? true : false,
-        completed: 0,
-        buffer: 0,
-        videoLoading: false,
-      }, () => changeVideo(0));
+    if (now === list.length - 1) {
+      if (repeat === true) {
+        this.setState({
+          replayBtn: false,
+          isPlaying: autoplay ? true : false,
+          completed: 0,
+          buffer: 0,
+          videoLoading: false,
+        }, () => changeVideo(0));
+      }
     } else {
       this.setState({
         replayBtn: false,

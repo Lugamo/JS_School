@@ -10,7 +10,7 @@ const initialState = {
     min: 0,
     max: 52,
   },
-  tags: ['Animation', 'Fantasy'],
+  tags: ['animation', 'fantasy'],
 }
 
 /*-------------------- Actions Creators -----------*/
@@ -36,7 +36,7 @@ export const reducer = createReducer(initialState, {
         min: 0,
         max: 52,
       },
-      tags: ['Animation', 'Fantasy'],
+      tags: ['animation', 'fantasy'],
     });
   },
   [Types.OPEN_FORM]: (state, action) => {

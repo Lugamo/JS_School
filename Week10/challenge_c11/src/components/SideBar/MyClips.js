@@ -199,7 +199,6 @@ class MyClips extends Component {
   render() {
     const { classes, clip } = this.props;
     const { filterValue, openDialog, idToDelete, persistToDelete } = this.state;
-
     return (
       <div className={classes.root}>
         <div className={classes.search}>

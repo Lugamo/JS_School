@@ -2,20 +2,23 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const dark = createMuiTheme({
   palette: {
+    type: 'dark',
     primary: {
-      main: '#212121', // 282828
+      main: '#B71C1C',
+      light: '#B71C1C',
+      contrastText: '#ffffff',
     },
     secondary: {
-      main: '#ff0000',
+      main: '#B71C1C',
+      light: '#FFEB3B',
     },
-    /*
     background: {
-      default: '#757575',
+      paper: '#212121',
+      contrastText: '#fff',
     },
     text: {
-      primary: '#ffffff',
+      primary: '#ffffff'
     }
-    */
   },
   typography: { useNextVariants: true },
 });

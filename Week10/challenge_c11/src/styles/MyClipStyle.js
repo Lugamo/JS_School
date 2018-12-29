@@ -29,7 +29,7 @@ const styles = theme => ({
     justifyContent: 'center',
   },
   inputRoot: {
-    color: 'inherit',
+    color: theme.palette.text.primary,
     width: '100%',
   },
   inputInput: {
