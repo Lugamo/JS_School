@@ -1,6 +1,6 @@
-import { createActions, createReducer } from 'reduxsauce'
+import { createActions, createReducer } from 'reduxsauce';
 
-/*-------------------- Initial State --------------*/
+/* -------------------- Initial State --------------*/
 const initialState = {
   open: false,
   formType: 'create',
@@ -11,9 +11,9 @@ const initialState = {
     max: 52,
   },
   tags: ['animation', 'fantasy'],
-}
+};
 
-/*-------------------- Actions Creators -----------*/
+/* -------------------- Actions Creators -----------*/
 const { Types, Creators } = createActions({
   closeForm: null,
   openForm: ['action', 'clip'],
@@ -23,28 +23,26 @@ const { Types, Creators } = createActions({
   handleName: ['name'],
 });
 
-/*-------------------- Reducer --------------------*/
+/* -------------------- Reducer --------------------*/
 export const reducer = createReducer(initialState, {
-  [Types.CLOSE_FORM]: (state) => {
-    return ({
-      ...state,
-      open: false,
-      formType: 'create',
-      name: '',
-      id: null,
-      duration: {
-        min: 0,
-        max: 52,
-      },
-      tags: ['animation', 'fantasy'],
-    });
-  },
+  [Types.CLOSE_FORM]: state => ({
+    ...state,
+    open: false,
+    formType: 'create',
+    name: '',
+    id: null,
+    duration: {
+      min: 0,
+      max: 52,
+    },
+    tags: ['animation', 'fantasy'],
+  }),
   [Types.OPEN_FORM]: (state, action) => {
     const { clip } = action;
 
     // If the form is open to edit, change the initial values
     if (action.action === 'edit') {
-      return({
+      return ({
         ...state,
         open: true,
         formType: 'edit',
@@ -56,7 +54,7 @@ export const reducer = createReducer(initialState, {
         },
         tags: clip.tags,
         persist: clip.persist,
-      })
+      });
     }
 
     return ({
@@ -64,17 +62,15 @@ export const reducer = createReducer(initialState, {
       open: true,
     });
   },
-  [Types.CLIP_DURATION]: (state, action) => {
-    return ({
-      ...state,
-      duration: {
-        min: action.min,
-        max: action.max,
-      },
-    });
-  },
+  [Types.CLIP_DURATION]: (state, action) => ({
+    ...state,
+    duration: {
+      min: action.min,
+      max: action.max,
+    },
+  }),
   [Types.NEW_TAG]: (state, action) => {
-    state.tags.push(action.tag)
+    state.tags.push(action.tag);
     return ({
       ...state,
       tags: state.tags,
@@ -89,12 +85,10 @@ export const reducer = createReducer(initialState, {
       tags: state.tags,
     });
   },
-  [Types.HANDLE_NAME]: (state, action) => {
-    return ({
-      ...state,
-      name: action.name,
-    });
-  },
-})
+  [Types.HANDLE_NAME]: (state, action) => ({
+    ...state,
+    name: action.name,
+  }),
+});
 
-export default  Creators;
+export default Creators;

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { MuiThemeProvider } from '@material-ui/core/styles'; 
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import App from './App';
 
 class ThemeProvider extends Component {
   render() {
-    const { Theme } = this.props.theme;
+    const { theme } = this.props;
+    const { Theme } = theme;
     return (
       <MuiThemeProvider theme={Theme}>
         <App />
@@ -13,6 +15,11 @@ class ThemeProvider extends Component {
     );
   }
 }
+
+ThemeProvider.propTypes = {
+  theme: PropTypes.objectOf(PropTypes.any).isRequired,
+};
+
 
 // Get the specific data from the store
 const mapStateToProps = state => ({

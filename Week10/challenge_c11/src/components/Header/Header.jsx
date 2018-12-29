@@ -30,7 +30,7 @@ class Header extends Component {
     const { OnOff } = this.state;
     this.setState({
       OnOff: !OnOff,
-    }, () => changeTheme(!OnOff))
+    }, () => changeTheme(!OnOff));
   }
 
   render() {
@@ -40,7 +40,7 @@ class Header extends Component {
       <div className={classes.appBar}>
         <AppBar position="static">
           <Toolbar>
-            <MovieIcon className={classes.movieIcon}/>
+            <MovieIcon className={classes.movieIcon} />
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Clip Maker
             </Typography>
@@ -49,10 +49,10 @@ class Header extends Component {
               onClick={this.handleTheme}
               color="inherit"
             >
-              <ToogleIcon 
-              on={OnOff}
-              onIcon={<LightOnIcon />}
-              offIcon={<LightOffIcon />}
+              <ToogleIcon
+                on={OnOff}
+                onIcon={<LightOnIcon />}
+                offIcon={<LightOffIcon />}
               />
             </IconButton>
           </Toolbar>
@@ -63,7 +63,9 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.objectOf(PropTypes.any).isRequired,
+  changeTheme: PropTypes.func,
+
 };
 
 // Get the specific data from the store

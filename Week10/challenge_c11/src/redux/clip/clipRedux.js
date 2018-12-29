@@ -1,11 +1,11 @@
-import { createActions, createReducer } from 'reduxsauce'
+import { createActions, createReducer } from 'reduxsauce';
 
-/*-------------------- Initial State --------------*/
+/* -------------------- Initial State --------------*/
 const initialState = {
-  list: []
-}
+  list: [],
+};
 
-/*-------------------- Actions Creators -----------*/
+/* -------------------- Actions Creators -----------*/
 const { Types, Creators } = createActions({
   newClip: ['clip'],
   editClip: ['clip'],
@@ -16,7 +16,7 @@ const { Types, Creators } = createActions({
   deleteClip: ['id', 'persist'],
 });
 
-/*-------------------- Reducer --------------------*/
+/* -------------------- Reducer --------------------*/
 export const reducer = createReducer(initialState, {
   [Types.NEW_CLIP]: (state, action) => {
     state.list.push(action.clip);
@@ -27,18 +27,18 @@ export const reducer = createReducer(initialState, {
   },
   [Types.EDIT_CLIP]: (state, action) => {
     const { clip } = action;
-    const index = state.list.map((e) => { return e.id; }).indexOf(clip.id);
-    state.list[index] = {...clip}
+    const index = state.list.map(e => e.id).indexOf(clip.id);
+    state.list[index] = { ...clip };
 
     // If the clip is in the sessionStorage, make the changes too
     if (clip.persist === true) {
-      let sessionClips = JSON.parse(sessionStorage.getItem('persistClips'));
-      const sessionIndex = sessionClips.map((e) => { return e.id; }).indexOf(clip.id);
-      sessionClips[sessionIndex] = { 
+      const sessionClips = JSON.parse(sessionStorage.getItem('persistClips'));
+      const sessionIndex = sessionClips.map(e => e.id).indexOf(clip.id);
+      sessionClips[sessionIndex] = {
         ...clip,
         persist: true,
         playlist: false,
-      }
+      };
       sessionStorage.setItem('persistClips', JSON.stringify(sessionClips));
     }
 
@@ -49,24 +49,24 @@ export const reducer = createReducer(initialState, {
   },
   [Types.ADD_PERSIST_CLIP]: (state, action) => {
     const { clip } = action;
-    const index = state.list.map((e) => { return e.id; }).indexOf(clip.id);
+    const index = state.list.map(e => e.id).indexOf(clip.id);
     let sessionClips = JSON.parse(sessionStorage.getItem('persistClips'));
     // if exist push the clip
     if (sessionClips) {
-      sessionClips.push(action.clip)
+      sessionClips.push(action.clip);
     } else {
-      sessionClips = [action.clip]
+      sessionClips = [action.clip];
     }
 
     state.list[index] = {
       ...clip,
       persist: true,
-    }
+    };
 
-    action.clip.persist = true;
+    clip.persist = true;
 
     // by default the sessionStorage clip not appear in playlist
-    action.clip.playlist = false;
+    clip.playlist = false;
     sessionStorage.setItem('persistClips', JSON.stringify(sessionClips));
     return ({
       ...state,
@@ -75,15 +75,15 @@ export const reducer = createReducer(initialState, {
   },
   [Types.REMOVE_PERSIST_CLIP]: (state, action) => {
     const { clip } = action;
-    const index = state.list.map((e) => { return e.id; }).indexOf(clip.id);
+    const index = state.list.map(e => e.id).indexOf(clip.id);
     let sessionClips = JSON.parse(sessionStorage.getItem('persistClips'));
     sessionClips = sessionClips.filter(value => value.id !== clip.id);
 
     state.list[index] = {
       ...clip,
       persist: false,
-    }
-  
+    };
+
     sessionStorage.setItem('persistClips', JSON.stringify(sessionClips));
     return ({
       ...state,
@@ -117,20 +117,19 @@ export const reducer = createReducer(initialState, {
   },
   [Types.DELETE_CLIP]: (state, action) => {
     const { id, persist } = action;
-    
+
     // If clip is in sessionStorage delete it too
     if (persist === true) {
       let sessionClips = JSON.parse(sessionStorage.getItem('persistClips'));
-      sessionClips = sessionClips.filter(value => value.id !== id)
-      console.log(sessionClips);
+      sessionClips = sessionClips.filter(value => value.id !== id);
       sessionStorage.setItem('persistClips', JSON.stringify(sessionClips));
     }
-    
+
     return ({
       ...state,
       list: state.list.filter(value => value.id !== id),
     });
   },
-})
+});
 
-export default  Creators;
+export default Creators;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withStyles, withTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from './Header/Header';
@@ -19,5 +20,9 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  classes: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default withTheme()(withStyles(styles)(App));

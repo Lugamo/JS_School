@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ThemeProvider from './components/ThemeProvider';
 import { Provider } from 'react-redux';
+import ThemeProvider from './components/ThemeProvider';
 import { store } from './redux/store';
 
 import * as serviceWorker from './serviceWorker';
@@ -9,7 +9,8 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider />
-  </Provider>, document.getElementById('root'));
+  </Provider>, document.getElementById('root'),
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

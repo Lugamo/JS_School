@@ -6,7 +6,7 @@ const style = theme => ({
 
     '@media screen and (min-width: 1200px)': {
       gridTemplateColumns: 'auto 413px',
-      gridTemplateRows: `64px auto`,
+      gridTemplateRows: '64px auto',
       gridTemplateAreas: '"header header""main drawer"',
     },
     '@media screen and (max-width: 1200px)': {

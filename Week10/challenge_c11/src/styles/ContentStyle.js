@@ -36,7 +36,7 @@ const styles = theme => ({
     gridArea: 'main',
     backgroundColor: theme.palette.background.default,
   },
-  videoContainer: { 
+  videoContainer: {
     position: 'relative',
     backgroundColor: '#000000',
   },
@@ -44,14 +44,14 @@ const styles = theme => ({
     position: 'absolute',
     left: 0,
     right: 0,
-    top:0,
-    bottom:0,
+    top: 0,
+    bottom: 0,
     marginTop: 'auto',
     marginBottom: 'auto',
     marginLeft: 'auto',
     marginRight: 'auto',
   },
-  video: { 
+  video: {
     width: '100%',
     height: 'auto',
   },
