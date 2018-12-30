@@ -1,44 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Challenge C11
 
-## Available Scripts
+##### **Multimedia Challenge**
 
-In the project directory, you can run:
+- An HTML5 video player that utilizes media fragments
+- A list of clips to be played in the video player
+- The first item in the list should be the full video
+- An interface to add new clips to the list by specifying a name, start time, and end time
+- The ability to delete clips from the list (excluding the full video item)
+- The ability to edit existing clips in the list
+- The ability to play clips in the video player
+- The ability to automatically jump to the next clip after it finishes, with a 3 second waiting, use an appropriate loading animation.
+- The ability to ‘save’ clips for persistent use.
+- The ability to add arbitrary ‘tags’ to clips so that they can be filtered by the tag name.
+- Hotkeys to jump between the current clip and next and previous clips (if there are any)
+- Markers on the video player timeline that denote where a clip starts (full video only).
+- Clicking the marker chooses that clip and plays it from that point.
+- The ability to reuse the the player and playlist on another page without the editing capabilities
 
-### `npm start`
+### Instructions
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Install the dependencies and start the project
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+   ```bash
+   npm install
+   npm start
+   ```
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### User Guide
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This guide is a quick descriptions of the options of the video player app.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+![image-1](./Readme_images/image-1.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Change the theme of the app (dark/light).
+2. Tab with the playlist videos and options.
+3. Tab with all the clips, if the url have the query "?embed=true", this tab is going to be disabled.
+4. Autoplay: when a video ends, it waits 3 seconds and jump to the next video in the playlist (if any).
+5. Restart: when the playlisy ends restart it from the beginning.
+6. Remove a clip from the playlist.
+7. Video controls: Play/Pause (alt + p), next (alt + n), previous (alt + b).
+8. Clip Mark (Full video only): denote where a clip from the playlist start.
+9. Add Clip: open a form to add a new clip, by default the new clip is automatically added to the playlist.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![image-1](./Readme_images/image-2.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+10. Search a clip by tag.
+11. On click save the clip for persistent use (SessionStorage).
+12. Add/remove a clip to the playlist, clips on the playlist cannot be edited or deleted.
+13. Edit a clip, if the clip is saved for persistent use also change in the sessionStorage.
+14. Delete a clip, if the is saved for persistent use also deleted from the sessionStorage. 
