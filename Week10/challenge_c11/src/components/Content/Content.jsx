@@ -53,6 +53,7 @@ class Content extends Component {
     const { replayBtn } = this.state;
     const video = this.video.current;
 
+    // When the video changes load the new video and show the loading circle
     if (now !== nextProps.playlist.now) {
       video.load();
       if (autoplay) {
