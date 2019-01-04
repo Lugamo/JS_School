@@ -19,6 +19,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Chip from '@material-ui/core/Chip';
 import IconButton from '@material-ui/core/IconButton';
 import TagPlusIcon from 'mdi-material-ui/TagPlus';
+import url from '../../service/url';
 import formActions from '../../redux/form/formRedux';
 import clipActions from '../../redux/clip/clipRedux';
 import playlistActions from '../../redux/playlist/playlistRedux';
@@ -57,7 +58,7 @@ class Form extends Component {
       id: uuid(),
       type: 'clip',
       title: (name === '' ? 'Unnamed Clip' : name),
-      src: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+      src: url,
       start: duration.min,
       end: duration.max,
       duration: `${convertHHMMSS(duration.min)} - ${convertHHMMSS(duration.max)}`,
@@ -90,7 +91,7 @@ class Form extends Component {
       id,
       type: 'clip',
       title: (name === '' ? 'Unnamed Clip' : name),
-      src: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+      src: url,
       start: duration.min,
       end: duration.max,
       duration: `${convertHHMMSS(duration.min)} - ${convertHHMMSS(duration.max)}`,

@@ -1,5 +1,6 @@
 import uuid from 'uuid';
 import { createActions, createReducer } from 'reduxsauce';
+import url from '../../service/url';
 
 /* -------------------- Initial State --------------*/
 const initialState = {
@@ -11,7 +12,7 @@ const initialState = {
       id: uuid(),
       type: 'video',
       title: 'Sintel - Trailer',
-      src: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+      src: url,
       start: 0, // seconds
       end: 52, // seconds
       duration: '00:00:00 - 00:00:52',
